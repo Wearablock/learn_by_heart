@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "appTitle": "Learn by Heart - Memorize",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
