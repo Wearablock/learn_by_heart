@@ -126,6 +126,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get exit => '退出';
+
+  @override
+  String get emptyAnswer => '（空白）';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -250,4 +253,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get exit => '退出';
+
+  @override
+  String get emptyAnswer => '（空白）';
 }

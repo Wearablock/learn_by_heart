@@ -45,5 +45,6 @@
   "backToHome": "العودة للرئيسية",
   "noCardsToStudy": "لا توجد بطاقات للدراسة",
   "studyExitConfirm": "لن يتم حفظ التقدم. هل تريد الخروج؟",
-  "exit": "خروج"
+  "exit": "خروج",
+  "emptyAnswer": "(فارغ)"
 }

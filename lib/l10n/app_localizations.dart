@@ -350,6 +350,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exit'**
   String get exit;
+
+  /// No description provided for @emptyAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'(empty)'**
+  String get emptyAnswer;
 }
 
 class _AppLocalizationsDelegate

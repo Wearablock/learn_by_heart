@@ -122,12 +122,13 @@ class StudyResultPage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        ...wrongResults.map((result) => _buildWrongAnswerItem(theme, result)),
+        ...wrongResults.map((result) => _buildWrongAnswerItem(theme, l10n, result)),
       ],
     );
   }
 
-  Widget _buildWrongAnswerItem(ThemeData theme, StudyResult result) {
+  Widget _buildWrongAnswerItem(
+      ThemeData theme, AppLocalizations l10n, StudyResult result) {
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: Padding(
@@ -155,7 +156,9 @@ class StudyResultPage extends StatelessWidget {
                 const SizedBox(width: 4),
                 Expanded(
                   child: Text(
-                    result.userAnswer.isEmpty ? '(empty)' : result.userAnswer,
+                    result.userAnswer.isEmpty
+                        ? l10n.emptyAnswer
+                        : result.userAnswer,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: Colors.red.shade400,
                     ),

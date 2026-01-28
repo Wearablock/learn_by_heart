@@ -126,4 +126,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exit => '종료';
+
+  @override
+  String get emptyAnswer => '(빈 답변)';
 }

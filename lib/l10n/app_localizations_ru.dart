@@ -128,4 +128,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get exit => 'Выйти';
+
+  @override
+  String get emptyAnswer => '(пусто)';
 }

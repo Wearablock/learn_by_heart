@@ -129,4 +129,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get exit => 'Quitter';
+
+  @override
+  String get emptyAnswer => '(vide)';
 }

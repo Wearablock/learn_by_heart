@@ -45,5 +45,6 @@
   "backToHome": "На главную",
   "noCardsToStudy": "Нет карточек для изучения",
   "studyExitConfirm": "Прогресс не будет сохранён. Выйти?",
-  "exit": "Выйти"
+  "exit": "Выйти",
+  "emptyAnswer": "(пусто)"
 }

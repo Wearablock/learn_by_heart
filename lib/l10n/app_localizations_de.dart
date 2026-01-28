@@ -126,4 +126,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get exit => 'Beenden';
+
+  @override
+  String get emptyAnswer => '(leer)';
 }

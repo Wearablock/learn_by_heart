@@ -45,5 +45,6 @@
   "backToHome": "Zurück zur Startseite",
   "noCardsToStudy": "Keine Karten zum Lernen",
   "studyExitConfirm": "Fortschritt wird nicht gespeichert. Beenden?",
-  "exit": "Beenden"
+  "exit": "Beenden",
+  "emptyAnswer": "(leer)"
 }

@@ -48,5 +48,6 @@
   "backToHome": "Back to Home",
   "noCardsToStudy": "No cards to study",
   "studyExitConfirm": "Your progress will be lost. Exit study?",
-  "exit": "Exit"
+  "exit": "Exit",
+  "emptyAnswer": "(empty)"
 }

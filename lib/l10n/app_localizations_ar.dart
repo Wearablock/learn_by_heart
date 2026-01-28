@@ -127,4 +127,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exit => 'خروج';
+
+  @override
+  String get emptyAnswer => '(فارغ)';
 }

@@ -45,5 +45,6 @@
   "backToHome": "Volver al inicio",
   "noCardsToStudy": "No hay tarjetas para estudiar",
   "studyExitConfirm": "El progreso no se guardará. ¿Salir?",
-  "exit": "Salir"
+  "exit": "Salir",
+  "emptyAnswer": "(vacío)"
 }

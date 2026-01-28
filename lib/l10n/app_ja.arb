@@ -45,5 +45,6 @@
   "backToHome": "ホームに戻る",
   "noCardsToStudy": "学習するカードがありません",
   "studyExitConfirm": "進捗は保存されません。終了しますか？",
-  "exit": "終了"
+  "exit": "終了",
+  "emptyAnswer": "（空欄）"
 }

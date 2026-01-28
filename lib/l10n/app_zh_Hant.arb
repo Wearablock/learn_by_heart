@@ -45,5 +45,6 @@
   "backToHome": "返回首頁",
   "noCardsToStudy": "沒有可學習的卡片",
   "studyExitConfirm": "進度將不會儲存。確定退出？",
-  "exit": "退出"
+  "exit": "退出",
+  "emptyAnswer": "（空白）"
 }

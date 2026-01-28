@@ -127,4 +127,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get exit => 'Sair';
+
+  @override
+  String get emptyAnswer => '(vazio)';
 }

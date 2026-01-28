@@ -126,4 +126,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get exit => '終了';
+
+  @override
+  String get emptyAnswer => '（空欄）';
 }
