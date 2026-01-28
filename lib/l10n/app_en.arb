@@ -3,5 +3,23 @@
   "appTitle": "Learn by Heart - Memorize",
   "@appTitle": {
     "description": "The title of the application"
-  }
+  },
+  "homeTitle": "My Cards",
+  "emptyStateTitle": "No cards yet",
+  "emptyStateSubtitle": "Add your first card to start memorizing",
+  "addCardButton": "Add Card",
+  "cardStudyCount": "{count} times studied",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Enter text to memorize",
+  "deleteCard": "Delete Card",
+  "deleteCardConfirm": "Are you sure you want to delete this card?",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "save": "Save"
 }

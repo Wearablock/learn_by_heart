@@ -1,4 +1,22 @@
 {
   "@@locale": "pt",
-  "appTitle": "Decorar - Memorizar"
+  "appTitle": "Decorar - Memorizar",
+  "homeTitle": "Meus cartões",
+  "emptyStateTitle": "Nenhum cartão ainda",
+  "emptyStateSubtitle": "Adicione seu primeiro cartão para começar",
+  "addCardButton": "Adicionar cartão",
+  "cardStudyCount": "Estudado {count} vezes",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Digite o texto para memorizar",
+  "deleteCard": "Excluir cartão",
+  "deleteCardConfirm": "Tem certeza que deseja excluir este cartão?",
+  "cancel": "Cancelar",
+  "delete": "Excluir",
+  "save": "Salvar"
 }

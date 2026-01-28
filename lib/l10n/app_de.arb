@@ -1,4 +1,22 @@
 {
   "@@locale": "de",
-  "appTitle": "Auswendig - Memorieren"
+  "appTitle": "Auswendig - Memorieren",
+  "homeTitle": "Meine Karten",
+  "emptyStateTitle": "Noch keine Karten",
+  "emptyStateSubtitle": "Füge deine erste Karte hinzu",
+  "addCardButton": "Karte hinzufügen",
+  "cardStudyCount": "{count} Mal gelernt",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Text zum Auswendiglernen eingeben",
+  "deleteCard": "Karte löschen",
+  "deleteCardConfirm": "Diese Karte wirklich löschen?",
+  "cancel": "Abbrechen",
+  "delete": "Löschen",
+  "save": "Speichern"
 }

@@ -1,4 +1,22 @@
 {
   "@@locale": "ru",
-  "appTitle": "Наизусть - Запоминай"
+  "appTitle": "Наизусть - Запоминай",
+  "homeTitle": "Мои карточки",
+  "emptyStateTitle": "Пока нет карточек",
+  "emptyStateSubtitle": "Добавьте первую карточку, чтобы начать",
+  "addCardButton": "Добавить карточку",
+  "cardStudyCount": "Изучено {count} раз",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Введите текст для запоминания",
+  "deleteCard": "Удалить карточку",
+  "deleteCardConfirm": "Вы уверены, что хотите удалить эту карточку?",
+  "cancel": "Отмена",
+  "delete": "Удалить",
+  "save": "Сохранить"
 }

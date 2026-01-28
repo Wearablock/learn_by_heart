@@ -1,4 +1,22 @@
 {
   "@@locale": "it",
-  "appTitle": "A Memoria - Memorizza"
+  "appTitle": "A Memoria - Memorizza",
+  "homeTitle": "Le mie schede",
+  "emptyStateTitle": "Nessuna scheda ancora",
+  "emptyStateSubtitle": "Aggiungi la tua prima scheda per iniziare",
+  "addCardButton": "Aggiungi scheda",
+  "cardStudyCount": "Studiato {count} volte",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Inserisci il testo da memorizzare",
+  "deleteCard": "Elimina scheda",
+  "deleteCardConfirm": "Sei sicuro di voler eliminare questa scheda?",
+  "cancel": "Annulla",
+  "delete": "Elimina",
+  "save": "Salva"
 }

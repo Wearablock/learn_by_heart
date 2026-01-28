@@ -10,4 +10,39 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appTitle => 'احفظ - تذكر';
+
+  @override
+  String get homeTitle => 'بطاقاتي';
+
+  @override
+  String get emptyStateTitle => 'لا توجد بطاقات بعد';
+
+  @override
+  String get emptyStateSubtitle => 'أضف بطاقتك الأولى للبدء';
+
+  @override
+  String get addCardButton => 'إضافة بطاقة';
+
+  @override
+  String cardStudyCount(int count) {
+    return 'تمت الدراسة $count مرات';
+  }
+
+  @override
+  String get cardContentHint => 'أدخل النص للحفظ';
+
+  @override
+  String get deleteCard => 'حذف البطاقة';
+
+  @override
+  String get deleteCardConfirm => 'هل أنت متأكد من حذف هذه البطاقة؟';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get save => 'حفظ';
 }

@@ -10,6 +10,41 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get appTitle => '用心学 - 记忆';
+
+  @override
+  String get homeTitle => '我的卡片';
+
+  @override
+  String get emptyStateTitle => '还没有卡片';
+
+  @override
+  String get emptyStateSubtitle => '添加第一张卡片开始记忆';
+
+  @override
+  String get addCardButton => '添加卡片';
+
+  @override
+  String cardStudyCount(int count) {
+    return '学习$count次';
+  }
+
+  @override
+  String get cardContentHint => '输入要记忆的内容';
+
+  @override
+  String get deleteCard => '删除卡片';
+
+  @override
+  String get deleteCardConfirm => '确定要删除这张卡片吗？';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get delete => '删除';
+
+  @override
+  String get save => '保存';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -18,4 +53,39 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get appTitle => '用心學 - 記憶';
+
+  @override
+  String get homeTitle => '我的卡片';
+
+  @override
+  String get emptyStateTitle => '還沒有卡片';
+
+  @override
+  String get emptyStateSubtitle => '新增第一張卡片開始記憶';
+
+  @override
+  String get addCardButton => '新增卡片';
+
+  @override
+  String cardStudyCount(int count) {
+    return '學習$count次';
+  }
+
+  @override
+  String get cardContentHint => '輸入要記憶的內容';
+
+  @override
+  String get deleteCard => '刪除卡片';
+
+  @override
+  String get deleteCardConfirm => '確定要刪除這張卡片嗎？';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get delete => '刪除';
+
+  @override
+  String get save => '儲存';
 }

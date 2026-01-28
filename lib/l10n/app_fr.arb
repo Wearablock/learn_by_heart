@@ -1,4 +1,22 @@
 {
   "@@locale": "fr",
-  "appTitle": "Par Coeur - Memoriser"
+  "appTitle": "Par Coeur - Memoriser",
+  "homeTitle": "Mes cartes",
+  "emptyStateTitle": "Pas encore de cartes",
+  "emptyStateSubtitle": "Ajoutez votre première carte pour commencer",
+  "addCardButton": "Ajouter une carte",
+  "cardStudyCount": "Étudié {count} fois",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Entrez le texte à mémoriser",
+  "deleteCard": "Supprimer la carte",
+  "deleteCardConfirm": "Voulez-vous vraiment supprimer cette carte?",
+  "cancel": "Annuler",
+  "delete": "Supprimer",
+  "save": "Enregistrer"
 }

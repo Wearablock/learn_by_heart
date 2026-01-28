@@ -10,4 +10,39 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get appTitle => '암기하기 - 문장 암기';
+
+  @override
+  String get homeTitle => '내 카드';
+
+  @override
+  String get emptyStateTitle => '아직 카드가 없어요';
+
+  @override
+  String get emptyStateSubtitle => '첫 번째 카드를 추가해서 암기를 시작하세요';
+
+  @override
+  String get addCardButton => '카드 추가';
+
+  @override
+  String cardStudyCount(int count) {
+    return '$count회 학습';
+  }
+
+  @override
+  String get cardContentHint => '암기할 내용을 입력하세요';
+
+  @override
+  String get deleteCard => '카드 삭제';
+
+  @override
+  String get deleteCardConfirm => '이 카드를 삭제할까요?';
+
+  @override
+  String get cancel => '취소';
+
+  @override
+  String get delete => '삭제';
+
+  @override
+  String get save => '저장';
 }

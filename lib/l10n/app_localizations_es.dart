@@ -10,4 +10,39 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get appTitle => 'De Memoria - Memorizar';
+
+  @override
+  String get homeTitle => 'Mis tarjetas';
+
+  @override
+  String get emptyStateTitle => 'Aún no hay tarjetas';
+
+  @override
+  String get emptyStateSubtitle => 'Añade tu primera tarjeta para empezar';
+
+  @override
+  String get addCardButton => 'Añadir tarjeta';
+
+  @override
+  String cardStudyCount(int count) {
+    return 'Estudiado $count veces';
+  }
+
+  @override
+  String get cardContentHint => 'Introduce el texto a memorizar';
+
+  @override
+  String get deleteCard => 'Eliminar tarjeta';
+
+  @override
+  String get deleteCardConfirm => '¿Seguro que quieres eliminar esta tarjeta?';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get delete => 'Eliminar';
+
+  @override
+  String get save => 'Guardar';
 }

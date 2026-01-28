@@ -1,4 +1,22 @@
 {
   "@@locale": "es",
-  "appTitle": "De Memoria - Memorizar"
+  "appTitle": "De Memoria - Memorizar",
+  "homeTitle": "Mis tarjetas",
+  "emptyStateTitle": "Aún no hay tarjetas",
+  "emptyStateSubtitle": "Añade tu primera tarjeta para empezar",
+  "addCardButton": "Añadir tarjeta",
+  "cardStudyCount": "Estudiado {count} veces",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "Introduce el texto a memorizar",
+  "deleteCard": "Eliminar tarjeta",
+  "deleteCardConfirm": "¿Seguro que quieres eliminar esta tarjeta?",
+  "cancel": "Cancelar",
+  "delete": "Eliminar",
+  "save": "Guardar"
 }

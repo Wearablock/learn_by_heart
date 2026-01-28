@@ -1,4 +1,22 @@
 {
   "@@locale": "zh_Hant",
-  "appTitle": "用心學 - 記憶"
+  "appTitle": "用心學 - 記憶",
+  "homeTitle": "我的卡片",
+  "emptyStateTitle": "還沒有卡片",
+  "emptyStateSubtitle": "新增第一張卡片開始記憶",
+  "addCardButton": "新增卡片",
+  "cardStudyCount": "學習{count}次",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "輸入要記憶的內容",
+  "deleteCard": "刪除卡片",
+  "deleteCardConfirm": "確定要刪除這張卡片嗎？",
+  "cancel": "取消",
+  "delete": "刪除",
+  "save": "儲存"
 }

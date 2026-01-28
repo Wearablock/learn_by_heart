@@ -1,4 +1,22 @@
 {
   "@@locale": "ar",
-  "appTitle": "احفظ - تذكر"
+  "appTitle": "احفظ - تذكر",
+  "homeTitle": "بطاقاتي",
+  "emptyStateTitle": "لا توجد بطاقات بعد",
+  "emptyStateSubtitle": "أضف بطاقتك الأولى للبدء",
+  "addCardButton": "إضافة بطاقة",
+  "cardStudyCount": "تمت الدراسة {count} مرات",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "أدخل النص للحفظ",
+  "deleteCard": "حذف البطاقة",
+  "deleteCardConfirm": "هل أنت متأكد من حذف هذه البطاقة؟",
+  "cancel": "إلغاء",
+  "delete": "حذف",
+  "save": "حفظ"
 }

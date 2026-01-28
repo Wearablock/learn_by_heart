@@ -122,6 +122,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Learn by Heart - Memorize'**
   String get appTitle;
+
+  /// No description provided for @homeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My Cards'**
+  String get homeTitle;
+
+  /// No description provided for @emptyStateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No cards yet'**
+  String get emptyStateTitle;
+
+  /// No description provided for @emptyStateSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first card to start memorizing'**
+  String get emptyStateSubtitle;
+
+  /// No description provided for @addCardButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Card'**
+  String get addCardButton;
+
+  /// No description provided for @cardStudyCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} times studied'**
+  String cardStudyCount(int count);
+
+  /// No description provided for @cardContentHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter text to memorize'**
+  String get cardContentHint;
+
+  /// No description provided for @deleteCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Card'**
+  String get deleteCard;
+
+  /// No description provided for @deleteCardConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this card?'**
+  String get deleteCardConfirm;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate

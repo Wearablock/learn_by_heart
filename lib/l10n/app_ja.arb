@@ -1,4 +1,22 @@
 {
   "@@locale": "ja",
-  "appTitle": "暗記 - テキストを覚える"
+  "appTitle": "暗記 - テキストを覚える",
+  "homeTitle": "マイカード",
+  "emptyStateTitle": "カードがありません",
+  "emptyStateSubtitle": "最初のカードを追加して暗記を始めましょう",
+  "addCardButton": "カードを追加",
+  "cardStudyCount": "{count}回学習",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "暗記する内容を入力",
+  "deleteCard": "カードを削除",
+  "deleteCardConfirm": "このカードを削除しますか？",
+  "cancel": "キャンセル",
+  "delete": "削除",
+  "save": "保存"
 }

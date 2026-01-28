@@ -1,4 +1,22 @@
 {
   "@@locale": "ko",
-  "appTitle": "암기하기 - 문장 암기"
+  "appTitle": "암기하기 - 문장 암기",
+  "homeTitle": "내 카드",
+  "emptyStateTitle": "아직 카드가 없어요",
+  "emptyStateSubtitle": "첫 번째 카드를 추가해서 암기를 시작하세요",
+  "addCardButton": "카드 추가",
+  "cardStudyCount": "{count}회 학습",
+  "@cardStudyCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cardContentHint": "암기할 내용을 입력하세요",
+  "deleteCard": "카드 삭제",
+  "deleteCardConfirm": "이 카드를 삭제할까요?",
+  "cancel": "취소",
+  "delete": "삭제",
+  "save": "저장"
 }
