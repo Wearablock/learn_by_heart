@@ -77,4 +77,55 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get discard => 'Отменить';
+
+  @override
+  String get startStudy => 'Начать изучение';
+
+  @override
+  String get studying => 'Изучение';
+
+  @override
+  String get enterAnswer => 'Введите ответ';
+
+  @override
+  String get submit => 'Отправить';
+
+  @override
+  String get correct => 'Верно!';
+
+  @override
+  String get incorrect => 'Неверно';
+
+  @override
+  String get yourAnswer => 'Ваш ответ';
+
+  @override
+  String get correctAnswerLabel => 'Правильный ответ';
+
+  @override
+  String get next => 'Далее';
+
+  @override
+  String get studyComplete => 'Изучение завершено';
+
+  @override
+  String get accuracy => 'Точность';
+
+  @override
+  String get wrongAnswers => 'Неправильные ответы';
+
+  @override
+  String get studyAgain => 'Изучать снова';
+
+  @override
+  String get backToHome => 'На главную';
+
+  @override
+  String get noCardsToStudy => 'Нет карточек для изучения';
+
+  @override
+  String get studyExitConfirm => 'Прогресс не будет сохранён. Выйти?';
+
+  @override
+  String get exit => 'Выйти';
 }

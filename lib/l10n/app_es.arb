@@ -28,5 +28,22 @@
   "discardChanges": "Descartar cambios",
   "discardChangesMessage": "Tienes cambios sin guardar. ¿Descartarlos?",
   "keepEditing": "Seguir editando",
-  "discard": "Descartar"
+  "discard": "Descartar",
+  "startStudy": "Comenzar estudio",
+  "studying": "Estudiando",
+  "enterAnswer": "Introduce tu respuesta",
+  "submit": "Enviar",
+  "correct": "¡Correcto!",
+  "incorrect": "Incorrecto",
+  "yourAnswer": "Tu respuesta",
+  "correctAnswerLabel": "Respuesta correcta",
+  "next": "Siguiente",
+  "studyComplete": "Estudio completado",
+  "accuracy": "Precisión",
+  "wrongAnswers": "Respuestas incorrectas",
+  "studyAgain": "Estudiar de nuevo",
+  "backToHome": "Volver al inicio",
+  "noCardsToStudy": "No hay tarjetas para estudiar",
+  "studyExitConfirm": "El progreso no se guardará. ¿Salir?",
+  "exit": "Salir"
 }

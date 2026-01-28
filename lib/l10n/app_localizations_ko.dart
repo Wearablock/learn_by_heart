@@ -75,4 +75,55 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get discard => '취소';
+
+  @override
+  String get startStudy => '학습 시작';
+
+  @override
+  String get studying => '학습 중';
+
+  @override
+  String get enterAnswer => '답을 입력하세요';
+
+  @override
+  String get submit => '제출';
+
+  @override
+  String get correct => '정답!';
+
+  @override
+  String get incorrect => '오답';
+
+  @override
+  String get yourAnswer => '내 답';
+
+  @override
+  String get correctAnswerLabel => '정답';
+
+  @override
+  String get next => '다음';
+
+  @override
+  String get studyComplete => '학습 완료';
+
+  @override
+  String get accuracy => '정확도';
+
+  @override
+  String get wrongAnswers => '틀린 문제';
+
+  @override
+  String get studyAgain => '다시 학습';
+
+  @override
+  String get backToHome => '홈으로';
+
+  @override
+  String get noCardsToStudy => '학습할 카드가 없습니다';
+
+  @override
+  String get studyExitConfirm => '진행 상황이 저장되지 않습니다. 종료할까요?';
+
+  @override
+  String get exit => '종료';
 }

@@ -76,4 +76,55 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get discard => 'Annulla';
+
+  @override
+  String get startStudy => 'Inizia studio';
+
+  @override
+  String get studying => 'Studiando';
+
+  @override
+  String get enterAnswer => 'Inserisci la risposta';
+
+  @override
+  String get submit => 'Invia';
+
+  @override
+  String get correct => 'Corretto!';
+
+  @override
+  String get incorrect => 'Sbagliato';
+
+  @override
+  String get yourAnswer => 'La tua risposta';
+
+  @override
+  String get correctAnswerLabel => 'Risposta corretta';
+
+  @override
+  String get next => 'Avanti';
+
+  @override
+  String get studyComplete => 'Studio completato';
+
+  @override
+  String get accuracy => 'Precisione';
+
+  @override
+  String get wrongAnswers => 'Risposte sbagliate';
+
+  @override
+  String get studyAgain => 'Studia di nuovo';
+
+  @override
+  String get backToHome => 'Torna alla home';
+
+  @override
+  String get noCardsToStudy => 'Nessuna scheda da studiare';
+
+  @override
+  String get studyExitConfirm => 'I progressi non verranno salvati. Uscire?';
+
+  @override
+  String get exit => 'Esci';
 }

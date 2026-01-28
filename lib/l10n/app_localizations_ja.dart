@@ -75,4 +75,55 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get discard => '破棄';
+
+  @override
+  String get startStudy => '学習開始';
+
+  @override
+  String get studying => '学習中';
+
+  @override
+  String get enterAnswer => '答えを入力';
+
+  @override
+  String get submit => '送信';
+
+  @override
+  String get correct => '正解！';
+
+  @override
+  String get incorrect => '不正解';
+
+  @override
+  String get yourAnswer => 'あなたの答え';
+
+  @override
+  String get correctAnswerLabel => '正解';
+
+  @override
+  String get next => '次へ';
+
+  @override
+  String get studyComplete => '学習完了';
+
+  @override
+  String get accuracy => '正答率';
+
+  @override
+  String get wrongAnswers => '間違えた問題';
+
+  @override
+  String get studyAgain => 'もう一度学習';
+
+  @override
+  String get backToHome => 'ホームに戻る';
+
+  @override
+  String get noCardsToStudy => '学習するカードがありません';
+
+  @override
+  String get studyExitConfirm => '進捗は保存されません。終了しますか？';
+
+  @override
+  String get exit => '終了';
 }

@@ -28,5 +28,22 @@
   "discardChanges": "放弃更改",
   "discardChangesMessage": "有未保存的更改，是否放弃？",
   "keepEditing": "继续编辑",
-  "discard": "放弃"
+  "discard": "放弃",
+  "startStudy": "开始学习",
+  "studying": "学习中",
+  "enterAnswer": "输入答案",
+  "submit": "提交",
+  "correct": "正确！",
+  "incorrect": "错误",
+  "yourAnswer": "你的答案",
+  "correctAnswerLabel": "正确答案",
+  "next": "下一个",
+  "studyComplete": "学习完成",
+  "accuracy": "正确率",
+  "wrongAnswers": "错误题目",
+  "studyAgain": "再次学习",
+  "backToHome": "返回首页",
+  "noCardsToStudy": "没有可学习的卡片",
+  "studyExitConfirm": "进度将不会保存。确定退出？",
+  "exit": "退出"
 }

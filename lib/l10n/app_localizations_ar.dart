@@ -76,4 +76,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get discard => 'تجاهل';
+
+  @override
+  String get startStudy => 'بدء الدراسة';
+
+  @override
+  String get studying => 'جاري الدراسة';
+
+  @override
+  String get enterAnswer => 'أدخل إجابتك';
+
+  @override
+  String get submit => 'إرسال';
+
+  @override
+  String get correct => 'صحيح!';
+
+  @override
+  String get incorrect => 'خطأ';
+
+  @override
+  String get yourAnswer => 'إجابتك';
+
+  @override
+  String get correctAnswerLabel => 'الإجابة الصحيحة';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get studyComplete => 'اكتملت الدراسة';
+
+  @override
+  String get accuracy => 'الدقة';
+
+  @override
+  String get wrongAnswers => 'الإجابات الخاطئة';
+
+  @override
+  String get studyAgain => 'دراسة مرة أخرى';
+
+  @override
+  String get backToHome => 'العودة للرئيسية';
+
+  @override
+  String get noCardsToStudy => 'لا توجد بطاقات للدراسة';
+
+  @override
+  String get studyExitConfirm => 'لن يتم حفظ التقدم. هل تريد الخروج؟';
+
+  @override
+  String get exit => 'خروج';
 }

@@ -28,5 +28,22 @@
   "discardChanges": "تجاهل التغييرات",
   "discardChangesMessage": "لديك تغييرات غير محفوظة. هل تريد تجاهلها؟",
   "keepEditing": "متابعة التعديل",
-  "discard": "تجاهل"
+  "discard": "تجاهل",
+  "startStudy": "بدء الدراسة",
+  "studying": "جاري الدراسة",
+  "enterAnswer": "أدخل إجابتك",
+  "submit": "إرسال",
+  "correct": "صحيح!",
+  "incorrect": "خطأ",
+  "yourAnswer": "إجابتك",
+  "correctAnswerLabel": "الإجابة الصحيحة",
+  "next": "التالي",
+  "studyComplete": "اكتملت الدراسة",
+  "accuracy": "الدقة",
+  "wrongAnswers": "الإجابات الخاطئة",
+  "studyAgain": "دراسة مرة أخرى",
+  "backToHome": "العودة للرئيسية",
+  "noCardsToStudy": "لا توجد بطاقات للدراسة",
+  "studyExitConfirm": "لن يتم حفظ التقدم. هل تريد الخروج؟",
+  "exit": "خروج"
 }

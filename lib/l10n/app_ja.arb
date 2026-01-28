@@ -28,5 +28,22 @@
   "discardChanges": "変更を破棄",
   "discardChangesMessage": "保存されていない変更があります。破棄しますか？",
   "keepEditing": "編集を続ける",
-  "discard": "破棄"
+  "discard": "破棄",
+  "startStudy": "学習開始",
+  "studying": "学習中",
+  "enterAnswer": "答えを入力",
+  "submit": "送信",
+  "correct": "正解！",
+  "incorrect": "不正解",
+  "yourAnswer": "あなたの答え",
+  "correctAnswerLabel": "正解",
+  "next": "次へ",
+  "studyComplete": "学習完了",
+  "accuracy": "正答率",
+  "wrongAnswers": "間違えた問題",
+  "studyAgain": "もう一度学習",
+  "backToHome": "ホームに戻る",
+  "noCardsToStudy": "学習するカードがありません",
+  "studyExitConfirm": "進捗は保存されません。終了しますか？",
+  "exit": "終了"
 }

@@ -75,6 +75,57 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get discard => '放弃';
+
+  @override
+  String get startStudy => '开始学习';
+
+  @override
+  String get studying => '学习中';
+
+  @override
+  String get enterAnswer => '输入答案';
+
+  @override
+  String get submit => '提交';
+
+  @override
+  String get correct => '正确！';
+
+  @override
+  String get incorrect => '错误';
+
+  @override
+  String get yourAnswer => '你的答案';
+
+  @override
+  String get correctAnswerLabel => '正确答案';
+
+  @override
+  String get next => '下一个';
+
+  @override
+  String get studyComplete => '学习完成';
+
+  @override
+  String get accuracy => '正确率';
+
+  @override
+  String get wrongAnswers => '错误题目';
+
+  @override
+  String get studyAgain => '再次学习';
+
+  @override
+  String get backToHome => '返回首页';
+
+  @override
+  String get noCardsToStudy => '没有可学习的卡片';
+
+  @override
+  String get studyExitConfirm => '进度将不会保存。确定退出？';
+
+  @override
+  String get exit => '退出';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -148,4 +199,55 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get discard => '放棄';
+
+  @override
+  String get startStudy => '開始學習';
+
+  @override
+  String get studying => '學習中';
+
+  @override
+  String get enterAnswer => '輸入答案';
+
+  @override
+  String get submit => '提交';
+
+  @override
+  String get correct => '正確！';
+
+  @override
+  String get incorrect => '錯誤';
+
+  @override
+  String get yourAnswer => '你的答案';
+
+  @override
+  String get correctAnswerLabel => '正確答案';
+
+  @override
+  String get next => '下一個';
+
+  @override
+  String get studyComplete => '學習完成';
+
+  @override
+  String get accuracy => '正確率';
+
+  @override
+  String get wrongAnswers => '錯誤題目';
+
+  @override
+  String get studyAgain => '再次學習';
+
+  @override
+  String get backToHome => '返回首頁';
+
+  @override
+  String get noCardsToStudy => '沒有可學習的卡片';
+
+  @override
+  String get studyExitConfirm => '進度將不會儲存。確定退出？';
+
+  @override
+  String get exit => '退出';
 }

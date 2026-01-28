@@ -28,5 +28,22 @@
   "discardChanges": "Annuler les modifications",
   "discardChangesMessage": "Vous avez des modifications non enregistrées. Les annuler?",
   "keepEditing": "Continuer",
-  "discard": "Annuler"
+  "discard": "Annuler",
+  "startStudy": "Commencer l'étude",
+  "studying": "Étude en cours",
+  "enterAnswer": "Entrez votre réponse",
+  "submit": "Soumettre",
+  "correct": "Correct !",
+  "incorrect": "Incorrect",
+  "yourAnswer": "Votre réponse",
+  "correctAnswerLabel": "Bonne réponse",
+  "next": "Suivant",
+  "studyComplete": "Étude terminée",
+  "accuracy": "Précision",
+  "wrongAnswers": "Mauvaises réponses",
+  "studyAgain": "Réétudier",
+  "backToHome": "Retour à l'accueil",
+  "noCardsToStudy": "Aucune carte à étudier",
+  "studyExitConfirm": "La progression ne sera pas sauvegardée. Quitter ?",
+  "exit": "Quitter"
 }

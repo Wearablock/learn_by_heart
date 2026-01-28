@@ -248,6 +248,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discard'**
   String get discard;
+
+  /// No description provided for @startStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Study'**
+  String get startStudy;
+
+  /// No description provided for @studying.
+  ///
+  /// In en, this message translates to:
+  /// **'Studying'**
+  String get studying;
+
+  /// No description provided for @enterAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your answer'**
+  String get enterAnswer;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @correct.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct!'**
+  String get correct;
+
+  /// No description provided for @incorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect'**
+  String get incorrect;
+
+  /// No description provided for @yourAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Your answer'**
+  String get yourAnswer;
+
+  /// No description provided for @correctAnswerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct answer'**
+  String get correctAnswerLabel;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @studyComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Study Complete'**
+  String get studyComplete;
+
+  /// No description provided for @accuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Accuracy'**
+  String get accuracy;
+
+  /// No description provided for @wrongAnswers.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong Answers'**
+  String get wrongAnswers;
+
+  /// No description provided for @studyAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Study Again'**
+  String get studyAgain;
+
+  /// No description provided for @backToHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Home'**
+  String get backToHome;
+
+  /// No description provided for @noCardsToStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'No cards to study'**
+  String get noCardsToStudy;
+
+  /// No description provided for @studyExitConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress will be lost. Exit study?'**
+  String get studyExitConfirm;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
 }
 
 class _AppLocalizationsDelegate

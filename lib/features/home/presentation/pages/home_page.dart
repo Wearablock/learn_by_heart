@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../card/presentation/pages/card_editor_page.dart';
+import '../../../study/presentation/pages/study_page.dart';
 import '../providers/card_provider.dart';
 import '../widgets/empty_state.dart';
 import '../widgets/card_list_view.dart';
@@ -16,6 +17,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.homeTitle),
+        actions: [
+          Consumer<CardProvider>(
+            builder: (context, provider, child) {
+              if (provider.isEmpty) return const SizedBox.shrink();
+              return IconButton(
+                icon: const Icon(Icons.play_arrow),
+                tooltip: l10n.startStudy,
+                onPressed: () => _navigateToStudy(context, provider),
+              );
+            },
+          ),
+        ],
       ),
       body: Consumer<CardProvider>(
         builder: (context, provider, child) {
@@ -82,6 +95,16 @@ class HomePage extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (_) => CardEditorPage(cardId: cardId),
+      ),
+    );
+  }
+
+  void _navigateToStudy(BuildContext context, CardProvider provider) {
+    final cardIds = provider.cards.map((c) => c.id).toList();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => StudyPage(cardIds: cardIds),
       ),
     );
   }

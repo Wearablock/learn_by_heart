@@ -28,5 +28,22 @@
   "discardChanges": "Änderungen verwerfen",
   "discardChangesMessage": "Ungespeicherte Änderungen verwerfen?",
   "keepEditing": "Weiter bearbeiten",
-  "discard": "Verwerfen"
+  "discard": "Verwerfen",
+  "startStudy": "Lernen starten",
+  "studying": "Lernen",
+  "enterAnswer": "Antwort eingeben",
+  "submit": "Absenden",
+  "correct": "Richtig!",
+  "incorrect": "Falsch",
+  "yourAnswer": "Deine Antwort",
+  "correctAnswerLabel": "Richtige Antwort",
+  "next": "Weiter",
+  "studyComplete": "Lernen abgeschlossen",
+  "accuracy": "Genauigkeit",
+  "wrongAnswers": "Falsche Antworten",
+  "studyAgain": "Nochmal lernen",
+  "backToHome": "Zurück zur Startseite",
+  "noCardsToStudy": "Keine Karten zum Lernen",
+  "studyExitConfirm": "Fortschritt wird nicht gespeichert. Beenden?",
+  "exit": "Beenden"
 }

@@ -28,5 +28,22 @@
   "discardChanges": "Отменить изменения",
   "discardChangesMessage": "У вас есть несохранённые изменения. Отменить?",
   "keepEditing": "Продолжить",
-  "discard": "Отменить"
+  "discard": "Отменить",
+  "startStudy": "Начать изучение",
+  "studying": "Изучение",
+  "enterAnswer": "Введите ответ",
+  "submit": "Отправить",
+  "correct": "Верно!",
+  "incorrect": "Неверно",
+  "yourAnswer": "Ваш ответ",
+  "correctAnswerLabel": "Правильный ответ",
+  "next": "Далее",
+  "studyComplete": "Изучение завершено",
+  "accuracy": "Точность",
+  "wrongAnswers": "Неправильные ответы",
+  "studyAgain": "Изучать снова",
+  "backToHome": "На главную",
+  "noCardsToStudy": "Нет карточек для изучения",
+  "studyExitConfirm": "Прогресс не будет сохранён. Выйти?",
+  "exit": "Выйти"
 }

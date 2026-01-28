@@ -28,5 +28,22 @@
   "discardChanges": "放棄更改",
   "discardChangesMessage": "有未儲存的更改，是否放棄？",
   "keepEditing": "繼續編輯",
-  "discard": "放棄"
+  "discard": "放棄",
+  "startStudy": "開始學習",
+  "studying": "學習中",
+  "enterAnswer": "輸入答案",
+  "submit": "提交",
+  "correct": "正確！",
+  "incorrect": "錯誤",
+  "yourAnswer": "你的答案",
+  "correctAnswerLabel": "正確答案",
+  "next": "下一個",
+  "studyComplete": "學習完成",
+  "accuracy": "正確率",
+  "wrongAnswers": "錯誤題目",
+  "studyAgain": "再次學習",
+  "backToHome": "返回首頁",
+  "noCardsToStudy": "沒有可學習的卡片",
+  "studyExitConfirm": "進度將不會儲存。確定退出？",
+  "exit": "退出"
 }
