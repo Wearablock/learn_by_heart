@@ -45,6 +45,36 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get save => '保存';
+
+  @override
+  String get addCard => '添加卡片';
+
+  @override
+  String get editCard => '编辑卡片';
+
+  @override
+  String get cardContent => '内容';
+
+  @override
+  String get cardContentRequired => '请输入内容';
+
+  @override
+  String get cardHint => '提示（可选）';
+
+  @override
+  String get cardHintPlaceholder => '输入有助于记忆的提示';
+
+  @override
+  String get discardChanges => '放弃更改';
+
+  @override
+  String get discardChangesMessage => '有未保存的更改，是否放弃？';
+
+  @override
+  String get keepEditing => '继续编辑';
+
+  @override
+  String get discard => '放弃';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -88,4 +118,34 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get save => '儲存';
+
+  @override
+  String get addCard => '新增卡片';
+
+  @override
+  String get editCard => '編輯卡片';
+
+  @override
+  String get cardContent => '內容';
+
+  @override
+  String get cardContentRequired => '請輸入內容';
+
+  @override
+  String get cardHint => '提示（可選）';
+
+  @override
+  String get cardHintPlaceholder => '輸入有助於記憶的提示';
+
+  @override
+  String get discardChanges => '放棄更改';
+
+  @override
+  String get discardChangesMessage => '有未儲存的更改，是否放棄？';
+
+  @override
+  String get keepEditing => '繼續編輯';
+
+  @override
+  String get discard => '放棄';
 }

@@ -45,4 +45,34 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get save => '저장';
+
+  @override
+  String get addCard => '카드 추가';
+
+  @override
+  String get editCard => '카드 편집';
+
+  @override
+  String get cardContent => '내용';
+
+  @override
+  String get cardContentRequired => '내용을 입력해주세요';
+
+  @override
+  String get cardHint => '힌트 (선택)';
+
+  @override
+  String get cardHintPlaceholder => '기억에 도움이 될 힌트를 입력하세요';
+
+  @override
+  String get discardChanges => '변경 취소';
+
+  @override
+  String get discardChangesMessage => '저장하지 않은 변경 사항이 있습니다. 취소할까요?';
+
+  @override
+  String get keepEditing => '계속 편집';
+
+  @override
+  String get discard => '취소';
 }

@@ -45,4 +45,35 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get save => 'Guardar';
+
+  @override
+  String get addCard => 'Añadir tarjeta';
+
+  @override
+  String get editCard => 'Editar tarjeta';
+
+  @override
+  String get cardContent => 'Contenido';
+
+  @override
+  String get cardContentRequired => 'El contenido es obligatorio';
+
+  @override
+  String get cardHint => 'Pista (opcional)';
+
+  @override
+  String get cardHintPlaceholder => 'Introduce una pista para recordar';
+
+  @override
+  String get discardChanges => 'Descartar cambios';
+
+  @override
+  String get discardChangesMessage =>
+      'Tienes cambios sin guardar. ¿Descartarlos?';
+
+  @override
+  String get keepEditing => 'Seguir editando';
+
+  @override
+  String get discard => 'Descartar';
 }

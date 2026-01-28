@@ -46,4 +46,35 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get save => 'Сохранить';
+
+  @override
+  String get addCard => 'Добавить карточку';
+
+  @override
+  String get editCard => 'Редактировать карточку';
+
+  @override
+  String get cardContent => 'Содержание';
+
+  @override
+  String get cardContentRequired => 'Содержание обязательно';
+
+  @override
+  String get cardHint => 'Подсказка (необязательно)';
+
+  @override
+  String get cardHintPlaceholder => 'Введите подсказку для запоминания';
+
+  @override
+  String get discardChanges => 'Отменить изменения';
+
+  @override
+  String get discardChangesMessage =>
+      'У вас есть несохранённые изменения. Отменить?';
+
+  @override
+  String get keepEditing => 'Продолжить';
+
+  @override
+  String get discard => 'Отменить';
 }

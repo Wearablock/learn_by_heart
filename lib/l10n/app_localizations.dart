@@ -188,6 +188,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// No description provided for @addCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Card'**
+  String get addCard;
+
+  /// No description provided for @editCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Card'**
+  String get editCard;
+
+  /// No description provided for @cardContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Content'**
+  String get cardContent;
+
+  /// No description provided for @cardContentRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Content is required'**
+  String get cardContentRequired;
+
+  /// No description provided for @cardHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint (optional)'**
+  String get cardHint;
+
+  /// No description provided for @cardHintPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a hint to help remember'**
+  String get cardHintPlaceholder;
+
+  /// No description provided for @discardChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard Changes'**
+  String get discardChanges;
+
+  /// No description provided for @discardChangesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. Discard them?'**
+  String get discardChangesMessage;
+
+  /// No description provided for @keepEditing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep Editing'**
+  String get keepEditing;
+
+  /// No description provided for @discard.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discard;
 }
 
 class _AppLocalizationsDelegate

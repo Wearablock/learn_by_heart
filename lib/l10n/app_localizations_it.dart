@@ -46,4 +46,34 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get save => 'Salva';
+
+  @override
+  String get addCard => 'Aggiungi scheda';
+
+  @override
+  String get editCard => 'Modifica scheda';
+
+  @override
+  String get cardContent => 'Contenuto';
+
+  @override
+  String get cardContentRequired => 'Il contenuto è obbligatorio';
+
+  @override
+  String get cardHint => 'Suggerimento (opzionale)';
+
+  @override
+  String get cardHintPlaceholder => 'Inserisci un suggerimento per ricordare';
+
+  @override
+  String get discardChanges => 'Annulla modifiche';
+
+  @override
+  String get discardChangesMessage => 'Hai modifiche non salvate. Annullarle?';
+
+  @override
+  String get keepEditing => 'Continua a modificare';
+
+  @override
+  String get discard => 'Annulla';
 }

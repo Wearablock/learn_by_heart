@@ -18,5 +18,15 @@
   "deleteCardConfirm": "Tem certeza que deseja excluir este cartão?",
   "cancel": "Cancelar",
   "delete": "Excluir",
-  "save": "Salvar"
+  "save": "Salvar",
+  "addCard": "Adicionar cartão",
+  "editCard": "Editar cartão",
+  "cardContent": "Conteúdo",
+  "cardContentRequired": "O conteúdo é obrigatório",
+  "cardHint": "Dica (opcional)",
+  "cardHintPlaceholder": "Digite uma dica para ajudar a lembrar",
+  "discardChanges": "Descartar alterações",
+  "discardChangesMessage": "Você tem alterações não salvas. Descartá-las?",
+  "keepEditing": "Continuar editando",
+  "discard": "Descartar"
 }

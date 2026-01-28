@@ -18,5 +18,15 @@
   "deleteCardConfirm": "هل أنت متأكد من حذف هذه البطاقة؟",
   "cancel": "إلغاء",
   "delete": "حذف",
-  "save": "حفظ"
+  "save": "حفظ",
+  "addCard": "إضافة بطاقة",
+  "editCard": "تعديل البطاقة",
+  "cardContent": "المحتوى",
+  "cardContentRequired": "المحتوى مطلوب",
+  "cardHint": "تلميح (اختياري)",
+  "cardHintPlaceholder": "أدخل تلميحاً للمساعدة في التذكر",
+  "discardChanges": "تجاهل التغييرات",
+  "discardChangesMessage": "لديك تغييرات غير محفوظة. هل تريد تجاهلها؟",
+  "keepEditing": "متابعة التعديل",
+  "discard": "تجاهل"
 }

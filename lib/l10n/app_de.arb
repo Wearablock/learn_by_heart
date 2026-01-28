@@ -18,5 +18,15 @@
   "deleteCardConfirm": "Diese Karte wirklich löschen?",
   "cancel": "Abbrechen",
   "delete": "Löschen",
-  "save": "Speichern"
+  "save": "Speichern",
+  "addCard": "Karte hinzufügen",
+  "editCard": "Karte bearbeiten",
+  "cardContent": "Inhalt",
+  "cardContentRequired": "Inhalt ist erforderlich",
+  "cardHint": "Hinweis (optional)",
+  "cardHintPlaceholder": "Hinweis zum Erinnern eingeben",
+  "discardChanges": "Änderungen verwerfen",
+  "discardChangesMessage": "Ungespeicherte Änderungen verwerfen?",
+  "keepEditing": "Weiter bearbeiten",
+  "discard": "Verwerfen"
 }

@@ -18,5 +18,15 @@
   "deleteCardConfirm": "确定要删除这张卡片吗？",
   "cancel": "取消",
   "delete": "删除",
-  "save": "保存"
+  "save": "保存",
+  "addCard": "添加卡片",
+  "editCard": "编辑卡片",
+  "cardContent": "内容",
+  "cardContentRequired": "请输入内容",
+  "cardHint": "提示（可选）",
+  "cardHintPlaceholder": "输入有助于记忆的提示",
+  "discardChanges": "放弃更改",
+  "discardChangesMessage": "有未保存的更改，是否放弃？",
+  "keepEditing": "继续编辑",
+  "discard": "放弃"
 }

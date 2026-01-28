@@ -45,4 +45,34 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get save => '保存';
+
+  @override
+  String get addCard => 'カードを追加';
+
+  @override
+  String get editCard => 'カードを編集';
+
+  @override
+  String get cardContent => '内容';
+
+  @override
+  String get cardContentRequired => '内容を入力してください';
+
+  @override
+  String get cardHint => 'ヒント（任意）';
+
+  @override
+  String get cardHintPlaceholder => '記憶に役立つヒントを入力';
+
+  @override
+  String get discardChanges => '変更を破棄';
+
+  @override
+  String get discardChangesMessage => '保存されていない変更があります。破棄しますか？';
+
+  @override
+  String get keepEditing => '編集を続ける';
+
+  @override
+  String get discard => '破棄';
 }

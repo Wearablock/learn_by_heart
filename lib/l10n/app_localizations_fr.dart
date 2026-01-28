@@ -46,4 +46,35 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get save => 'Enregistrer';
+
+  @override
+  String get addCard => 'Ajouter une carte';
+
+  @override
+  String get editCard => 'Modifier la carte';
+
+  @override
+  String get cardContent => 'Contenu';
+
+  @override
+  String get cardContentRequired => 'Le contenu est requis';
+
+  @override
+  String get cardHint => 'Indice (optionnel)';
+
+  @override
+  String get cardHintPlaceholder => 'Entrez un indice pour aider à mémoriser';
+
+  @override
+  String get discardChanges => 'Annuler les modifications';
+
+  @override
+  String get discardChangesMessage =>
+      'Vous avez des modifications non enregistrées. Les annuler?';
+
+  @override
+  String get keepEditing => 'Continuer';
+
+  @override
+  String get discard => 'Annuler';
 }

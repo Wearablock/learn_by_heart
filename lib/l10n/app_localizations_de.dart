@@ -45,4 +45,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get save => 'Speichern';
+
+  @override
+  String get addCard => 'Karte hinzufügen';
+
+  @override
+  String get editCard => 'Karte bearbeiten';
+
+  @override
+  String get cardContent => 'Inhalt';
+
+  @override
+  String get cardContentRequired => 'Inhalt ist erforderlich';
+
+  @override
+  String get cardHint => 'Hinweis (optional)';
+
+  @override
+  String get cardHintPlaceholder => 'Hinweis zum Erinnern eingeben';
+
+  @override
+  String get discardChanges => 'Änderungen verwerfen';
+
+  @override
+  String get discardChangesMessage => 'Ungespeicherte Änderungen verwerfen?';
+
+  @override
+  String get keepEditing => 'Weiter bearbeiten';
+
+  @override
+  String get discard => 'Verwerfen';
 }

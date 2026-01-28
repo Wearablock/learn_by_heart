@@ -45,4 +45,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get addCard => 'Add Card';
+
+  @override
+  String get editCard => 'Edit Card';
+
+  @override
+  String get cardContent => 'Content';
+
+  @override
+  String get cardContentRequired => 'Content is required';
+
+  @override
+  String get cardHint => 'Hint (optional)';
+
+  @override
+  String get cardHintPlaceholder => 'Enter a hint to help remember';
+
+  @override
+  String get discardChanges => 'Discard Changes';
+
+  @override
+  String get discardChangesMessage => 'You have unsaved changes. Discard them?';
+
+  @override
+  String get keepEditing => 'Keep Editing';
+
+  @override
+  String get discard => 'Discard';
 }

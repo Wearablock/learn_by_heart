@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../card/presentation/pages/card_editor_page.dart';
 import '../providers/card_provider.dart';
 import '../widgets/empty_state.dart';
 import '../widgets/card_list_view.dart';
@@ -68,47 +69,19 @@ class HomePage extends StatelessWidget {
   }
 
   void _navigateToAddCard(BuildContext context) {
-    // TODO: Phase 1-3에서 구현
-    _showQuickAddDialog(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const CardEditorPage(),
+      ),
+    );
   }
 
   void _navigateToEditCard(BuildContext context, String cardId) {
-    // TODO: Phase 1-3에서 구현
-  }
-
-  // 임시: 간단한 카드 추가 다이얼로그
-  void _showQuickAddDialog(BuildContext context) {
-    final controller = TextEditingController();
-    final l10n = AppLocalizations.of(context)!;
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.addCardButton),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          maxLines: 3,
-          decoration: InputDecoration(
-            hintText: l10n.cardContentHint,
-            border: const OutlineInputBorder(),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(l10n.cancel),
-          ),
-          FilledButton(
-            onPressed: () {
-              if (controller.text.trim().isNotEmpty) {
-                context.read<CardProvider>().addCard(controller.text.trim());
-                Navigator.of(context).pop();
-              }
-            },
-            child: Text(l10n.save),
-          ),
-        ],
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => CardEditorPage(cardId: cardId),
       ),
     );
   }

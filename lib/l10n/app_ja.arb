@@ -18,5 +18,15 @@
   "deleteCardConfirm": "このカードを削除しますか？",
   "cancel": "キャンセル",
   "delete": "削除",
-  "save": "保存"
+  "save": "保存",
+  "addCard": "カードを追加",
+  "editCard": "カードを編集",
+  "cardContent": "内容",
+  "cardContentRequired": "内容を入力してください",
+  "cardHint": "ヒント（任意）",
+  "cardHintPlaceholder": "記憶に役立つヒントを入力",
+  "discardChanges": "変更を破棄",
+  "discardChangesMessage": "保存されていない変更があります。破棄しますか？",
+  "keepEditing": "編集を続ける",
+  "discard": "破棄"
 }

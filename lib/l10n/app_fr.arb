@@ -18,5 +18,15 @@
   "deleteCardConfirm": "Voulez-vous vraiment supprimer cette carte?",
   "cancel": "Annuler",
   "delete": "Supprimer",
-  "save": "Enregistrer"
+  "save": "Enregistrer",
+  "addCard": "Ajouter une carte",
+  "editCard": "Modifier la carte",
+  "cardContent": "Contenu",
+  "cardContentRequired": "Le contenu est requis",
+  "cardHint": "Indice (optionnel)",
+  "cardHintPlaceholder": "Entrez un indice pour aider à mémoriser",
+  "discardChanges": "Annuler les modifications",
+  "discardChangesMessage": "Vous avez des modifications non enregistrées. Les annuler?",
+  "keepEditing": "Continuer",
+  "discard": "Annuler"
 }

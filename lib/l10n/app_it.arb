@@ -18,5 +18,15 @@
   "deleteCardConfirm": "Sei sicuro di voler eliminare questa scheda?",
   "cancel": "Annulla",
   "delete": "Elimina",
-  "save": "Salva"
+  "save": "Salva",
+  "addCard": "Aggiungi scheda",
+  "editCard": "Modifica scheda",
+  "cardContent": "Contenuto",
+  "cardContentRequired": "Il contenuto è obbligatorio",
+  "cardHint": "Suggerimento (opzionale)",
+  "cardHintPlaceholder": "Inserisci un suggerimento per ricordare",
+  "discardChanges": "Annulla modifiche",
+  "discardChangesMessage": "Hai modifiche non salvate. Annullarle?",
+  "keepEditing": "Continua a modificare",
+  "discard": "Annulla"
 }

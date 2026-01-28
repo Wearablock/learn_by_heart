@@ -45,4 +45,35 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get save => 'حفظ';
+
+  @override
+  String get addCard => 'إضافة بطاقة';
+
+  @override
+  String get editCard => 'تعديل البطاقة';
+
+  @override
+  String get cardContent => 'المحتوى';
+
+  @override
+  String get cardContentRequired => 'المحتوى مطلوب';
+
+  @override
+  String get cardHint => 'تلميح (اختياري)';
+
+  @override
+  String get cardHintPlaceholder => 'أدخل تلميحاً للمساعدة في التذكر';
+
+  @override
+  String get discardChanges => 'تجاهل التغييرات';
+
+  @override
+  String get discardChangesMessage =>
+      'لديك تغييرات غير محفوظة. هل تريد تجاهلها؟';
+
+  @override
+  String get keepEditing => 'متابعة التعديل';
+
+  @override
+  String get discard => 'تجاهل';
 }

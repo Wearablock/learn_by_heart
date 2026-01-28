@@ -45,4 +45,35 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get save => 'Salvar';
+
+  @override
+  String get addCard => 'Adicionar cartão';
+
+  @override
+  String get editCard => 'Editar cartão';
+
+  @override
+  String get cardContent => 'Conteúdo';
+
+  @override
+  String get cardContentRequired => 'O conteúdo é obrigatório';
+
+  @override
+  String get cardHint => 'Dica (opcional)';
+
+  @override
+  String get cardHintPlaceholder => 'Digite uma dica para ajudar a lembrar';
+
+  @override
+  String get discardChanges => 'Descartar alterações';
+
+  @override
+  String get discardChangesMessage =>
+      'Você tem alterações não salvas. Descartá-las?';
+
+  @override
+  String get keepEditing => 'Continuar editando';
+
+  @override
+  String get discard => 'Descartar';
 }
