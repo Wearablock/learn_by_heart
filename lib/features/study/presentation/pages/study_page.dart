@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../../../core/services/speech_service.dart';
+import '../../../../core/utils/text_similarity.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../card/data/models/memory_card.dart';
 import '../../../card/data/repositories/card_repository.dart';
 import '../../domain/models/study_result.dart';
 import '../widgets/study_progress_bar.dart';
-import '../widgets/study_card.dart';
+import '../widgets/speech_input_card.dart';
 import '../widgets/answer_feedback.dart';
 import 'study_result_page.dart';
 
@@ -19,6 +21,7 @@ class StudyPage extends StatefulWidget {
 
 class _StudyPageState extends State<StudyPage> {
   final _repository = CardRepository();
+  final _speechService = SpeechService();
   final _answerController = TextEditingController();
 
   List<MemoryCard> _cards = [];
@@ -29,6 +32,11 @@ class _StudyPageState extends State<StudyPage> {
   bool _showingFeedback = false;
   bool? _isCorrect;
   String? _error;
+  double? _similarity;
+
+  bool _isListening = false;
+  String _recognizedText = '';
+  bool _showTextField = false;
 
   DateTime? _cardStartTime;
 
@@ -38,13 +46,19 @@ class _StudyPageState extends State<StudyPage> {
   @override
   void initState() {
     super.initState();
+    _initSpeech();
     _loadCards();
   }
 
   @override
   void dispose() {
     _answerController.dispose();
+    _speechService.cancelListening();
     super.dispose();
+  }
+
+  Future<void> _initSpeech() async {
+    await _speechService.initialize();
   }
 
   Future<void> _loadCards() async {
@@ -62,7 +76,6 @@ class _StudyPageState extends State<StudyPage> {
         }
       }
 
-      // 셔플
       cards.shuffle();
 
       setState(() {
@@ -78,15 +91,73 @@ class _StudyPageState extends State<StudyPage> {
     }
   }
 
+  Future<void> _toggleListening() async {
+    if (_isListening) {
+      await _speechService.stopListening();
+      setState(() => _isListening = false);
+    } else {
+      setState(() {
+        _isListening = true;
+        _recognizedText = '';
+      });
+
+      await _speechService.startListening(
+        onResult: (text, isFinal) {
+          setState(() {
+            _recognizedText = text;
+          });
+          if (isFinal) {
+            setState(() => _isListening = false);
+          }
+        },
+        onError: (error) {
+          setState(() => _isListening = false);
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(error)),
+            );
+          }
+        },
+        locale: _detectLocale(_currentCard?.content ?? ''),
+      );
+    }
+  }
+
+  String _detectLocale(String text) {
+    // Simple locale detection based on character ranges
+    if (RegExp(r'[\u3040-\u309F\u30A0-\u30FF]').hasMatch(text)) {
+      return 'ja-JP'; // Japanese
+    }
+    if (RegExp(r'[\uAC00-\uD7AF]').hasMatch(text)) {
+      return 'ko-KR'; // Korean
+    }
+    if (RegExp(r'[\u4E00-\u9FFF]').hasMatch(text)) {
+      return 'zh-CN'; // Chinese
+    }
+    if (RegExp(r'[äöüßÄÖÜ]').hasMatch(text)) {
+      return 'de-DE'; // German
+    }
+    if (RegExp(r'[éèêëàâùûôîïç]').hasMatch(text)) {
+      return 'fr-FR'; // French
+    }
+    if (RegExp(r'[áéíóúñ¿¡]').hasMatch(text)) {
+      return 'es-ES'; // Spanish
+    }
+    return 'en-US'; // Default to English
+  }
+
   void _checkAnswer() {
     if (_currentCard == null) return;
 
-    final userAnswer = _answerController.text.trim();
+    // Use recognized text or typed text
+    final userAnswer = _recognizedText.isNotEmpty
+        ? _recognizedText
+        : _answerController.text.trim();
     final correctAnswer = _currentCard!.content.trim();
 
-    // 대소문자 무시 비교
-    final isCorrect =
-        userAnswer.toLowerCase() == correctAnswer.toLowerCase();
+    // Calculate similarity
+    final similarity = TextSimilarity.calculate(userAnswer, correctAnswer);
+    final isCorrect = similarity >= 0.8; // 80% threshold
 
     final timeTaken = _cardStartTime != null
         ? DateTime.now().difference(_cardStartTime!).inMilliseconds
@@ -97,25 +168,29 @@ class _StudyPageState extends State<StudyPage> {
       isCorrect: isCorrect,
       userAnswer: userAnswer,
       correctAnswer: correctAnswer,
+      similarity: similarity,
       timeTakenMs: timeTaken,
     ));
 
     setState(() {
       _showingFeedback = true;
       _isCorrect = isCorrect;
+      _similarity = similarity;
     });
   }
 
   void _nextCard() {
     if (_currentIndex + 1 >= _cards.length) {
-      // 학습 완료
       _showResults();
     } else {
       setState(() {
         _currentIndex++;
         _showingFeedback = false;
         _isCorrect = null;
+        _similarity = null;
+        _recognizedText = '';
         _answerController.clear();
+        _showTextField = false;
         _cardStartTime = DateTime.now();
       });
     }
@@ -127,18 +202,8 @@ class _StudyPageState extends State<StudyPage> {
       MaterialPageRoute(
         builder: (_) => StudyResultPage(
           results: _results,
-          onRetry: () => _retryStudy(),
-          onFinish: () => Navigator.pop(context),
+          cardIds: widget.cardIds,
         ),
-      ),
-    );
-  }
-
-  void _retryStudy() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (_) => StudyPage(cardIds: widget.cardIds),
       ),
     );
   }
@@ -246,14 +311,24 @@ class _StudyPageState extends State<StudyPage> {
             AnswerFeedback(
               isCorrect: _isCorrect!,
               correctAnswer: _currentCard!.content,
-              userAnswer: _answerController.text.trim(),
+              userAnswer: _recognizedText.isNotEmpty
+                  ? _recognizedText
+                  : _answerController.text.trim(),
+              similarity: _similarity,
               onNext: _nextCard,
             )
           else
-            StudyCard(
+            SpeechInputCard(
               hint: _currentCard?.hint,
+              recognizedText: _recognizedText,
+              isListening: _isListening,
               controller: _answerController,
+              onMicPressed: _toggleListening,
               onSubmit: _checkAnswer,
+              showTextField: _showTextField,
+              onToggleTextField: () {
+                setState(() => _showTextField = !_showTextField);
+              },
             ),
         ],
       ),

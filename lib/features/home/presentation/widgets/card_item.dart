@@ -6,12 +6,14 @@ import '../../../card/data/models/memory_card.dart';
 class CardItem extends StatelessWidget {
   final MemoryCard card;
   final VoidCallback? onTap;
+  final VoidCallback? onEdit;
   final VoidCallback? onDelete;
 
   const CardItem({
     super.key,
     required this.card,
     this.onTap,
+    this.onEdit,
     this.onDelete,
   });
 
@@ -85,6 +87,20 @@ class CardItem extends StatelessWidget {
                         ),
                       ),
                     ],
+                    const Spacer(),
+                    SizedBox(
+                      width: 32,
+                      height: 32,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: Icon(
+                          Icons.edit_outlined,
+                          size: 18,
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                        ),
+                        onPressed: onEdit,
+                      ),
+                    ),
                   ],
                 ),
               ],

@@ -46,5 +46,11 @@
   "noCardsToStudy": "Нет карточек для изучения",
   "studyExitConfirm": "Прогресс не будет сохранён. Выйти?",
   "exit": "Выйти",
-  "emptyAnswer": "(пусто)"
+  "emptyAnswer": "(пусто)",
+  "listening": "Слушаю...",
+  "tapMicToSpeak": "Нажмите на микрофон, чтобы говорить",
+  "typeInstead": "Ввести вручную",
+  "hideKeyboard": "Скрыть клавиатуру",
+  "speechNotAvailable": "Распознавание речи недоступно",
+  "similarityScore": "Сходство"
 }

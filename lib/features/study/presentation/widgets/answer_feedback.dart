@@ -5,6 +5,7 @@ class AnswerFeedback extends StatelessWidget {
   final bool isCorrect;
   final String correctAnswer;
   final String? userAnswer;
+  final double? similarity;
   final VoidCallback onNext;
 
   const AnswerFeedback({
@@ -12,6 +13,7 @@ class AnswerFeedback extends StatelessWidget {
     required this.isCorrect,
     required this.correctAnswer,
     this.userAnswer,
+    this.similarity,
     required this.onNext,
   });
 
@@ -27,7 +29,7 @@ class AnswerFeedback extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // 정답/오답 표시
+        // Result indicator
         Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
@@ -45,12 +47,45 @@ class AnswerFeedback extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              // Similarity score
+              if (similarity != null) ...[
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      l10n.similarityScore,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      '${(similarity! * 100).round()}%',
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        color: _getSimilarityColor(similarity!),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: similarity,
+                    backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                    color: _getSimilarityColor(similarity!),
+                    minHeight: 8,
+                  ),
+                ),
+              ],
             ],
           ),
         ),
         const SizedBox(height: 24),
 
-        // 정답 표시
+        // Correct answer
         Card(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -74,7 +109,7 @@ class AnswerFeedback extends StatelessWidget {
           ),
         ),
 
-        // 오답인 경우 사용자 답변 표시
+        // User answer (if incorrect)
         if (!isCorrect && userAnswer != null && userAnswer!.isNotEmpty) ...[
           const SizedBox(height: 12),
           Card(
@@ -105,7 +140,7 @@ class AnswerFeedback extends StatelessWidget {
         ],
         const SizedBox(height: 24),
 
-        // 다음 버튼
+        // Next button
         FilledButton(
           onPressed: onNext,
           child: Padding(
@@ -115,5 +150,11 @@ class AnswerFeedback extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Color _getSimilarityColor(double similarity) {
+    if (similarity >= 0.8) return Colors.green;
+    if (similarity >= 0.6) return Colors.orange;
+    return Colors.red;
   }
 }

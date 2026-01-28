@@ -5,12 +5,14 @@ import 'card_item.dart';
 class CardListView extends StatelessWidget {
   final List<MemoryCard> cards;
   final Function(MemoryCard)? onCardTap;
+  final Function(MemoryCard)? onCardEdit;
   final Function(MemoryCard)? onCardDelete;
 
   const CardListView({
     super.key,
     required this.cards,
     this.onCardTap,
+    this.onCardEdit,
     this.onCardDelete,
   });
 
@@ -25,6 +27,7 @@ class CardListView extends StatelessWidget {
         return CardItem(
           card: card,
           onTap: () => onCardTap?.call(card),
+          onEdit: () => onCardEdit?.call(card),
           onDelete: () => onCardDelete?.call(card),
         );
       },

@@ -46,5 +46,11 @@
   "noCardsToStudy": "学習するカードがありません",
   "studyExitConfirm": "進捗は保存されません。終了しますか？",
   "exit": "終了",
-  "emptyAnswer": "（空欄）"
+  "emptyAnswer": "（空欄）",
+  "listening": "聞いています...",
+  "tapMicToSpeak": "マイクをタップして話す",
+  "typeInstead": "入力する",
+  "hideKeyboard": "キーボードを隠す",
+  "speechNotAvailable": "音声認識は利用できません",
+  "similarityScore": "類似度"
 }

@@ -17,18 +17,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.homeTitle),
-        actions: [
-          Consumer<CardProvider>(
-            builder: (context, provider, child) {
-              if (provider.isEmpty) return const SizedBox.shrink();
-              return IconButton(
-                icon: const Icon(Icons.play_arrow),
-                tooltip: l10n.startStudy,
-                onPressed: () => _navigateToStudy(context, provider),
-              );
-            },
-          ),
-        ],
       ),
       body: Consumer<CardProvider>(
         builder: (context, provider, child) {
@@ -64,7 +52,8 @@ class HomePage extends StatelessWidget {
 
           return CardListView(
             cards: provider.cards,
-            onCardTap: (card) => _navigateToEditCard(context, card.id),
+            onCardTap: (card) => _navigateToStudy(context, card.id),
+            onCardEdit: (card) => _navigateToEditCard(context, card.id),
             onCardDelete: (card) => provider.deleteCard(card.id),
           );
         },
@@ -99,12 +88,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void _navigateToStudy(BuildContext context, CardProvider provider) {
-    final cardIds = provider.cards.map((c) => c.id).toList();
+  void _navigateToStudy(BuildContext context, String cardId) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => StudyPage(cardIds: cardIds),
+        builder: (_) => StudyPage(cardIds: [cardId]),
       ),
     );
   }

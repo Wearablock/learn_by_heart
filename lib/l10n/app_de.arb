@@ -46,5 +46,11 @@
   "noCardsToStudy": "Keine Karten zum Lernen",
   "studyExitConfirm": "Fortschritt wird nicht gespeichert. Beenden?",
   "exit": "Beenden",
-  "emptyAnswer": "(leer)"
+  "emptyAnswer": "(leer)",
+  "listening": "Zuhören...",
+  "tapMicToSpeak": "Mikrofon tippen zum Sprechen",
+  "typeInstead": "Stattdessen tippen",
+  "hideKeyboard": "Tastatur ausblenden",
+  "speechNotAvailable": "Spracherkennung nicht verfügbar",
+  "similarityScore": "Ähnlichkeit"
 }

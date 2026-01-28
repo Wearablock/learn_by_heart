@@ -46,5 +46,11 @@
   "noCardsToStudy": "학습할 카드가 없습니다",
   "studyExitConfirm": "진행 상황이 저장되지 않습니다. 종료할까요?",
   "exit": "종료",
-  "emptyAnswer": "(빈 답변)"
+  "emptyAnswer": "(빈 답변)",
+  "listening": "듣는 중...",
+  "tapMicToSpeak": "마이크를 눌러 말하세요",
+  "typeInstead": "직접 입력",
+  "hideKeyboard": "키보드 숨기기",
+  "speechNotAvailable": "음성 인식을 사용할 수 없습니다",
+  "similarityScore": "유사도"
 }

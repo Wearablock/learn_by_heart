@@ -1,25 +1,43 @@
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../domain/models/study_result.dart';
+import 'study_page.dart';
 
 class StudyResultPage extends StatelessWidget {
   final List<StudyResult> results;
-  final VoidCallback onRetry;
-  final VoidCallback onFinish;
+  final List<String> cardIds;
 
   const StudyResultPage({
     super.key,
     required this.results,
-    required this.onRetry,
-    required this.onFinish,
+    required this.cardIds,
   });
 
   int get correctCount => results.where((r) => r.isCorrect).length;
   int get totalCount => results.length;
-  double get accuracy => totalCount > 0 ? correctCount / totalCount : 0;
+  bool get isPassed => correctCount == totalCount;
+
+  double get averageSimilarity {
+    if (results.isEmpty) return 0;
+    final total = results.fold<double>(0, (sum, r) => sum + r.similarity);
+    return total / results.length;
+  }
 
   List<StudyResult> get wrongResults =>
       results.where((r) => !r.isCorrect).toList();
+
+  void _onRetry(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) => StudyPage(cardIds: cardIds),
+      ),
+    );
+  }
+
+  void _onFinish(BuildContext context) {
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +54,16 @@ class StudyResultPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // 결과 요약
             _buildSummaryCard(theme, l10n),
             const SizedBox(height: 24),
 
-            // 틀린 문제 목록
             if (wrongResults.isNotEmpty) ...[
               _buildWrongAnswersSection(theme, l10n),
               const SizedBox(height: 24),
             ],
 
-            // 버튼들
             FilledButton(
-              onPressed: onRetry,
+              onPressed: () => _onRetry(context),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Text(l10n.studyAgain),
@@ -56,7 +71,7 @@ class StudyResultPage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             OutlinedButton(
-              onPressed: onFinish,
+              onPressed: () => _onFinish(context),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Text(l10n.backToHome),
@@ -69,7 +84,7 @@ class StudyResultPage extends StatelessWidget {
   }
 
   Widget _buildSummaryCard(ThemeData theme, AppLocalizations l10n) {
-    final color = _getAccuracyColor(accuracy);
+    final color = isPassed ? Colors.green : Colors.red;
 
     return Card(
       child: Padding(
@@ -77,17 +92,13 @@ class StudyResultPage extends StatelessWidget {
         child: Column(
           children: [
             Icon(
-              accuracy >= 0.8
-                  ? Icons.celebration
-                  : accuracy >= 0.5
-                      ? Icons.thumb_up
-                      : Icons.sentiment_dissatisfied,
+              isPassed ? Icons.celebration : Icons.sentiment_dissatisfied,
               size: 64,
               color: color,
             ),
             const SizedBox(height: 16),
             Text(
-              '${(accuracy * 100).toInt()}%',
+              '${(averageSimilarity * 100).toInt()}%',
               style: theme.textTheme.displayLarge?.copyWith(
                 color: color,
                 fontWeight: FontWeight.bold,
@@ -95,7 +106,7 @@ class StudyResultPage extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              l10n.accuracy,
+              l10n.similarityScore,
               style: theme.textTheme.titleMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),
@@ -174,9 +185,4 @@ class StudyResultPage extends StatelessWidget {
     );
   }
 
-  Color _getAccuracyColor(double accuracy) {
-    if (accuracy >= 0.8) return Colors.green;
-    if (accuracy >= 0.5) return Colors.orange;
-    return Colors.red;
-  }
 }

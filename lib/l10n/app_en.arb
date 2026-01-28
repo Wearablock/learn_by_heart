@@ -49,5 +49,11 @@
   "noCardsToStudy": "No cards to study",
   "studyExitConfirm": "Your progress will be lost. Exit study?",
   "exit": "Exit",
-  "emptyAnswer": "(empty)"
+  "emptyAnswer": "(empty)",
+  "listening": "Listening...",
+  "tapMicToSpeak": "Tap the mic to speak",
+  "typeInstead": "Type instead",
+  "hideKeyboard": "Hide keyboard",
+  "speechNotAvailable": "Speech recognition not available",
+  "similarityScore": "Similarity"
 }

@@ -46,5 +46,11 @@
   "noCardsToStudy": "لا توجد بطاقات للدراسة",
   "studyExitConfirm": "لن يتم حفظ التقدم. هل تريد الخروج؟",
   "exit": "خروج",
-  "emptyAnswer": "(فارغ)"
+  "emptyAnswer": "(فارغ)",
+  "listening": "جاري الاستماع...",
+  "tapMicToSpeak": "اضغط على الميكروفون للتحدث",
+  "typeInstead": "اكتب بدلاً من ذلك",
+  "hideKeyboard": "إخفاء لوحة المفاتيح",
+  "speechNotAvailable": "التعرف على الصوت غير متاح",
+  "similarityScore": "التشابه"
 }

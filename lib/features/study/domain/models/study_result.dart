@@ -3,6 +3,7 @@ class StudyResult {
   final bool isCorrect;
   final String userAnswer;
   final String correctAnswer;
+  final double similarity;
   final int timeTakenMs;
 
   const StudyResult({
@@ -10,6 +11,7 @@ class StudyResult {
     required this.isCorrect,
     required this.userAnswer,
     required this.correctAnswer,
+    required this.similarity,
     this.timeTakenMs = 0,
   });
 }

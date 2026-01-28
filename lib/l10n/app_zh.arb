@@ -46,5 +46,11 @@
   "noCardsToStudy": "没有可学习的卡片",
   "studyExitConfirm": "进度将不会保存。确定退出？",
   "exit": "退出",
-  "emptyAnswer": "（空白）"
+  "emptyAnswer": "（空白）",
+  "listening": "正在听...",
+  "tapMicToSpeak": "点击麦克风说话",
+  "typeInstead": "手动输入",
+  "hideKeyboard": "隐藏键盘",
+  "speechNotAvailable": "语音识别不可用",
+  "similarityScore": "相似度"
 }

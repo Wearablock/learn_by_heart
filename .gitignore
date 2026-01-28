@@ -36,6 +36,9 @@ guides/
 /build/
 /coverage/
 
+# Generated localizations
+lib/l10n/app_localizations*.dart
+
 # Symbolication related
 app.*.symbols
 

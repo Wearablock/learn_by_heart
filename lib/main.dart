@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:learn_by_heart/core/database/database_service.dart';
+import 'package:learn_by_heart/core/database/seed_service.dart';
 import 'package:learn_by_heart/core/theme/app_theme.dart';
 import 'package:learn_by_heart/l10n/app_localizations.dart';
 import 'package:learn_by_heart/features/home/presentation/pages/home_page.dart';
@@ -9,6 +10,7 @@ import 'package:learn_by_heart/features/home/presentation/providers/card_provide
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseService.initialize();
+  await SeedService.seedIfEmpty();
   runApp(const MyApp());
 }
 

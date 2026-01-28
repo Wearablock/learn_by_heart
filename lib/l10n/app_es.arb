@@ -46,5 +46,11 @@
   "noCardsToStudy": "No hay tarjetas para estudiar",
   "studyExitConfirm": "El progreso no se guardará. ¿Salir?",
   "exit": "Salir",
-  "emptyAnswer": "(vacío)"
+  "emptyAnswer": "(vacío)",
+  "listening": "Escuchando...",
+  "tapMicToSpeak": "Toca el micrófono para hablar",
+  "typeInstead": "Escribir en su lugar",
+  "hideKeyboard": "Ocultar teclado",
+  "speechNotAvailable": "Reconocimiento de voz no disponible",
+  "similarityScore": "Similitud"
 }
