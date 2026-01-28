@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:learn_by_heart/core/database/database_service.dart';
 import 'package:learn_by_heart/core/theme/app_theme.dart';
 import 'package:learn_by_heart/l10n/app_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DatabaseService.initialize();
   runApp(const MyApp());
 }
 
