@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../dashboard/presentation/providers/dashboard_provider.dart';
 import '../../../statistics/presentation/providers/statistics_provider.dart';
@@ -97,10 +98,10 @@ class StudyResultPage extends StatelessWidget {
         padding: const EdgeInsets.all(32),
         child: Column(
           children: [
-            Icon(
-              isPassed ? Icons.celebration : Icons.sentiment_dissatisfied,
-              size: 64,
-              color: color,
+            ResultImage(
+              isCorrect: isPassed,
+              similarity: averageSimilarity,
+              size: 80,
             ),
             const SizedBox(height: 16),
             Text(

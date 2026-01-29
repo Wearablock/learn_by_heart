@@ -112,5 +112,14 @@
   "termsAndPolicies": "利用規約とポリシー",
   "termsOfService": "利用規約",
   "privacyPolicy": "プライバシーポリシー",
-  "support": "サポート"
+  "support": "サポート",
+
+  "skip": "スキップ",
+  "getStarted": "始める",
+  "onboardingTitle1": "カードを作成",
+  "onboardingDesc1": "暗記したいテキストや文章を追加しましょう。ヒントを使って記憶力を高めましょう。",
+  "onboardingTitle2": "話して学習",
+  "onboardingDesc2": "声に出して答えを言ってみましょう。音声認識があなたの正確さをチェックします。",
+  "onboardingTitle3": "進捗を確認",
+  "onboardingDesc3": "学習の連続記録と統計を確認しましょう。間隔反復で完璧に暗記しましょう。"
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:learn_by_heart/core/database/database_service.dart';
 import 'package:learn_by_heart/core/database/seed_service.dart';
 import 'package:learn_by_heart/core/theme/app_theme.dart';
@@ -10,16 +12,45 @@ import 'package:learn_by_heart/features/home/presentation/providers/card_provide
 import 'package:learn_by_heart/features/dashboard/presentation/providers/dashboard_provider.dart';
 import 'package:learn_by_heart/features/statistics/presentation/providers/statistics_provider.dart';
 import 'package:learn_by_heart/features/settings/presentation/providers/settings_provider.dart';
+import 'package:learn_by_heart/features/onboarding/presentation/pages/onboarding_page.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   await DatabaseService.initialize();
   await SeedService.seedIfEmpty();
-  runApp(const MyApp());
+
+  final prefs = await SharedPreferences.getInstance();
+  final showOnboarding = !(prefs.getBool('onboarding_complete') ?? false);
+
+  FlutterNativeSplash.remove();
+  runApp(MyApp(showOnboarding: showOnboarding));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  final bool showOnboarding;
+
+  const MyApp({super.key, required this.showOnboarding});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late bool _showOnboarding;
+
+  @override
+  void initState() {
+    super.initState();
+    _showOnboarding = widget.showOnboarding;
+  }
+
+  void _completeOnboarding() {
+    setState(() {
+      _showOnboarding = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +73,9 @@ class MyApp extends StatelessWidget {
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
             themeMode: settings.themeMode,
-            home: const MainScaffold(),
+            home: _showOnboarding
+                ? OnboardingPage(onComplete: _completeOnboarding)
+                : const MainScaffold(),
           );
         },
       ),

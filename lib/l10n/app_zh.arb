@@ -112,5 +112,14 @@
   "termsAndPolicies": "条款与政策",
   "termsOfService": "服务条款",
   "privacyPolicy": "隐私政策",
-  "support": "支持"
+  "support": "支持",
+
+  "skip": "跳过",
+  "getStarted": "开始使用",
+  "onboardingTitle1": "创建卡片",
+  "onboardingDesc1": "添加您想要记忆的文本和句子。使用提示帮助您记忆。",
+  "onboardingTitle2": "说出来学习",
+  "onboardingDesc2": "大声说出您的答案。语音识别会检查您的准确性。",
+  "onboardingTitle3": "追踪进度",
+  "onboardingDesc3": "查看您的学习连续记录和统计数据。通过间隔重复掌握内容。"
 }

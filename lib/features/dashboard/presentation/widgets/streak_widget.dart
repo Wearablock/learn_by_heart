@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class StreakWidget extends StatelessWidget {
@@ -21,10 +22,15 @@ class StreakWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            Icon(
-              Icons.local_fire_department,
-              size: 32,
-              color: theme.colorScheme.primary,
+            AppImage(
+              assetPath: AppImages.streakFire,
+              width: 40,
+              height: 40,
+              fallback: Icon(
+                Icons.local_fire_department,
+                size: 32,
+                color: theme.colorScheme.primary,
+              ),
             ),
             const SizedBox(width: 12),
             Expanded(

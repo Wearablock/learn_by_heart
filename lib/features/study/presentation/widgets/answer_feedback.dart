@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class AnswerFeedback extends StatelessWidget {
@@ -23,7 +24,6 @@ class AnswerFeedback extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     final color = isCorrect ? Colors.green : Colors.red;
-    final icon = isCorrect ? Icons.check_circle : Icons.cancel;
     final message = isCorrect ? l10n.correct : l10n.incorrect;
 
     return Column(
@@ -38,7 +38,11 @@ class AnswerFeedback extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Icon(icon, size: 64, color: color),
+              ResultImage(
+                isCorrect: isCorrect,
+                similarity: similarity,
+                size: 72,
+              ),
               const SizedBox(height: 12),
               Text(
                 message,

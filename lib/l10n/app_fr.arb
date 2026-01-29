@@ -112,5 +112,14 @@
   "termsAndPolicies": "Conditions et politiques",
   "termsOfService": "Conditions d'utilisation",
   "privacyPolicy": "Politique de confidentialité",
-  "support": "Assistance"
+  "support": "Assistance",
+
+  "skip": "Passer",
+  "getStarted": "Commencer",
+  "onboardingTitle1": "Créez vos cartes",
+  "onboardingDesc1": "Ajoutez des textes et des phrases que vous souhaitez mémoriser. Utilisez des indices pour vous aider à retenir.",
+  "onboardingTitle2": "Parlez pour apprendre",
+  "onboardingDesc2": "Entraînez-vous à dire vos réponses à voix haute. La reconnaissance vocale vérifie votre précision.",
+  "onboardingTitle3": "Suivez votre progression",
+  "onboardingDesc3": "Consultez votre série d'apprentissage et vos statistiques. Maîtrisez le contenu grâce à la répétition espacée."
 }

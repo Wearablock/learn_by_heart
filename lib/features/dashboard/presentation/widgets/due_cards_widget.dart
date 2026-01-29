@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../study/presentation/pages/study_page.dart';
 
@@ -32,11 +33,16 @@ class DueCardsWidget extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                Icon(
-                  Icons.schedule,
-                  color: dueCount > 0
-                      ? theme.colorScheme.error
-                      : theme.colorScheme.outline,
+                AppImage(
+                  assetPath: AppImages.dueCards,
+                  width: 32,
+                  height: 32,
+                  fallback: Icon(
+                    Icons.schedule,
+                    color: dueCount > 0
+                        ? theme.colorScheme.error
+                        : theme.colorScheme.outline,
+                  ),
                 ),
                 const SizedBox(width: 8),
                 Expanded(

@@ -115,5 +115,14 @@
   "termsAndPolicies": "Terms & Policies",
   "termsOfService": "Terms of Service",
   "privacyPolicy": "Privacy Policy",
-  "support": "Support"
+  "support": "Support",
+
+  "skip": "Skip",
+  "getStarted": "Get Started",
+  "onboardingTitle1": "Create Your Cards",
+  "onboardingDesc1": "Add texts and sentences you want to memorize. Use hints to help you remember.",
+  "onboardingTitle2": "Speak to Learn",
+  "onboardingDesc2": "Practice speaking your answers out loud. Speech recognition checks your accuracy.",
+  "onboardingTitle3": "Track Your Progress",
+  "onboardingDesc3": "See your learning streak and statistics. Master content through spaced repetition."
 }

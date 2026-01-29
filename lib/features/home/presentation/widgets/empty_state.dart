@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class EmptyState extends StatelessWidget {
@@ -20,9 +21,10 @@ class EmptyState extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.library_books_outlined,
-              size: 100,
+            EmptyStateImage(
+              assetPath: AppImages.emptyCards,
+              fallbackIcon: Icons.library_books_outlined,
+              size: 120,
               color: theme.colorScheme.primary.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 24),

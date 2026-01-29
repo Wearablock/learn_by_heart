@@ -112,5 +112,14 @@
   "termsAndPolicies": "Bedingungen & Richtlinien",
   "termsOfService": "Nutzungsbedingungen",
   "privacyPolicy": "Datenschutzrichtlinie",
-  "support": "Support"
+  "support": "Support",
+
+  "skip": "Überspringen",
+  "getStarted": "Loslegen",
+  "onboardingTitle1": "Erstelle deine Karten",
+  "onboardingDesc1": "Füge Texte und Sätze hinzu, die du auswendig lernen möchtest. Verwende Hinweise, um dir beim Erinnern zu helfen.",
+  "onboardingTitle2": "Sprechen zum Lernen",
+  "onboardingDesc2": "Übe, deine Antworten laut auszusprechen. Die Spracherkennung prüft deine Genauigkeit.",
+  "onboardingTitle3": "Verfolge deinen Fortschritt",
+  "onboardingDesc3": "Sieh dir deine Lernserien und Statistiken an. Beherrsche Inhalte durch verteilte Wiederholung."
 }

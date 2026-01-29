@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/app_urls.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../providers/settings_provider.dart';
 import 'webview_screen.dart';
@@ -331,13 +332,58 @@ class _AboutTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     return Column(
       children: [
-        ListTile(
-          leading: const Icon(Icons.info_outline),
-          title: Text(l10n.version),
-          subtitle: const Text('1.0.0'),
+        // App info with mascot
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: AppImage(
+                  assetPath: 'assets/icon/app_icon.png',
+                  width: 64,
+                  height: 64,
+                  fallback: Container(
+                    width: 64,
+                    height: 64,
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Icon(
+                      Icons.favorite,
+                      color: theme.colorScheme.primary,
+                      size: 32,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Learn by Heart',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '${l10n.version} 1.0.0',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         ListTile(
           leading: const Icon(Icons.description_outlined),

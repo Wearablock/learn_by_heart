@@ -112,5 +112,14 @@
   "termsAndPolicies": "條款與政策",
   "termsOfService": "服務條款",
   "privacyPolicy": "隱私權政策",
-  "support": "支援"
+  "support": "支援",
+
+  "skip": "略過",
+  "getStarted": "開始使用",
+  "onboardingTitle1": "建立卡片",
+  "onboardingDesc1": "新增您想要記憶的文字和句子。使用提示幫助您記憶。",
+  "onboardingTitle2": "說出來學習",
+  "onboardingDesc2": "練習大聲說出您的答案。語音辨識會檢查您的準確性。",
+  "onboardingTitle3": "追蹤進度",
+  "onboardingDesc3": "查看您的學習連續紀錄和統計資料。透過間隔重複掌握內容。"
 }

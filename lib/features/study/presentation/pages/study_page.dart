@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/services/speech_service.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../core/utils/text_similarity.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../card/data/models/memory_card.dart';
@@ -331,11 +332,17 @@ class _StudyPageState extends State<StudyPage> {
     }
 
     if (_cards.isEmpty) {
+      final theme = Theme.of(context);
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.inbox_outlined, size: 64),
+            EmptyStateImage(
+              assetPath: AppImages.emptyStudy,
+              fallbackIcon: Icons.inbox_outlined,
+              size: 100,
+              color: theme.colorScheme.primary.withValues(alpha: 0.5),
+            ),
             const SizedBox(height: 16),
             Text(l10n.noCardsToStudy),
             const SizedBox(height: 24),

@@ -47,6 +47,8 @@ dependencies:
   fl_chart: ^0.66.0
   shared_preferences: ^2.2.2
   webview_flutter: ^4.13.0
+  flutter_native_splash: ^2.4.7
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -103,3 +105,50 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  assets:
+    - assets/icon/
+    - assets/splash/
+    - assets/images/
+    - assets/images/onboarding/
+
+# App Icon Configuration
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+
+  # Android Adaptive Icon
+  adaptive_icon_background: "#FFFBFA"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
+
+  min_sdk_android: 21
+  remove_alpha_ios: true
+
+# Splash Screen Configuration
+flutter_native_splash:
+  color: "#FFFBFA"
+  image: assets/splash/splash_logo.png
+  branding: assets/splash/splash_branding.png
+  branding_mode: bottom
+  branding_bottom_padding: 50
+
+  android_12:
+    color: "#FFFBFA"
+    image: assets/splash/splash_logo_android12.png
+    branding: assets/splash/splash_branding.png
+    branding_mode: bottom
+    branding_bottom_padding: 50
+    # Dark mode for Android 12+
+    color_dark: "#1A1A1A"
+    image_dark: assets/splash/splash_logo_android12.png
+    branding_dark: assets/splash/splash_branding.png
+
+  ios: true
+  android: true
+  web: false
+
+  # Dark mode (Android 11 이하 & iOS)
+  color_dark: "#1A1A1A"
+  image_dark: assets/splash/splash_logo.png
+  branding_dark: assets/splash/splash_branding.png

@@ -112,5 +112,14 @@
   "termsAndPolicies": "약관 및 정책",
   "termsOfService": "서비스 이용약관",
   "privacyPolicy": "개인정보 처리방침",
-  "support": "고객 지원"
+  "support": "고객 지원",
+
+  "skip": "건너뛰기",
+  "getStarted": "시작하기",
+  "onboardingTitle1": "카드 만들기",
+  "onboardingDesc1": "암기하고 싶은 텍스트와 문장을 추가하세요. 힌트를 활용해 기억력을 높이세요.",
+  "onboardingTitle2": "말하며 학습하기",
+  "onboardingDesc2": "소리 내어 답을 말해보세요. 음성 인식이 정확도를 확인해줍니다.",
+  "onboardingTitle3": "진도 확인하기",
+  "onboardingDesc3": "학습 연속 기록과 통계를 확인하세요. 간격 반복을 통해 완벽하게 암기하세요."
 }

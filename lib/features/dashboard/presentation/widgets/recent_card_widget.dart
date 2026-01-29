@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../card/data/models/memory_card.dart';
 import '../../../study/presentation/pages/study_page.dart';
@@ -27,11 +28,24 @@ class RecentCardWidget extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             if (card == null)
-              Text(
-                l10n.noRecentStudy,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
+              Row(
+                children: [
+                  EmptyStateImage(
+                    assetPath: AppImages.emptyStudy,
+                    fallbackIcon: Icons.history,
+                    size: 48,
+                    color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      l10n.noRecentStudy,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ),
+                ],
               )
             else ...[
               Text(

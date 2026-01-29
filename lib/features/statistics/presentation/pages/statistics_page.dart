@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fl_chart/fl_chart.dart';
+import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../providers/statistics_provider.dart';
 
@@ -168,11 +169,23 @@ class _DailyChartCard extends StatelessWidget {
               height: 200,
               child: stats.isEmpty || stats.every((s) => s.studyCount == 0)
                   ? Center(
-                      child: Text(
-                        l10n.noStudyData,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          EmptyStateImage(
+                            assetPath: AppImages.emptyStats,
+                            fallbackIcon: Icons.bar_chart_outlined,
+                            size: 80,
+                            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            l10n.noStudyData,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
                       ),
                     )
                   : BarChart(
@@ -303,10 +316,26 @@ class _CardAccuracyCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             if (studiedCards.isEmpty)
-              Text(
-                l10n.noStudyData,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Row(
+                  children: [
+                    EmptyStateImage(
+                      assetPath: AppImages.emptyStats,
+                      fallbackIcon: Icons.analytics_outlined,
+                      size: 48,
+                      color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        l10n.noStudyData,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               )
             else
