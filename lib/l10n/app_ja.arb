@@ -54,5 +54,58 @@
   "speechNotAvailable": "音声認識は利用できません",
   "similarityScore": "類似度",
   "retry": "再試行",
-  "tapMicOrType": "マイクをタップして話すか、ここに入力"
+  "tapMicOrType": "マイクをタップして話すか、ここに入力",
+
+  "navHome": "ホーム",
+  "navCards": "カード",
+  "navStatistics": "統計",
+  "navSettings": "設定",
+
+  "dashboardStreak": "{days}日連続学習中！",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "最近学習したカード",
+  "noRecentStudy": "まだ学習記録がありません",
+  "todayProgress": "今日の学習",
+  "cardsStudiedToday": "{count}枚学習",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "復習予定",
+  "cardsDueCount": "{count}枚のカードが復習を待っています",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "全て学習開始",
+
+  "totalStudied": "総学習回数",
+  "averageAccuracy": "平均正答率",
+  "weeklyTab": "週間",
+  "monthlyTab": "月間",
+  "noStudyData": "学習データがありません",
+
+  "appearance": "外観",
+  "themeLight": "ライト",
+  "themeDark": "ダーク",
+  "themeSystem": "システム",
+  "language": "言語",
+  "studySettings": "学習設定",
+  "passThreshold": "正解基準",
+  "passThresholdDesc": "この類似度以上で正解とする",
+  "about": "情報",
+  "version": "バージョン",
+  "licenses": "オープンソースライセンス"
 }

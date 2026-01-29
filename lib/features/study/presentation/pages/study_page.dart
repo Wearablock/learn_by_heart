@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../../core/services/speech_service.dart';
 import '../../../../core/utils/text_similarity.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../card/data/models/memory_card.dart';
 import '../../../card/data/repositories/card_repository.dart';
+import '../../../settings/presentation/providers/settings_provider.dart';
 import '../../domain/models/study_result.dart';
 import '../widgets/study_progress_bar.dart';
 import '../widgets/speech_input_card.dart';
@@ -157,7 +159,8 @@ class _StudyPageState extends State<StudyPage> {
     final correctAnswer = _currentCard!.content.trim();
 
     final similarity = TextSimilarity.calculate(userAnswer, correctAnswer);
-    final isCorrect = similarity >= 0.8;
+    final passThreshold = context.read<SettingsProvider>().passThreshold;
+    final isCorrect = similarity >= passThreshold;
 
     final timeTaken = _cardStartTime != null
         ? DateTime.now().difference(_cardStartTime!).inMilliseconds

@@ -54,5 +54,58 @@
   "speechNotAvailable": "Spracherkennung nicht verfügbar",
   "similarityScore": "Ähnlichkeit",
   "retry": "Wiederholen",
-  "tapMicOrType": "Mikrofon tippen zum Sprechen oder hier eingeben"
+  "tapMicOrType": "Mikrofon tippen zum Sprechen oder hier eingeben",
+
+  "navHome": "Start",
+  "navCards": "Karten",
+  "navStatistics": "Statistik",
+  "navSettings": "Einstellungen",
+
+  "dashboardStreak": "{days} Tage in Folge!",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "Zuletzt gelernt",
+  "noRecentStudy": "Noch keine Lerneinträge",
+  "todayProgress": "Heutiger Fortschritt",
+  "cardsStudiedToday": "{count} Karten gelernt",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "Zur Wiederholung",
+  "cardsDueCount": "{count} Karten warten auf Wiederholung",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "Alle lernen",
+
+  "totalStudied": "Insgesamt gelernt",
+  "averageAccuracy": "Durchschnittliche Genauigkeit",
+  "weeklyTab": "Woche",
+  "monthlyTab": "Monat",
+  "noStudyData": "Keine Lerndaten vorhanden",
+
+  "appearance": "Erscheinungsbild",
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
+  "themeSystem": "System",
+  "language": "Sprache",
+  "studySettings": "Lerneinstellungen",
+  "passThreshold": "Bestehensgrenze",
+  "passThresholdDesc": "Als richtig werten ab dieser Ähnlichkeit",
+  "about": "Über",
+  "version": "Version",
+  "licenses": "Open-Source-Lizenzen"
 }

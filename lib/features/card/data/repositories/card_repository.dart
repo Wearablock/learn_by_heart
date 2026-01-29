@@ -2,6 +2,7 @@ import 'package:isar/isar.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../core/database/database_service.dart';
+import '../../../../core/utils/spaced_repetition.dart';
 import '../models/memory_card.dart';
 
 class CardRepository {
@@ -92,12 +93,28 @@ class CardRepository {
     final card = await getById(id);
     if (card == null) return;
 
-    final updated = card.copyWith(
-      repetitionCount: card.repetitionCount + 1,
-      lastStudiedAt: DateTime.now(),
-      lastSimilarity: similarity,
-      lastPassed: isCorrect,
+    // Calculate spaced repetition
+    final srResult = SpacedRepetition.calculate(
+      repetitionCount: isCorrect ? card.repetitionCount : 0,
+      easeFactor: card.easeFactor,
+      isCorrect: isCorrect,
+      similarity: similarity,
     );
+
+    final updated = MemoryCard()
+      ..isarId = card.isarId
+      ..id = card.id
+      ..content = card.content
+      ..hint = card.hint
+      ..categoryId = card.categoryId
+      ..createdAt = card.createdAt
+      ..updatedAt = DateTime.now()
+      ..repetitionCount = srResult.repetitionCount
+      ..easeFactor = srResult.easeFactor
+      ..nextReviewAt = srResult.nextReviewAt
+      ..lastStudiedAt = DateTime.now()
+      ..lastSimilarity = similarity
+      ..lastPassed = isCorrect;
 
     await _isar.writeTxn(() async {
       await _isar.memoryCards.put(updated);

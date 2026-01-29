@@ -57,5 +57,58 @@
   "speechNotAvailable": "Speech recognition not available",
   "similarityScore": "Similarity",
   "retry": "Retry",
-  "tapMicOrType": "Tap mic to speak or type here"
+  "tapMicOrType": "Tap mic to speak or type here",
+
+  "navHome": "Home",
+  "navCards": "Cards",
+  "navStatistics": "Statistics",
+  "navSettings": "Settings",
+
+  "dashboardStreak": "{days} day streak!",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "Recently Studied",
+  "noRecentStudy": "No study records yet",
+  "todayProgress": "Today's Progress",
+  "cardsStudiedToday": "{count} cards studied",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "Due for Review",
+  "cardsDueCount": "{count} cards waiting for review",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "Start All",
+
+  "totalStudied": "Total Studied",
+  "averageAccuracy": "Average Accuracy",
+  "weeklyTab": "Weekly",
+  "monthlyTab": "Monthly",
+  "noStudyData": "No study data yet",
+
+  "appearance": "Appearance",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "language": "Language",
+  "studySettings": "Study Settings",
+  "passThreshold": "Pass Threshold",
+  "passThresholdDesc": "Treat as correct if similarity is above this",
+  "about": "About",
+  "version": "Version",
+  "licenses": "Open Source Licenses"
 }

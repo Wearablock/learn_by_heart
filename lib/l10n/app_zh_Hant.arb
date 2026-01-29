@@ -54,5 +54,58 @@
   "speechNotAvailable": "語音識別不可用",
   "similarityScore": "相似度",
   "retry": "重試",
-  "tapMicOrType": "點擊麥克風說話或在此輸入"
+  "tapMicOrType": "點擊麥克風說話或在此輸入",
+
+  "navHome": "首頁",
+  "navCards": "卡片",
+  "navStatistics": "統計",
+  "navSettings": "設定",
+
+  "dashboardStreak": "連續學習{days}天！",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "最近學習的卡片",
+  "noRecentStudy": "還沒有學習記錄",
+  "todayProgress": "今日學習",
+  "cardsStudiedToday": "學習{count}張",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "待複習",
+  "cardsDueCount": "{count}張卡片等待複習",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "全部學習",
+
+  "totalStudied": "總學習次數",
+  "averageAccuracy": "平均正確率",
+  "weeklyTab": "週",
+  "monthlyTab": "月",
+  "noStudyData": "暫無學習資料",
+
+  "appearance": "外觀",
+  "themeLight": "淺色",
+  "themeDark": "深色",
+  "themeSystem": "跟隨系統",
+  "language": "語言",
+  "studySettings": "學習設定",
+  "passThreshold": "正確標準",
+  "passThresholdDesc": "相似度達到此值即為正確",
+  "about": "關於",
+  "version": "版本",
+  "licenses": "開源授權"
 }

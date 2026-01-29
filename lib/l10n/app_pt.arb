@@ -54,5 +54,58 @@
   "speechNotAvailable": "Reconhecimento de voz não disponível",
   "similarityScore": "Similaridade",
   "retry": "Tentar novamente",
-  "tapMicOrType": "Toque no microfone para falar ou digite aqui"
+  "tapMicOrType": "Toque no microfone para falar ou digite aqui",
+
+  "navHome": "Início",
+  "navCards": "Cartões",
+  "navStatistics": "Estatísticas",
+  "navSettings": "Configurações",
+
+  "dashboardStreak": "{days} dias consecutivos!",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "Estudado recentemente",
+  "noRecentStudy": "Nenhum histórico de estudo",
+  "todayProgress": "Progresso de hoje",
+  "cardsStudiedToday": "{count} cartões estudados",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "Para revisar",
+  "cardsDueCount": "{count} cartões aguardando revisão",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "Estudar tudo",
+
+  "totalStudied": "Total estudado",
+  "averageAccuracy": "Precisão média",
+  "weeklyTab": "Semanal",
+  "monthlyTab": "Mensal",
+  "noStudyData": "Sem dados de estudo",
+
+  "appearance": "Aparência",
+  "themeLight": "Claro",
+  "themeDark": "Escuro",
+  "themeSystem": "Sistema",
+  "language": "Idioma",
+  "studySettings": "Configurações de estudo",
+  "passThreshold": "Limite de aprovação",
+  "passThresholdDesc": "Correto se a similaridade exceder este valor",
+  "about": "Sobre",
+  "version": "Versão",
+  "licenses": "Licenças de código aberto"
 }

@@ -54,5 +54,58 @@
   "speechNotAvailable": "语音识别不可用",
   "similarityScore": "相似度",
   "retry": "重试",
-  "tapMicOrType": "点击麦克风说话或在此输入"
+  "tapMicOrType": "点击麦克风说话或在此输入",
+
+  "navHome": "首页",
+  "navCards": "卡片",
+  "navStatistics": "统计",
+  "navSettings": "设置",
+
+  "dashboardStreak": "连续学习{days}天！",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "最近学习的卡片",
+  "noRecentStudy": "还没有学习记录",
+  "todayProgress": "今日学习",
+  "cardsStudiedToday": "学习{count}张",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "待复习",
+  "cardsDueCount": "{count}张卡片等待复习",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "全部学习",
+
+  "totalStudied": "总学习次数",
+  "averageAccuracy": "平均正确率",
+  "weeklyTab": "周",
+  "monthlyTab": "月",
+  "noStudyData": "暂无学习数据",
+
+  "appearance": "外观",
+  "themeLight": "浅色",
+  "themeDark": "深色",
+  "themeSystem": "跟随系统",
+  "language": "语言",
+  "studySettings": "学习设置",
+  "passThreshold": "正确标准",
+  "passThresholdDesc": "相似度达到此值即为正确",
+  "about": "关于",
+  "version": "版本",
+  "licenses": "开源许可"
 }

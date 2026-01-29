@@ -54,5 +54,58 @@
   "speechNotAvailable": "음성 인식을 사용할 수 없습니다",
   "similarityScore": "유사도",
   "retry": "재시도",
-  "tapMicOrType": "마이크를 눌러 말하거나 여기에 입력하세요"
+  "tapMicOrType": "마이크를 눌러 말하거나 여기에 입력하세요",
+
+  "navHome": "홈",
+  "navCards": "카드",
+  "navStatistics": "통계",
+  "navSettings": "설정",
+
+  "dashboardStreak": "{days}일 연속 학습중!",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "최근 학습한 카드",
+  "noRecentStudy": "아직 학습 기록이 없어요",
+  "todayProgress": "오늘의 학습",
+  "cardsStudiedToday": "{count}장 학습",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "복습 예정",
+  "cardsDueCount": "{count}장의 카드가 복습을 기다려요",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "전체 학습 시작",
+
+  "totalStudied": "총 학습",
+  "averageAccuracy": "평균 정답률",
+  "weeklyTab": "주간",
+  "monthlyTab": "월간",
+  "noStudyData": "학습 데이터가 없어요",
+
+  "appearance": "외관",
+  "themeLight": "라이트",
+  "themeDark": "다크",
+  "themeSystem": "시스템",
+  "language": "언어",
+  "studySettings": "학습 설정",
+  "passThreshold": "정답 기준",
+  "passThresholdDesc": "이 유사도 이상이면 정답으로 처리",
+  "about": "정보",
+  "version": "버전",
+  "licenses": "오픈소스 라이선스"
 }

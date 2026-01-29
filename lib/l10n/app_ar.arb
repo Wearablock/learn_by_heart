@@ -54,5 +54,58 @@
   "speechNotAvailable": "التعرف على الصوت غير متاح",
   "similarityScore": "التشابه",
   "retry": "إعادة المحاولة",
-  "tapMicOrType": "اضغط على الميكروفون للتحدث أو اكتب هنا"
+  "tapMicOrType": "اضغط على الميكروفون للتحدث أو اكتب هنا",
+
+  "navHome": "الرئيسية",
+  "navCards": "البطاقات",
+  "navStatistics": "الإحصائيات",
+  "navSettings": "الإعدادات",
+
+  "dashboardStreak": "{days} يوم متتالي!",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "تمت دراسته مؤخراً",
+  "noRecentStudy": "لا يوجد سجل دراسة بعد",
+  "todayProgress": "تقدم اليوم",
+  "cardsStudiedToday": "تمت دراسة {count} بطاقة",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "للمراجعة",
+  "cardsDueCount": "{count} بطاقة تنتظر المراجعة",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "دراسة الكل",
+
+  "totalStudied": "إجمالي الدراسة",
+  "averageAccuracy": "متوسط الدقة",
+  "weeklyTab": "أسبوعي",
+  "monthlyTab": "شهري",
+  "noStudyData": "لا توجد بيانات دراسة",
+
+  "appearance": "المظهر",
+  "themeLight": "فاتح",
+  "themeDark": "داكن",
+  "themeSystem": "النظام",
+  "language": "اللغة",
+  "studySettings": "إعدادات الدراسة",
+  "passThreshold": "عتبة النجاح",
+  "passThresholdDesc": "صحيح إذا تجاوز التشابه هذه القيمة",
+  "about": "حول",
+  "version": "الإصدار",
+  "licenses": "تراخيص المصادر المفتوحة"
 }

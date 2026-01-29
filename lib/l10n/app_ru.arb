@@ -54,5 +54,58 @@
   "speechNotAvailable": "Распознавание речи недоступно",
   "similarityScore": "Сходство",
   "retry": "Повторить",
-  "tapMicOrType": "Нажмите на микрофон, чтобы говорить, или введите здесь"
+  "tapMicOrType": "Нажмите на микрофон, чтобы говорить, или введите здесь",
+
+  "navHome": "Главная",
+  "navCards": "Карточки",
+  "navStatistics": "Статистика",
+  "navSettings": "Настройки",
+
+  "dashboardStreak": "{days} дней подряд!",
+  "@dashboardStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "recentlyStudied": "Недавно изученное",
+  "noRecentStudy": "История обучения пуста",
+  "todayProgress": "Прогресс за сегодня",
+  "cardsStudiedToday": "Изучено {count} карточек",
+  "@cardsStudiedToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueForReview": "К повторению",
+  "cardsDueCount": "{count} карточек ждут повторения",
+  "@cardsDueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startStudyAll": "Изучить все",
+
+  "totalStudied": "Всего изучено",
+  "averageAccuracy": "Средняя точность",
+  "weeklyTab": "Неделя",
+  "monthlyTab": "Месяц",
+  "noStudyData": "Нет данных об обучении",
+
+  "appearance": "Оформление",
+  "themeLight": "Светлая",
+  "themeDark": "Тёмная",
+  "themeSystem": "Системная",
+  "language": "Язык",
+  "studySettings": "Настройки обучения",
+  "passThreshold": "Порог правильности",
+  "passThresholdDesc": "Засчитывать как верно при сходстве выше этого значения",
+  "about": "О приложении",
+  "version": "Версия",
+  "licenses": "Лицензии с открытым кодом"
 }
