@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../dashboard/presentation/providers/dashboard_provider.dart';
+import '../../../statistics/presentation/providers/statistics_provider.dart';
 import '../../domain/models/study_result.dart';
 import 'study_page.dart';
 
@@ -36,6 +39,9 @@ class StudyResultPage extends StatelessWidget {
   }
 
   void _onFinish(BuildContext context) {
+    // Refresh dashboard and statistics data before going back
+    context.read<DashboardProvider>().refresh();
+    context.read<StatisticsProvider>().refresh();
     Navigator.pop(context);
   }
 

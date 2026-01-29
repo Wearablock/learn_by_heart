@@ -6,6 +6,7 @@ import '../../../../l10n/app_localizations.dart';
 import '../../../card/data/models/memory_card.dart';
 import '../../../card/data/repositories/card_repository.dart';
 import '../../../settings/presentation/providers/settings_provider.dart';
+import '../../data/repositories/study_repository.dart';
 import '../../domain/models/study_result.dart';
 import '../widgets/study_progress_bar.dart';
 import '../widgets/speech_input_card.dart';
@@ -23,11 +24,13 @@ class StudyPage extends StatefulWidget {
 
 class _StudyPageState extends State<StudyPage> {
   final _repository = CardRepository();
+  final _studyRepository = StudyRepository();
   final _speechService = SpeechService();
   final _answerController = TextEditingController();
 
   List<MemoryCard> _cards = [];
   final List<StudyResult> _results = [];
+  String? _sessionId;
 
   int _currentIndex = 0;
   bool _isLoading = true;
@@ -84,6 +87,14 @@ class _StudyPageState extends State<StudyPage> {
 
       cards.shuffle();
 
+      // Create study session
+      if (cards.isNotEmpty) {
+        final session = await _studyRepository.createSession(
+          cardIds: cards.map((c) => c.id).toList(),
+        );
+        _sessionId = session.id;
+      }
+
       setState(() {
         _cards = cards;
         _isLoading = false;
@@ -127,6 +138,13 @@ class _StudyPageState extends State<StudyPage> {
         },
         locale: _detectLocale(_currentCard?.content ?? ''),
       );
+    }
+  }
+
+  Future<void> _stopListening() async {
+    if (_isListening) {
+      await _speechService.stopListening();
+      setState(() => _isListening = false);
     }
   }
 
@@ -175,11 +193,23 @@ class _StudyPageState extends State<StudyPage> {
       timeTakenMs: timeTaken,
     ));
 
+    // Update card study result
     await _repository.updateStudyResult(
       id: _currentCard!.id,
       isCorrect: isCorrect,
       similarity: similarity,
     );
+
+    // Create study record
+    if (_sessionId != null) {
+      await _studyRepository.createRecord(
+        cardId: _currentCard!.id,
+        sessionId: _sessionId!,
+        isCorrect: isCorrect,
+        userAnswer: userAnswer,
+        timeTakenMs: timeTaken,
+      );
+    }
 
     setState(() {
       _showingFeedback = true;
@@ -188,9 +218,9 @@ class _StudyPageState extends State<StudyPage> {
     });
   }
 
-  void _nextCard() {
+  Future<void> _nextCard() async {
     if (_currentIndex + 1 >= _cards.length) {
-      _showResults();
+      await _showResults();
     } else {
       setState(() {
         _currentIndex++;
@@ -203,7 +233,21 @@ class _StudyPageState extends State<StudyPage> {
     }
   }
 
-  void _showResults() {
+  Future<void> _showResults() async {
+    // Complete the study session
+    if (_sessionId != null) {
+      final correctCount = _results.where((r) => r.isCorrect).length;
+      final wrongCount = _results.where((r) => !r.isCorrect).length;
+
+      await _studyRepository.completeSession(
+        sessionId: _sessionId!,
+        correctCount: correctCount,
+        wrongCount: wrongCount,
+      );
+    }
+
+    if (!mounted) return;
+
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -329,6 +373,7 @@ class _StudyPageState extends State<StudyPage> {
               controller: _answerController,
               onMicPressed: _toggleListening,
               onSubmit: _checkAnswer,
+              onTypingStarted: _stopListening,
             ),
         ],
       ),

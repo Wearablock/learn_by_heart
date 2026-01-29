@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 
-class SpeechInputCard extends StatelessWidget {
+class SpeechInputCard extends StatefulWidget {
   final String? hint;
   final bool isListening;
   final TextEditingController controller;
   final VoidCallback onMicPressed;
   final VoidCallback onSubmit;
+  final VoidCallback? onTypingStarted;
 
   const SpeechInputCard({
     super.key,
@@ -15,7 +16,45 @@ class SpeechInputCard extends StatelessWidget {
     required this.controller,
     required this.onMicPressed,
     required this.onSubmit,
+    this.onTypingStarted,
   });
+
+  @override
+  State<SpeechInputCard> createState() => _SpeechInputCardState();
+}
+
+class _SpeechInputCardState extends State<SpeechInputCard> {
+  final FocusNode _focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(_onFocusChange);
+  }
+
+  @override
+  void dispose() {
+    _focusNode.removeListener(_onFocusChange);
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _onFocusChange() {
+    if (_focusNode.hasFocus && widget.isListening) {
+      // Typing started while recording - stop recording
+      widget.onTypingStarted?.call();
+    }
+  }
+
+  void _onMicPressed() {
+    // Dismiss keyboard when mic is pressed
+    _focusNode.unfocus();
+    widget.onMicPressed();
+  }
+
+  void _dismissKeyboard() {
+    _focusNode.unfocus();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +65,7 @@ class SpeechInputCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // Hint card
-        if (hint != null && hint!.isNotEmpty) ...[
+        if (widget.hint != null && widget.hint!.isNotEmpty) ...[
           Card(
             child: Padding(
               padding: const EdgeInsets.all(16),
@@ -52,7 +91,7 @@ class SpeechInputCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    hint!,
+                    widget.hint!,
                     style: theme.textTheme.bodyLarge,
                   ),
                 ],
@@ -72,24 +111,25 @@ class SpeechInputCard extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      isListening ? Icons.mic : Icons.edit_note,
+                      widget.isListening ? Icons.mic : Icons.edit_note,
                       size: 18,
-                      color: isListening
+                      color: widget.isListening
                           ? theme.colorScheme.error
                           : theme.colorScheme.onSurfaceVariant,
                     ),
                     const SizedBox(width: 8),
-                    Text(
-                      isListening ? l10n.listening : l10n.yourAnswer,
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        color: isListening
-                            ? theme.colorScheme.error
-                            : theme.colorScheme.onSurfaceVariant,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        widget.isListening ? l10n.listening : l10n.yourAnswer,
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: widget.isListening
+                              ? theme.colorScheme.error
+                              : theme.colorScheme.onSurfaceVariant,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    if (isListening) ...[
-                      const SizedBox(width: 8),
+                    if (widget.isListening) ...[
                       SizedBox(
                         width: 12,
                         height: 12,
@@ -99,13 +139,25 @@ class SpeechInputCard extends StatelessWidget {
                         ),
                       ),
                     ],
+                    if (_focusNode.hasFocus) ...[
+                      IconButton(
+                        onPressed: _dismissKeyboard,
+                        icon: const Icon(Icons.keyboard_hide),
+                        iconSize: 20,
+                        visualDensity: VisualDensity.compact,
+                        tooltip: l10n.hideKeyboard,
+                      ),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 12),
                 TextField(
-                  controller: controller,
+                  controller: widget.controller,
+                  focusNode: _focusNode,
                   maxLines: 4,
                   minLines: 3,
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _dismissKeyboard(),
                   decoration: InputDecoration(
                     hintText: l10n.tapMicOrType,
                     border: OutlineInputBorder(
@@ -123,7 +175,7 @@ class SpeechInputCard extends StatelessWidget {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: isListening
+                        color: widget.isListening
                             ? theme.colorScheme.error
                             : theme.colorScheme.primary,
                         width: 2,
@@ -143,29 +195,29 @@ class SpeechInputCard extends StatelessWidget {
         // Mic button
         Center(
           child: GestureDetector(
-            onTap: onMicPressed,
+            onTap: _onMicPressed,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               width: 64,
               height: 64,
               decoration: BoxDecoration(
-                color: isListening
+                color: widget.isListening
                     ? theme.colorScheme.error
                     : theme.colorScheme.primary,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: (isListening
+                    color: (widget.isListening
                             ? theme.colorScheme.error
                             : theme.colorScheme.primary)
                         .withValues(alpha: 0.3),
-                    blurRadius: isListening ? 20 : 10,
-                    spreadRadius: isListening ? 5 : 2,
+                    blurRadius: widget.isListening ? 20 : 10,
+                    spreadRadius: widget.isListening ? 5 : 2,
                   ),
                 ],
               ),
               child: Icon(
-                isListening ? Icons.stop : Icons.mic,
+                widget.isListening ? Icons.stop : Icons.mic,
                 color: Colors.white,
                 size: 28,
               ),
@@ -175,7 +227,7 @@ class SpeechInputCard extends StatelessWidget {
         const SizedBox(height: 8),
         Center(
           child: Text(
-            isListening ? l10n.listening : l10n.tapMicToSpeak,
+            widget.isListening ? l10n.listening : l10n.tapMicToSpeak,
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
@@ -185,7 +237,7 @@ class SpeechInputCard extends StatelessWidget {
 
         // Submit button
         FilledButton(
-          onPressed: controller.text.trim().isNotEmpty ? onSubmit : null,
+          onPressed: widget.controller.text.trim().isNotEmpty ? widget.onSubmit : null,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
             child: Text(l10n.submit),

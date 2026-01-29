@@ -2,13 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../dashboard/presentation/pages/dashboard_page.dart';
+import '../../../dashboard/presentation/providers/dashboard_provider.dart';
 import '../../../cards/presentation/pages/cards_page.dart';
 import '../../../statistics/presentation/pages/statistics_page.dart';
+import '../../../statistics/presentation/providers/statistics_provider.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
 import '../providers/navigation_provider.dart';
 
-class MainScaffold extends StatelessWidget {
+class MainScaffold extends StatefulWidget {
   const MainScaffold({super.key});
+
+  @override
+  State<MainScaffold> createState() => _MainScaffoldState();
+}
+
+class _MainScaffoldState extends State<MainScaffold> {
+  int _previousIndex = 0;
+
+  void _onDestinationSelected(BuildContext context, int index) {
+    final navProvider = context.read<NavigationProvider>();
+
+    // Refresh data when switching to dashboard or statistics tab
+    if (index == 0 && _previousIndex != 0) {
+      context.read<DashboardProvider>().refresh();
+    } else if (index == 2 && _previousIndex != 2) {
+      context.read<StatisticsProvider>().refresh();
+    }
+
+    _previousIndex = index;
+    navProvider.setIndex(index);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +51,7 @@ class MainScaffold extends StatelessWidget {
           ),
           bottomNavigationBar: NavigationBar(
             selectedIndex: navProvider.currentIndex,
-            onDestinationSelected: navProvider.setIndex,
+            onDestinationSelected: (index) => _onDestinationSelected(context, index),
             destinations: [
               NavigationDestination(
                 icon: const Icon(Icons.home_outlined),
