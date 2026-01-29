@@ -1,8 +1,8 @@
 class AppUrls {
   AppUrls._();
 
-  // GitHub Pages base URL (update after deployment)
-  static const String baseDocsUrl = 'https://YOUR_USERNAME.github.io/learn_by_heart';
+  // GitHub Pages base URL
+  static const String baseDocsUrl = 'https://wearablock.github.io/learn_by_heart';
 
   // Terms and policies
   static const String termsUrl = '$baseDocsUrl/terms.html';

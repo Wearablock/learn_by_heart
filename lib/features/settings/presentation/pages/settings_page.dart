@@ -274,6 +274,8 @@ class _TermsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context);
+    final langCode = locale.languageCode;
 
     return Column(
       children: [
@@ -284,7 +286,7 @@ class _TermsTile extends StatelessWidget {
           onTap: () => _openWebView(
             context,
             l10n.termsOfService,
-            AppUrls.termsUrl,
+            _buildUrlWithLang(AppUrls.termsUrl, langCode),
           ),
         ),
         ListTile(
@@ -294,7 +296,7 @@ class _TermsTile extends StatelessWidget {
           onTap: () => _openWebView(
             context,
             l10n.privacyPolicy,
-            AppUrls.privacyUrl,
+            _buildUrlWithLang(AppUrls.privacyUrl, langCode),
           ),
         ),
         ListTile(
@@ -304,11 +306,15 @@ class _TermsTile extends StatelessWidget {
           onTap: () => _openWebView(
             context,
             l10n.support,
-            AppUrls.supportUrl,
+            _buildUrlWithLang(AppUrls.supportUrl, langCode),
           ),
         ),
       ],
     );
+  }
+
+  String _buildUrlWithLang(String url, String langCode) {
+    return '$url?lang=$langCode';
   }
 
   void _openWebView(BuildContext context, String title, String url) {
