@@ -55,5 +55,7 @@
   "typeInstead": "Type instead",
   "hideKeyboard": "Hide keyboard",
   "speechNotAvailable": "Speech recognition not available",
-  "similarityScore": "Similarity"
+  "similarityScore": "Similarity",
+  "retry": "Retry",
+  "tapMicOrType": "Tap mic to speak or type here"
 }

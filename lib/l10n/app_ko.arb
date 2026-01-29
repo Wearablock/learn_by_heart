@@ -52,5 +52,7 @@
   "typeInstead": "직접 입력",
   "hideKeyboard": "키보드 숨기기",
   "speechNotAvailable": "음성 인식을 사용할 수 없습니다",
-  "similarityScore": "유사도"
+  "similarityScore": "유사도",
+  "retry": "재시도",
+  "tapMicOrType": "마이크를 눌러 말하거나 여기에 입력하세요"
 }

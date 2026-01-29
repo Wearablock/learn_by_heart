@@ -47,23 +47,33 @@ const MemoryCardSchema = CollectionSchema(
       name: r'id',
       type: IsarType.string,
     ),
-    r'lastStudiedAt': PropertySchema(
+    r'lastPassed': PropertySchema(
       id: 6,
+      name: r'lastPassed',
+      type: IsarType.bool,
+    ),
+    r'lastSimilarity': PropertySchema(
+      id: 7,
+      name: r'lastSimilarity',
+      type: IsarType.double,
+    ),
+    r'lastStudiedAt': PropertySchema(
+      id: 8,
       name: r'lastStudiedAt',
       type: IsarType.dateTime,
     ),
     r'nextReviewAt': PropertySchema(
-      id: 7,
+      id: 9,
       name: r'nextReviewAt',
       type: IsarType.dateTime,
     ),
     r'repetitionCount': PropertySchema(
-      id: 8,
+      id: 10,
       name: r'repetitionCount',
       type: IsarType.long,
     ),
     r'updatedAt': PropertySchema(
-      id: 9,
+      id: 11,
       name: r'updatedAt',
       type: IsarType.dateTime,
     )
@@ -144,10 +154,12 @@ void _memoryCardSerialize(
   writer.writeLong(offsets[3], object.easeFactor);
   writer.writeString(offsets[4], object.hint);
   writer.writeString(offsets[5], object.id);
-  writer.writeDateTime(offsets[6], object.lastStudiedAt);
-  writer.writeDateTime(offsets[7], object.nextReviewAt);
-  writer.writeLong(offsets[8], object.repetitionCount);
-  writer.writeDateTime(offsets[9], object.updatedAt);
+  writer.writeBool(offsets[6], object.lastPassed);
+  writer.writeDouble(offsets[7], object.lastSimilarity);
+  writer.writeDateTime(offsets[8], object.lastStudiedAt);
+  writer.writeDateTime(offsets[9], object.nextReviewAt);
+  writer.writeLong(offsets[10], object.repetitionCount);
+  writer.writeDateTime(offsets[11], object.updatedAt);
 }
 
 MemoryCard _memoryCardDeserialize(
@@ -164,10 +176,12 @@ MemoryCard _memoryCardDeserialize(
   object.hint = reader.readStringOrNull(offsets[4]);
   object.id = reader.readString(offsets[5]);
   object.isarId = id;
-  object.lastStudiedAt = reader.readDateTimeOrNull(offsets[6]);
-  object.nextReviewAt = reader.readDateTimeOrNull(offsets[7]);
-  object.repetitionCount = reader.readLong(offsets[8]);
-  object.updatedAt = reader.readDateTime(offsets[9]);
+  object.lastPassed = reader.readBoolOrNull(offsets[6]);
+  object.lastSimilarity = reader.readDoubleOrNull(offsets[7]);
+  object.lastStudiedAt = reader.readDateTimeOrNull(offsets[8]);
+  object.nextReviewAt = reader.readDateTimeOrNull(offsets[9]);
+  object.repetitionCount = reader.readLong(offsets[10]);
+  object.updatedAt = reader.readDateTime(offsets[11]);
   return object;
 }
 
@@ -191,12 +205,16 @@ P _memoryCardDeserializeProp<P>(
     case 5:
       return (reader.readString(offset)) as P;
     case 6:
-      return (reader.readDateTimeOrNull(offset)) as P;
+      return (reader.readBoolOrNull(offset)) as P;
     case 7:
-      return (reader.readDateTimeOrNull(offset)) as P;
+      return (reader.readDoubleOrNull(offset)) as P;
     case 8:
-      return (reader.readLong(offset)) as P;
+      return (reader.readDateTimeOrNull(offset)) as P;
     case 9:
+      return (reader.readDateTimeOrNull(offset)) as P;
+    case 10:
+      return (reader.readLong(offset)) as P;
+    case 11:
       return (reader.readDateTime(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -1186,6 +1204,118 @@ extension MemoryCardQueryFilter
   }
 
   QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastPassedIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'lastPassed',
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastPassedIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'lastPassed',
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition> lastPassedEqualTo(
+      bool? value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'lastPassed',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastSimilarityIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'lastSimilarity',
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastSimilarityIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'lastSimilarity',
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastSimilarityEqualTo(
+    double? value, {
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'lastSimilarity',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastSimilarityGreaterThan(
+    double? value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'lastSimilarity',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastSimilarityLessThan(
+    double? value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'lastSimilarity',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
+      lastSimilarityBetween(
+    double? lower,
+    double? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'lastSimilarity',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterFilterCondition>
       lastStudiedAtIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
@@ -1524,6 +1654,31 @@ extension MemoryCardQuerySortBy
     });
   }
 
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> sortByLastPassed() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastPassed', Sort.asc);
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> sortByLastPassedDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastPassed', Sort.desc);
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> sortByLastSimilarity() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastSimilarity', Sort.asc);
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy>
+      sortByLastSimilarityDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastSimilarity', Sort.desc);
+    });
+  }
+
   QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> sortByLastStudiedAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lastStudiedAt', Sort.asc);
@@ -1660,6 +1815,31 @@ extension MemoryCardQuerySortThenBy
     });
   }
 
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> thenByLastPassed() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastPassed', Sort.asc);
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> thenByLastPassedDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastPassed', Sort.desc);
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> thenByLastSimilarity() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastSimilarity', Sort.asc);
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy>
+      thenByLastSimilarityDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'lastSimilarity', Sort.desc);
+    });
+  }
+
   QueryBuilder<MemoryCard, MemoryCard, QAfterSortBy> thenByLastStudiedAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lastStudiedAt', Sort.asc);
@@ -1752,6 +1932,18 @@ extension MemoryCardQueryWhereDistinct
     });
   }
 
+  QueryBuilder<MemoryCard, MemoryCard, QDistinct> distinctByLastPassed() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'lastPassed');
+    });
+  }
+
+  QueryBuilder<MemoryCard, MemoryCard, QDistinct> distinctByLastSimilarity() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'lastSimilarity');
+    });
+  }
+
   QueryBuilder<MemoryCard, MemoryCard, QDistinct> distinctByLastStudiedAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'lastStudiedAt');
@@ -1818,6 +2010,18 @@ extension MemoryCardQueryProperty
   QueryBuilder<MemoryCard, String, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
+    });
+  }
+
+  QueryBuilder<MemoryCard, bool?, QQueryOperations> lastPassedProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'lastPassed');
+    });
+  }
+
+  QueryBuilder<MemoryCard, double?, QQueryOperations> lastSimilarityProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'lastSimilarity');
     });
   }
 

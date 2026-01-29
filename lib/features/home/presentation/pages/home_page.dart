@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 16),
                   FilledButton(
                     onPressed: () => provider.loadCards(),
-                    child: const Text('Retry'),
+                    child: Text(l10n.retry),
                   ),
                 ],
               ),

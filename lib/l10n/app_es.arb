@@ -52,5 +52,7 @@
   "typeInstead": "Escribir en su lugar",
   "hideKeyboard": "Ocultar teclado",
   "speechNotAvailable": "Reconocimiento de voz no disponible",
-  "similarityScore": "Similitud"
+  "similarityScore": "Similitud",
+  "retry": "Reintentar",
+  "tapMicOrType": "Toca el micrófono para hablar o escribe aquí"
 }

@@ -260,7 +260,7 @@ class _CardEditorPageState extends State<CardEditorPage> {
             const SizedBox(height: 16),
             FilledButton(
               onPressed: _loadCard,
-              child: const Text('Retry'),
+              child: Text(l10n.retry),
             ),
           ],
         ),

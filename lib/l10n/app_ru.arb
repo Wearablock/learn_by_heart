@@ -52,5 +52,7 @@
   "typeInstead": "Ввести вручную",
   "hideKeyboard": "Скрыть клавиатуру",
   "speechNotAvailable": "Распознавание речи недоступно",
-  "similarityScore": "Сходство"
+  "similarityScore": "Сходство",
+  "retry": "Повторить",
+  "tapMicOrType": "Нажмите на микрофон, чтобы говорить, или введите здесь"
 }

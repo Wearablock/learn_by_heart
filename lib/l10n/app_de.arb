@@ -52,5 +52,7 @@
   "typeInstead": "Stattdessen tippen",
   "hideKeyboard": "Tastatur ausblenden",
   "speechNotAvailable": "Spracherkennung nicht verfügbar",
-  "similarityScore": "Ähnlichkeit"
+  "similarityScore": "Ähnlichkeit",
+  "retry": "Wiederholen",
+  "tapMicOrType": "Mikrofon tippen zum Sprechen oder hier eingeben"
 }

@@ -3,24 +3,18 @@ import '../../../../l10n/app_localizations.dart';
 
 class SpeechInputCard extends StatelessWidget {
   final String? hint;
-  final String recognizedText;
   final bool isListening;
   final TextEditingController controller;
   final VoidCallback onMicPressed;
   final VoidCallback onSubmit;
-  final bool showTextField;
-  final VoidCallback onToggleTextField;
 
   const SpeechInputCard({
     super.key,
     this.hint,
-    required this.recognizedText,
     required this.isListening,
     required this.controller,
     required this.onMicPressed,
     required this.onSubmit,
-    required this.showTextField,
-    required this.onToggleTextField,
   });
 
   @override
@@ -68,7 +62,7 @@ class SpeechInputCard extends StatelessWidget {
           const SizedBox(height: 24),
         ],
 
-        // Recognized text display
+        // Combined input card
         Card(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -78,7 +72,7 @@ class SpeechInputCard extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      isListening ? Icons.mic : Icons.mic_none,
+                      isListening ? Icons.mic : Icons.edit_note,
                       size: 18,
                       color: isListening
                           ? theme.colorScheme.error
@@ -94,31 +88,57 @@ class SpeechInputCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    if (isListening) ...[
+                      const SizedBox(width: 8),
+                      SizedBox(
+                        width: 12,
+                        height: 12,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: theme.colorScheme.error,
+                        ),
+                      ),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 12),
-                Container(
-                  width: double.infinity,
-                  constraints: const BoxConstraints(minHeight: 80),
-                  child: Text(
-                    recognizedText.isEmpty
-                        ? (isListening ? '...' : l10n.tapMicToSpeak)
-                        : recognizedText,
-                    style: theme.textTheme.bodyLarge?.copyWith(
-                      fontStyle: recognizedText.isEmpty
-                          ? FontStyle.italic
-                          : FontStyle.normal,
-                      color: recognizedText.isEmpty
-                          ? theme.colorScheme.onSurfaceVariant
-                          : null,
+                TextField(
+                  controller: controller,
+                  maxLines: 4,
+                  minLines: 3,
+                  decoration: InputDecoration(
+                    hintText: l10n.tapMicOrType,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: theme.colorScheme.outline.withValues(alpha: 0.3),
+                      ),
                     ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: theme.colorScheme.outline.withValues(alpha: 0.3),
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: isListening
+                            ? theme.colorScheme.error
+                            : theme.colorScheme.primary,
+                        width: 2,
+                      ),
+                    ),
+                    filled: true,
+                    fillColor: theme.colorScheme.surfaceContainerLow,
                   ),
+                  style: theme.textTheme.bodyLarge,
                 ),
               ],
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 20),
 
         // Mic button
         Center(
@@ -126,8 +146,8 @@ class SpeechInputCard extends StatelessWidget {
             onTap: onMicPressed,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              width: 72,
-              height: 72,
+              width: 64,
+              height: 64,
               decoration: BoxDecoration(
                 color: isListening
                     ? theme.colorScheme.error
@@ -147,7 +167,7 @@ class SpeechInputCard extends StatelessWidget {
               child: Icon(
                 isListening ? Icons.stop : Icons.mic,
                 color: Colors.white,
-                size: 32,
+                size: 28,
               ),
             ),
           ),
@@ -161,35 +181,11 @@ class SpeechInputCard extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 16),
-
-        // Toggle typing button
-        TextButton.icon(
-          onPressed: onToggleTextField,
-          icon: Icon(showTextField ? Icons.keyboard_hide : Icons.keyboard),
-          label: Text(showTextField ? l10n.hideKeyboard : l10n.typeInstead),
-        ),
-
-        // Text field (optional)
-        if (showTextField) ...[
-          const SizedBox(height: 8),
-          TextField(
-            controller: controller,
-            maxLines: 3,
-            decoration: InputDecoration(
-              labelText: l10n.enterAnswer,
-              alignLabelWithHint: true,
-              border: const OutlineInputBorder(),
-            ),
-          ),
-        ],
         const SizedBox(height: 24),
 
         // Submit button
         FilledButton(
-          onPressed: (recognizedText.isNotEmpty || controller.text.isNotEmpty)
-              ? onSubmit
-              : null,
+          onPressed: controller.text.trim().isNotEmpty ? onSubmit : null,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
             child: Text(l10n.submit),

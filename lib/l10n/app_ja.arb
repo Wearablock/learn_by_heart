@@ -52,5 +52,7 @@
   "typeInstead": "入力する",
   "hideKeyboard": "キーボードを隠す",
   "speechNotAvailable": "音声認識は利用できません",
-  "similarityScore": "類似度"
+  "similarityScore": "類似度",
+  "retry": "再試行",
+  "tapMicOrType": "マイクをタップして話すか、ここに入力"
 }

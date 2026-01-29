@@ -35,9 +35,6 @@ class _StudyPageState extends State<StudyPage> {
   double? _similarity;
 
   bool _isListening = false;
-  String _recognizedText = '';
-  bool _showTextField = false;
-
   DateTime? _cardStartTime;
 
   MemoryCard? get _currentCard =>
@@ -46,15 +43,22 @@ class _StudyPageState extends State<StudyPage> {
   @override
   void initState() {
     super.initState();
+    _answerController.addListener(_onTextChanged);
     _initSpeech();
     _loadCards();
   }
 
   @override
   void dispose() {
+    _answerController.removeListener(_onTextChanged);
     _answerController.dispose();
     _speechService.cancelListening();
     super.dispose();
+  }
+
+  void _onTextChanged() {
+    // Trigger rebuild to update submit button state
+    setState(() {});
   }
 
   Future<void> _initSpeech() async {
@@ -98,14 +102,15 @@ class _StudyPageState extends State<StudyPage> {
     } else {
       setState(() {
         _isListening = true;
-        _recognizedText = '';
       });
 
       await _speechService.startListening(
         onResult: (text, isFinal) {
-          setState(() {
-            _recognizedText = text;
-          });
+          // Update the text controller with recognized text
+          _answerController.text = text;
+          _answerController.selection = TextSelection.fromPosition(
+            TextPosition(offset: _answerController.text.length),
+          );
           if (isFinal) {
             setState(() => _isListening = false);
           }
@@ -124,40 +129,35 @@ class _StudyPageState extends State<StudyPage> {
   }
 
   String _detectLocale(String text) {
-    // Simple locale detection based on character ranges
     if (RegExp(r'[\u3040-\u309F\u30A0-\u30FF]').hasMatch(text)) {
-      return 'ja-JP'; // Japanese
+      return 'ja-JP';
     }
     if (RegExp(r'[\uAC00-\uD7AF]').hasMatch(text)) {
-      return 'ko-KR'; // Korean
+      return 'ko-KR';
     }
     if (RegExp(r'[\u4E00-\u9FFF]').hasMatch(text)) {
-      return 'zh-CN'; // Chinese
+      return 'zh-CN';
     }
     if (RegExp(r'[äöüßÄÖÜ]').hasMatch(text)) {
-      return 'de-DE'; // German
+      return 'de-DE';
     }
     if (RegExp(r'[éèêëàâùûôîïç]').hasMatch(text)) {
-      return 'fr-FR'; // French
+      return 'fr-FR';
     }
     if (RegExp(r'[áéíóúñ¿¡]').hasMatch(text)) {
-      return 'es-ES'; // Spanish
+      return 'es-ES';
     }
-    return 'en-US'; // Default to English
+    return 'en-US';
   }
 
-  void _checkAnswer() {
+  Future<void> _checkAnswer() async {
     if (_currentCard == null) return;
 
-    // Use recognized text or typed text
-    final userAnswer = _recognizedText.isNotEmpty
-        ? _recognizedText
-        : _answerController.text.trim();
+    final userAnswer = _answerController.text.trim();
     final correctAnswer = _currentCard!.content.trim();
 
-    // Calculate similarity
     final similarity = TextSimilarity.calculate(userAnswer, correctAnswer);
-    final isCorrect = similarity >= 0.8; // 80% threshold
+    final isCorrect = similarity >= 0.8;
 
     final timeTaken = _cardStartTime != null
         ? DateTime.now().difference(_cardStartTime!).inMilliseconds
@@ -171,6 +171,12 @@ class _StudyPageState extends State<StudyPage> {
       similarity: similarity,
       timeTakenMs: timeTaken,
     ));
+
+    await _repository.updateStudyResult(
+      id: _currentCard!.id,
+      isCorrect: isCorrect,
+      similarity: similarity,
+    );
 
     setState(() {
       _showingFeedback = true;
@@ -188,9 +194,7 @@ class _StudyPageState extends State<StudyPage> {
         _showingFeedback = false;
         _isCorrect = null;
         _similarity = null;
-        _recognizedText = '';
         _answerController.clear();
-        _showTextField = false;
         _cardStartTime = DateTime.now();
       });
     }
@@ -272,7 +276,7 @@ class _StudyPageState extends State<StudyPage> {
             const SizedBox(height: 16),
             FilledButton(
               onPressed: _loadCards,
-              child: const Text('Retry'),
+              child: Text(l10n.retry),
             ),
           ],
         ),
@@ -311,24 +315,17 @@ class _StudyPageState extends State<StudyPage> {
             AnswerFeedback(
               isCorrect: _isCorrect!,
               correctAnswer: _currentCard!.content,
-              userAnswer: _recognizedText.isNotEmpty
-                  ? _recognizedText
-                  : _answerController.text.trim(),
+              userAnswer: _answerController.text.trim(),
               similarity: _similarity,
               onNext: _nextCard,
             )
           else
             SpeechInputCard(
               hint: _currentCard?.hint,
-              recognizedText: _recognizedText,
               isListening: _isListening,
               controller: _answerController,
               onMicPressed: _toggleListening,
               onSubmit: _checkAnswer,
-              showTextField: _showTextField,
-              onToggleTextField: () {
-                setState(() => _showTextField = !_showTextField);
-              },
             ),
         ],
       ),

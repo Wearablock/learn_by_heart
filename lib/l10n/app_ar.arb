@@ -52,5 +52,7 @@
   "typeInstead": "اكتب بدلاً من ذلك",
   "hideKeyboard": "إخفاء لوحة المفاتيح",
   "speechNotAvailable": "التعرف على الصوت غير متاح",
-  "similarityScore": "التشابه"
+  "similarityScore": "التشابه",
+  "retry": "إعادة المحاولة",
+  "tapMicOrType": "اضغط على الميكروفون للتحدث أو اكتب هنا"
 }

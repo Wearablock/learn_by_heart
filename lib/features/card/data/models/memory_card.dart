@@ -28,6 +28,10 @@ class MemoryCard {
 
   DateTime? lastStudiedAt;
 
+  double? lastSimilarity;
+
+  bool? lastPassed;
+
   MemoryCard();
 
   MemoryCard.create({
@@ -48,6 +52,8 @@ class MemoryCard {
     int? easeFactor,
     DateTime? nextReviewAt,
     DateTime? lastStudiedAt,
+    double? lastSimilarity,
+    bool? lastPassed,
   }) {
     final card = MemoryCard()
       ..isarId = isarId
@@ -60,7 +66,9 @@ class MemoryCard {
       ..repetitionCount = repetitionCount ?? this.repetitionCount
       ..easeFactor = easeFactor ?? this.easeFactor
       ..nextReviewAt = nextReviewAt ?? this.nextReviewAt
-      ..lastStudiedAt = lastStudiedAt ?? this.lastStudiedAt;
+      ..lastStudiedAt = lastStudiedAt ?? this.lastStudiedAt
+      ..lastSimilarity = lastSimilarity ?? this.lastSimilarity
+      ..lastPassed = lastPassed ?? this.lastPassed;
     return card;
   }
 }

@@ -52,5 +52,7 @@
   "typeInstead": "手动输入",
   "hideKeyboard": "隐藏键盘",
   "speechNotAvailable": "语音识别不可用",
-  "similarityScore": "相似度"
+  "similarityScore": "相似度",
+  "retry": "重试",
+  "tapMicOrType": "点击麦克风说话或在此输入"
 }

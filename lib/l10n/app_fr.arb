@@ -52,5 +52,7 @@
   "typeInstead": "Taper à la place",
   "hideKeyboard": "Masquer le clavier",
   "speechNotAvailable": "Reconnaissance vocale non disponible",
-  "similarityScore": "Similarité"
+  "similarityScore": "Similarité",
+  "retry": "Réessayer",
+  "tapMicOrType": "Appuyez sur le micro pour parler ou tapez ici"
 }

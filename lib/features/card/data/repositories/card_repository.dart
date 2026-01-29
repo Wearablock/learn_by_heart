@@ -87,6 +87,7 @@ class CardRepository {
   Future<void> updateStudyResult({
     required String id,
     required bool isCorrect,
+    double? similarity,
   }) async {
     final card = await getById(id);
     if (card == null) return;
@@ -94,6 +95,8 @@ class CardRepository {
     final updated = card.copyWith(
       repetitionCount: card.repetitionCount + 1,
       lastStudiedAt: DateTime.now(),
+      lastSimilarity: similarity,
+      lastPassed: isCorrect,
     );
 
     await _isar.writeTxn(() async {
