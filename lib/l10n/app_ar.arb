@@ -121,5 +121,21 @@
   "onboardingTitle2": "تحدث لتتعلم",
   "onboardingDesc2": "تدرب على قول إجاباتك بصوت عالٍ. يتحقق التعرف على الكلام من دقتك.",
   "onboardingTitle3": "تتبع تقدمك",
-  "onboardingDesc3": "شاهد سلسلة تعلمك وإحصائياتك. أتقن المحتوى من خلال التكرار المتباعد."
+  "onboardingDesc3": "شاهد سلسلة تعلمك وإحصائياتك. أتقن المحتوى من خلال التكرار المتباعد.",
+
+  "removeAds": "إزالة الإعلانات",
+  "removeAdsTitle": "إزالة جميع الإعلانات",
+  "removeAdsDesc": "شراء لمرة واحدة بـ {price}",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "جاري تحميل السعر...",
+  "adsRemoved": "تمت إزالة الإعلانات",
+  "adsRemovedDesc": "شكراً لشرائك!",
+  "purchase": "شراء",
+  "restorePurchases": "استعادة المشتريات"
 }

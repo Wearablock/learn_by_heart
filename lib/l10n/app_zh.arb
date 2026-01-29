@@ -121,5 +121,21 @@
   "onboardingTitle2": "说出来学习",
   "onboardingDesc2": "大声说出您的答案。语音识别会检查您的准确性。",
   "onboardingTitle3": "追踪进度",
-  "onboardingDesc3": "查看您的学习连续记录和统计数据。通过间隔重复掌握内容。"
+  "onboardingDesc3": "查看您的学习连续记录和统计数据。通过间隔重复掌握内容。",
+
+  "removeAds": "移除广告",
+  "removeAdsTitle": "移除所有广告",
+  "removeAdsDesc": "一次性购买 {price}",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "正在加载价格...",
+  "adsRemoved": "广告已移除",
+  "adsRemovedDesc": "感谢您的购买！",
+  "purchase": "购买",
+  "restorePurchases": "恢复购买"
 }

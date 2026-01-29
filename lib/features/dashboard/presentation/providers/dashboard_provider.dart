@@ -74,7 +74,7 @@ class DashboardProvider extends ChangeNotifier {
       // Calculate streak
       _streak = await _calculateStreak(sessions);
     } catch (e) {
-      debugPrint('Error loading dashboard data: $e');
+      if (kDebugMode) debugPrint('Error loading dashboard data: $e');
     } finally {
       _isLoading = false;
       notifyListeners();

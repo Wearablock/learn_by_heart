@@ -1,0 +1,24 @@
+# App Store Connect 설정
+app_identifier "com.learnbyheart.learnByHeart"
+team_id "52WXM3TBJ4"
+
+# 메타데이터 경로
+metadata_path "./fastlane/metadata"
+screenshots_path "./fastlane/screenshots"
+
+# 업로드 설정
+skip_binary_upload true
+force true
+overwrite_screenshots true
+submit_for_review false
+automatic_release false
+
+# 카테고리
+primary_category "EDUCATION"
+secondary_category "PRODUCTIVITY"
+
+# 가격은 App Store Connect에서 직접 설정 (계약 필요)
+# price_tier 0
+
+# 앱 등급
+app_rating_config_path "./fastlane/rating_config.json"

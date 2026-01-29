@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:upgrader/upgrader.dart';
 import 'package:learn_by_heart/core/database/database_service.dart';
 import 'package:learn_by_heart/core/database/seed_service.dart';
 import 'package:learn_by_heart/core/services/ad_service.dart';
+import 'package:learn_by_heart/core/services/iap_service.dart';
 import 'package:learn_by_heart/core/theme/app_theme.dart';
 import 'package:learn_by_heart/l10n/app_localizations.dart';
 import 'package:learn_by_heart/features/navigation/presentation/pages/main_scaffold.dart';
@@ -21,6 +23,7 @@ void main() async {
 
   await DatabaseService.initialize();
   await SeedService.seedIfEmpty();
+  await IapService().initialize();
   await AdService().initialize();
 
   final prefs = await SharedPreferences.getInstance();
@@ -75,9 +78,13 @@ class _MyAppState extends State<MyApp> {
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
             themeMode: settings.themeMode,
-            home: _showOnboarding
-                ? OnboardingPage(onComplete: _completeOnboarding)
-                : const MainScaffold(),
+            home: UpgradeAlert(
+              showIgnore: false,
+              showLater: true,
+              child: _showOnboarding
+                  ? OnboardingPage(onComplete: _completeOnboarding)
+                  : const MainScaffold(),
+            ),
           );
         },
       ),

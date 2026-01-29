@@ -1,0 +1,36 @@
+app_identifier("com.learnbyheart.learnByHeart")
+apple_id("sunghyun4451@gmail.com")
+team_id("52WXM3TBJ4")
+
+# App Store Connect API Key
+for_lane :release do
+  app_store_connect_api_key(
+    key_id: "H9Z8PM46JZ",
+    issuer_id: "61771d9b-ea3e-409d-9d3b-c4ee05e77ae8",
+    key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_H9Z8PM46JZ.p8")
+  )
+end
+
+for_lane :beta do
+  app_store_connect_api_key(
+    key_id: "H9Z8PM46JZ",
+    issuer_id: "61771d9b-ea3e-409d-9d3b-c4ee05e77ae8",
+    key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_H9Z8PM46JZ.p8")
+  )
+end
+
+for_lane :metadata do
+  app_store_connect_api_key(
+    key_id: "H9Z8PM46JZ",
+    issuer_id: "61771d9b-ea3e-409d-9d3b-c4ee05e77ae8",
+    key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_H9Z8PM46JZ.p8")
+  )
+end
+
+for_lane :screenshots do
+  app_store_connect_api_key(
+    key_id: "H9Z8PM46JZ",
+    issuer_id: "61771d9b-ea3e-409d-9d3b-c4ee05e77ae8",
+    key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_H9Z8PM46JZ.p8")
+  )
+end

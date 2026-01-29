@@ -121,5 +121,21 @@
   "onboardingTitle2": "Sprechen zum Lernen",
   "onboardingDesc2": "Übe, deine Antworten laut auszusprechen. Die Spracherkennung prüft deine Genauigkeit.",
   "onboardingTitle3": "Verfolge deinen Fortschritt",
-  "onboardingDesc3": "Sieh dir deine Lernserien und Statistiken an. Beherrsche Inhalte durch verteilte Wiederholung."
+  "onboardingDesc3": "Sieh dir deine Lernserien und Statistiken an. Beherrsche Inhalte durch verteilte Wiederholung.",
+
+  "removeAds": "Werbung entfernen",
+  "removeAdsTitle": "Alle Werbung entfernen",
+  "removeAdsDesc": "Einmaliger Kauf für {price}",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "Preis wird geladen...",
+  "adsRemoved": "Werbung entfernt",
+  "adsRemovedDesc": "Vielen Dank für deinen Kauf!",
+  "purchase": "Kaufen",
+  "restorePurchases": "Käufe wiederherstellen"
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'iap_service.dart';
 
 /// AdMob Ad Service
 ///
@@ -12,6 +13,19 @@ class AdService {
   AdService._internal();
 
   bool _isInitialized = false;
+
+  /// Set to false to disable all ads (for screenshots, testing, etc.)
+  static const bool adsEnabled = true;
+
+  /// Check if ads should be shown (considering IAP)
+  static bool get shouldShowAds => adsEnabled && !IapService().adsRemoved;
+
+  /// Debug logging helper
+  static void _log(String message) {
+    if (kDebugMode) {
+      debugPrint(message);
+    }
+  }
 
   // Test Ad Unit IDs (Google official test IDs)
   static const String _testBannerAndroid = 'ca-app-pub-3940256099942544/6300978111';
@@ -60,14 +74,18 @@ class AdService {
 
   /// Initialize Mobile Ads SDK
   Future<void> initialize() async {
+    if (!adsEnabled) {
+      _log('Ads disabled');
+      return;
+    }
     if (_isInitialized) return;
 
     try {
       await MobileAds.instance.initialize();
       _isInitialized = true;
-      debugPrint('AdMob initialized successfully');
+      _log('AdMob initialized successfully');
     } catch (e) {
-      debugPrint('AdMob initialization failed: $e');
+      _log('AdMob initialization failed: $e');
     }
   }
 
@@ -83,8 +101,8 @@ class AdService {
       listener: BannerAdListener(
         onAdLoaded: onAdLoaded,
         onAdFailedToLoad: onAdFailedToLoad,
-        onAdOpened: (ad) => debugPrint('Banner ad opened'),
-        onAdClosed: (ad) => debugPrint('Banner ad closed'),
+        onAdOpened: (ad) => _log('Banner ad opened'),
+        onAdClosed: (ad) => _log('Banner ad closed'),
       ),
     );
   }
@@ -99,10 +117,10 @@ class AdService {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           interstitialAd = ad;
-          debugPrint('Interstitial ad loaded');
+          _log('Interstitial ad loaded');
         },
         onAdFailedToLoad: (error) {
-          debugPrint('Interstitial ad failed to load: ${error.message}');
+          _log('Interstitial ad failed to load: ${error.message}');
           interstitialAd = null;
         },
       ),
@@ -123,10 +141,10 @@ class AdService {
       rewardedAdLoadCallback: RewardedAdLoadCallback(
         onAdLoaded: (ad) {
           rewardedAd = ad;
-          debugPrint('Rewarded ad loaded');
+          _log('Rewarded ad loaded');
         },
         onAdFailedToLoad: (error) {
-          debugPrint('Rewarded ad failed to load: ${error.message}');
+          _log('Rewarded ad failed to load: ${error.message}');
           rewardedAd = null;
         },
       ),
@@ -142,11 +160,11 @@ class AdService {
     ad.fullScreenContentCallback = FullScreenContentCallback(
       onAdDismissedFullScreenContent: (ad) {
         ad.dispose();
-        debugPrint('Interstitial ad dismissed');
+        _log('Interstitial ad dismissed');
       },
       onAdFailedToShowFullScreenContent: (ad, error) {
         ad.dispose();
-        debugPrint('Interstitial ad failed to show: ${error.message}');
+        _log('Interstitial ad failed to show: ${error.message}');
       },
     );
     await ad.show();
@@ -159,18 +177,18 @@ class AdService {
     ad.fullScreenContentCallback = FullScreenContentCallback(
       onAdDismissedFullScreenContent: (ad) {
         ad.dispose();
-        debugPrint('Rewarded ad dismissed');
+        _log('Rewarded ad dismissed');
       },
       onAdFailedToShowFullScreenContent: (ad, error) {
         ad.dispose();
-        debugPrint('Rewarded ad failed to show: ${error.message}');
+        _log('Rewarded ad failed to show: ${error.message}');
       },
     );
 
     await ad.show(
       onUserEarnedReward: (ad, reward) {
         rewarded = true;
-        debugPrint('User earned reward: ${reward.amount} ${reward.type}');
+        _log('User earned reward: ${reward.amount} ${reward.type}');
       },
     );
 

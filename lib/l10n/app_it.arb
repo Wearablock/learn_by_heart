@@ -121,5 +121,21 @@
   "onboardingTitle2": "Parla per imparare",
   "onboardingDesc2": "Esercitati a pronunciare le risposte ad alta voce. Il riconoscimento vocale verifica la tua precisione.",
   "onboardingTitle3": "Monitora i progressi",
-  "onboardingDesc3": "Visualizza le tue serie di apprendimento e le statistiche. Padroneggia i contenuti con la ripetizione spaziata."
+  "onboardingDesc3": "Visualizza le tue serie di apprendimento e le statistiche. Padroneggia i contenuti con la ripetizione spaziata.",
+
+  "removeAds": "Rimuovi pubblicità",
+  "removeAdsTitle": "Rimuovi tutte le pubblicità",
+  "removeAdsDesc": "Acquisto una tantum per {price}",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "Caricamento prezzo...",
+  "adsRemoved": "Pubblicità rimosse",
+  "adsRemovedDesc": "Grazie per il tuo acquisto!",
+  "purchase": "Acquista",
+  "restorePurchases": "Ripristina acquisti"
 }

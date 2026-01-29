@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
@@ -68,16 +69,18 @@ class _StudyPageState extends State<StudyPage> {
   }
 
   Future<void> _loadInterstitialAd() async {
+    if (!AdService.adsEnabled) return;
+
     await InterstitialAd.load(
       adUnitId: AdService.interstitialAdUnitId,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           _interstitialAd = ad;
-          debugPrint('Interstitial ad loaded');
+          if (kDebugMode) debugPrint('Interstitial ad loaded');
         },
         onAdFailedToLoad: (error) {
-          debugPrint('Interstitial ad failed to load: ${error.message}');
+          if (kDebugMode) debugPrint('Interstitial ad failed to load: ${error.message}');
           _interstitialAd = null;
         },
       ),
@@ -280,7 +283,7 @@ class _StudyPageState extends State<StudyPage> {
         },
         onAdFailedToShowFullScreenContent: (ad, error) {
           ad.dispose();
-          debugPrint('Interstitial ad failed to show: ${error.message}');
+          if (kDebugMode) debugPrint('Interstitial ad failed to show: ${error.message}');
           _navigateToResults();
         },
       );

@@ -85,7 +85,7 @@ class StatisticsProvider extends ChangeNotifier {
       final cards = await _cardRepository.getAll();
       _cardStats = await _calculateCardStats(cards);
     } catch (e) {
-      debugPrint('Error loading statistics: $e');
+      if (kDebugMode) debugPrint('Error loading statistics: $e');
     } finally {
       _isLoading = false;
       notifyListeners();

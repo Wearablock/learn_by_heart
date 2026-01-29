@@ -1,0 +1,1 @@
+Prima versione! Memorizza testo con schede, pratica con riconoscimento vocale e monitora i progressi.

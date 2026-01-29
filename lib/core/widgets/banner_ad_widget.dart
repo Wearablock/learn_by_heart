@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../services/ad_service.dart';
@@ -21,6 +22,8 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   }
 
   void _loadAd() {
+    if (!AdService.adsEnabled) return;
+
     _bannerAd = AdService().createBannerAd(
       onAdLoaded: (ad) {
         setState(() {
@@ -29,7 +32,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       },
       onAdFailedToLoad: (ad, error) {
         ad.dispose();
-        debugPrint('Banner ad failed to load: ${error.message}');
+        if (kDebugMode) debugPrint('Banner ad failed to load: ${error.message}');
       },
     );
     _bannerAd?.load();

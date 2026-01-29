@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
@@ -62,6 +63,7 @@ class _CardEditorPageState extends State<CardEditorPage> {
   }
 
   Future<void> _loadRewardedAd() async {
+    if (!AdService.adsEnabled) return;
     if (_isRewardedAdLoading) return;
     _isRewardedAdLoading = true;
 
@@ -72,12 +74,12 @@ class _CardEditorPageState extends State<CardEditorPage> {
         onAdLoaded: (ad) {
           _rewardedAd = ad;
           _isRewardedAdLoading = false;
-          debugPrint('Rewarded ad loaded');
+          if (kDebugMode) debugPrint('Rewarded ad loaded');
         },
         onAdFailedToLoad: (error) {
           _rewardedAd = null;
           _isRewardedAdLoading = false;
-          debugPrint('Rewarded ad failed to load: ${error.message}');
+          if (kDebugMode) debugPrint('Rewarded ad failed to load: ${error.message}');
         },
       ),
     );
@@ -141,14 +143,14 @@ class _CardEditorPageState extends State<CardEditorPage> {
       onAdFailedToShowFullScreenContent: (ad, error) {
         ad.dispose();
         _rewardedAd = null;
-        debugPrint('Rewarded ad failed to show: ${error.message}');
+        if (kDebugMode) debugPrint('Rewarded ad failed to show: ${error.message}');
         _performSave();
       },
     );
 
     _rewardedAd!.show(
       onUserEarnedReward: (ad, reward) {
-        debugPrint('User earned reward: ${reward.amount} ${reward.type}');
+        if (kDebugMode) debugPrint('User earned reward: ${reward.amount} ${reward.type}');
       },
     );
   }

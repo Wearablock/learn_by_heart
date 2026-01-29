@@ -121,5 +121,21 @@
   "onboardingTitle2": "話して学習",
   "onboardingDesc2": "声に出して答えを言ってみましょう。音声認識があなたの正確さをチェックします。",
   "onboardingTitle3": "進捗を確認",
-  "onboardingDesc3": "学習の連続記録と統計を確認しましょう。間隔反復で完璧に暗記しましょう。"
+  "onboardingDesc3": "学習の連続記録と統計を確認しましょう。間隔反復で完璧に暗記しましょう。",
+
+  "removeAds": "広告を削除",
+  "removeAdsTitle": "すべての広告を削除",
+  "removeAdsDesc": "{price}で一回購入",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "価格を読み込み中...",
+  "adsRemoved": "広告が削除されました",
+  "adsRemovedDesc": "ご購入ありがとうございます！",
+  "purchase": "購入",
+  "restorePurchases": "購入を復元"
 }

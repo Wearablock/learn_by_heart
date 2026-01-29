@@ -121,5 +121,21 @@
   "onboardingTitle2": "說出來學習",
   "onboardingDesc2": "練習大聲說出您的答案。語音辨識會檢查您的準確性。",
   "onboardingTitle3": "追蹤進度",
-  "onboardingDesc3": "查看您的學習連續紀錄和統計資料。透過間隔重複掌握內容。"
+  "onboardingDesc3": "查看您的學習連續紀錄和統計資料。透過間隔重複掌握內容。",
+
+  "removeAds": "移除廣告",
+  "removeAdsTitle": "移除所有廣告",
+  "removeAdsDesc": "一次性購買 {price}",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "正在載入價格...",
+  "adsRemoved": "廣告已移除",
+  "adsRemovedDesc": "感謝您的購買！",
+  "purchase": "購買",
+  "restorePurchases": "恢復購買"
 }

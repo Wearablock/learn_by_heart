@@ -124,5 +124,21 @@
   "onboardingTitle2": "Speak to Learn",
   "onboardingDesc2": "Practice speaking your answers out loud. Speech recognition checks your accuracy.",
   "onboardingTitle3": "Track Your Progress",
-  "onboardingDesc3": "See your learning streak and statistics. Master content through spaced repetition."
+  "onboardingDesc3": "See your learning streak and statistics. Master content through spaced repetition.",
+
+  "removeAds": "Remove Ads",
+  "removeAdsTitle": "Remove All Ads",
+  "removeAdsDesc": "One-time purchase for {price}",
+  "@removeAdsDesc": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "removeAdsDescLoading": "Loading price...",
+  "adsRemoved": "Ads Removed",
+  "adsRemovedDesc": "Thank you for your purchase!",
+  "purchase": "Purchase",
+  "restorePurchases": "Restore Purchases"
 }

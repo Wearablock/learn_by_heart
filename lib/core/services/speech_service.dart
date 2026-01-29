@@ -14,6 +14,13 @@ class SpeechService {
   bool get isListening => _isListening;
   bool get isAvailable => _isInitialized;
 
+  /// Debug logging helper
+  void _log(String message) {
+    if (kDebugMode) {
+      debugPrint(message);
+    }
+  }
+
   Future<bool> initialize() async {
     if (_isInitialized) return true;
 
@@ -25,7 +32,7 @@ class SpeechService {
       );
       return _isInitialized;
     } catch (e) {
-      debugPrint('Speech initialization failed: $e');
+      _log('Speech initialization failed: $e');
       return false;
     }
   }
@@ -78,12 +85,12 @@ class SpeechService {
   }
 
   void _onError(SpeechRecognitionError error) {
-    debugPrint('Speech error: ${error.errorMsg}');
+    _log('Speech error: ${error.errorMsg}');
     _isListening = false;
   }
 
   void _onStatus(String status) {
-    debugPrint('Speech status: $status');
+    _log('Speech status: $status');
     if (status == 'done' || status == 'notListening') {
       _isListening = false;
     }

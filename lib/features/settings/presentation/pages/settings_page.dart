@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/app_urls.dart';
+import '../../../../core/services/iap_service.dart';
 import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../providers/settings_provider.dart';
@@ -44,6 +45,9 @@ class SettingsPage extends StatelessWidget {
                 value: settings.passThreshold,
                 onChanged: settings.setPassThreshold,
               ),
+              const Divider(),
+              _SectionHeader(title: l10n.removeAds),
+              const _RemoveAdsTile(),
               const Divider(),
               _SectionHeader(title: l10n.termsAndPolicies),
               _TermsTile(),
@@ -268,6 +272,95 @@ class _PassThresholdTile extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class _RemoveAdsTile extends StatefulWidget {
+  const _RemoveAdsTile();
+
+  @override
+  State<_RemoveAdsTile> createState() => _RemoveAdsTileState();
+}
+
+class _RemoveAdsTileState extends State<_RemoveAdsTile> {
+  final _iapService = IapService();
+  bool _isPurchasing = false;
+  bool _isRestoring = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+
+    if (_iapService.adsRemoved) {
+      return ListTile(
+        leading: Icon(
+          Icons.check_circle,
+          color: theme.colorScheme.primary,
+        ),
+        title: Text(l10n.adsRemoved),
+        subtitle: Text(l10n.adsRemovedDesc),
+      );
+    }
+
+    return Column(
+      children: [
+        ListTile(
+          leading: const Icon(Icons.block_outlined),
+          title: Text(l10n.removeAdsTitle),
+          subtitle: Text(
+            _iapService.priceString.isNotEmpty
+                ? l10n.removeAdsDesc(_iapService.priceString)
+                : l10n.removeAdsDescLoading,
+          ),
+          trailing: _isPurchasing
+              ? const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : FilledButton(
+                  onPressed: _iapService.isAvailable ? _purchase : null,
+                  child: Text(l10n.purchase),
+                ),
+          onTap: _iapService.isAvailable && !_isPurchasing ? _purchase : null,
+        ),
+        ListTile(
+          leading: const Icon(Icons.restore_outlined),
+          title: Text(l10n.restorePurchases),
+          trailing: _isRestoring
+              ? const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : null,
+          onTap: _iapService.isAvailable && !_isRestoring ? _restore : null,
+        ),
+      ],
+    );
+  }
+
+  Future<void> _purchase() async {
+    setState(() => _isPurchasing = true);
+    try {
+      await _iapService.purchaseRemoveAds();
+    } finally {
+      if (mounted) {
+        setState(() => _isPurchasing = false);
+      }
+    }
+  }
+
+  Future<void> _restore() async {
+    setState(() => _isRestoring = true);
+    try {
+      await _iapService.restorePurchases();
+    } finally {
+      if (mounted) {
+        setState(() => _isRestoring = false);
+      }
+    }
   }
 }
 
