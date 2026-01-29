@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
+import '../../../../core/services/ad_service.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../home/presentation/providers/card_provider.dart';
 import '../../data/models/memory_card.dart';
@@ -25,6 +27,8 @@ class _CardEditorPageState extends State<CardEditorPage> {
   bool _hasChanges = false;
   MemoryCard? _originalCard;
   String? _error;
+  RewardedAd? _rewardedAd;
+  bool _isRewardedAdLoading = false;
 
   bool get isEditMode => widget.cardId != null;
 
@@ -41,6 +45,9 @@ class _CardEditorPageState extends State<CardEditorPage> {
     super.initState();
     if (isEditMode) {
       _loadCard();
+    } else {
+      // Load rewarded ad for new card creation
+      _loadRewardedAd();
     }
     _contentController.addListener(_onContentChanged);
     _hintController.addListener(_onContentChanged);
@@ -50,7 +57,30 @@ class _CardEditorPageState extends State<CardEditorPage> {
   void dispose() {
     _contentController.dispose();
     _hintController.dispose();
+    _rewardedAd?.dispose();
     super.dispose();
+  }
+
+  Future<void> _loadRewardedAd() async {
+    if (_isRewardedAdLoading) return;
+    _isRewardedAdLoading = true;
+
+    await RewardedAd.load(
+      adUnitId: AdService.rewardedAdUnitId,
+      request: const AdRequest(),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (ad) {
+          _rewardedAd = ad;
+          _isRewardedAdLoading = false;
+          debugPrint('Rewarded ad loaded');
+        },
+        onAdFailedToLoad: (error) {
+          _rewardedAd = null;
+          _isRewardedAdLoading = false;
+          debugPrint('Rewarded ad failed to load: ${error.message}');
+        },
+      ),
+    );
   }
 
   void _onContentChanged() {
@@ -93,6 +123,37 @@ class _CardEditorPageState extends State<CardEditorPage> {
   Future<void> _saveCard() async {
     if (!_formKey.currentState!.validate()) return;
 
+    // For new cards, show rewarded ad before saving
+    if (!isEditMode && _rewardedAd != null) {
+      _showRewardedAdAndSave();
+    } else {
+      await _performSave();
+    }
+  }
+
+  void _showRewardedAdAndSave() {
+    _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
+      onAdDismissedFullScreenContent: (ad) {
+        ad.dispose();
+        _rewardedAd = null;
+        _performSave();
+      },
+      onAdFailedToShowFullScreenContent: (ad, error) {
+        ad.dispose();
+        _rewardedAd = null;
+        debugPrint('Rewarded ad failed to show: ${error.message}');
+        _performSave();
+      },
+    );
+
+    _rewardedAd!.show(
+      onUserEarnedReward: (ad, reward) {
+        debugPrint('User earned reward: ${reward.amount} ${reward.type}');
+      },
+    );
+  }
+
+  Future<void> _performSave() async {
     setState(() {
       _isSaving = true;
     });

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
+import '../../../../core/services/ad_service.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../dashboard/presentation/pages/dashboard_page.dart';
 import '../../../dashboard/presentation/providers/dashboard_provider.dart';
@@ -18,6 +20,35 @@ class MainScaffold extends StatefulWidget {
 
 class _MainScaffoldState extends State<MainScaffold> {
   int _previousIndex = 0;
+  BannerAd? _bannerAd;
+  bool _isBannerAdLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBannerAd();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
+  }
+
+  void _loadBannerAd() {
+    _bannerAd = AdService().createBannerAd(
+      onAdLoaded: (ad) {
+        setState(() {
+          _isBannerAdLoaded = true;
+        });
+      },
+      onAdFailedToLoad: (ad, error) {
+        ad.dispose();
+        debugPrint('Banner ad failed to load: ${error.message}');
+      },
+    );
+    _bannerAd?.load();
+  }
 
   void _onDestinationSelected(BuildContext context, int index) {
     final navProvider = context.read<NavigationProvider>();
@@ -49,29 +80,46 @@ class _MainScaffoldState extends State<MainScaffold> {
               SettingsPage(),
             ],
           ),
-          bottomNavigationBar: NavigationBar(
-            selectedIndex: navProvider.currentIndex,
-            onDestinationSelected: (index) => _onDestinationSelected(context, index),
-            destinations: [
-              NavigationDestination(
-                icon: const Icon(Icons.home_outlined),
-                selectedIcon: const Icon(Icons.home),
-                label: l10n.navHome,
-              ),
-              NavigationDestination(
-                icon: const Icon(Icons.library_books_outlined),
-                selectedIcon: const Icon(Icons.library_books),
-                label: l10n.navCards,
-              ),
-              NavigationDestination(
-                icon: const Icon(Icons.bar_chart_outlined),
-                selectedIcon: const Icon(Icons.bar_chart),
-                label: l10n.navStatistics,
-              ),
-              NavigationDestination(
-                icon: const Icon(Icons.settings_outlined),
-                selectedIcon: const Icon(Icons.settings),
-                label: l10n.navSettings,
+          bottomNavigationBar: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Banner Ad
+              if (_isBannerAdLoaded && _bannerAd != null)
+                SafeArea(
+                  top: false,
+                  bottom: false,
+                  child: SizedBox(
+                    width: _bannerAd!.size.width.toDouble(),
+                    height: _bannerAd!.size.height.toDouble(),
+                    child: AdWidget(ad: _bannerAd!),
+                  ),
+                ),
+              // Navigation Bar
+              NavigationBar(
+                selectedIndex: navProvider.currentIndex,
+                onDestinationSelected: (index) => _onDestinationSelected(context, index),
+                destinations: [
+                  NavigationDestination(
+                    icon: const Icon(Icons.home_outlined),
+                    selectedIcon: const Icon(Icons.home),
+                    label: l10n.navHome,
+                  ),
+                  NavigationDestination(
+                    icon: const Icon(Icons.library_books_outlined),
+                    selectedIcon: const Icon(Icons.library_books),
+                    label: l10n.navCards,
+                  ),
+                  NavigationDestination(
+                    icon: const Icon(Icons.bar_chart_outlined),
+                    selectedIcon: const Icon(Icons.bar_chart),
+                    label: l10n.navStatistics,
+                  ),
+                  NavigationDestination(
+                    icon: const Icon(Icons.settings_outlined),
+                    selectedIcon: const Icon(Icons.settings),
+                    label: l10n.navSettings,
+                  ),
+                ],
               ),
             ],
           ),

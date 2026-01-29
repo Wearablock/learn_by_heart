@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
+import '../../../../core/services/ad_service.dart';
 import '../../../../core/services/speech_service.dart';
 import '../../../../core/widgets/app_image.dart';
 import '../../../../core/utils/text_similarity.dart';
@@ -42,6 +44,7 @@ class _StudyPageState extends State<StudyPage> {
 
   bool _isListening = false;
   DateTime? _cardStartTime;
+  InterstitialAd? _interstitialAd;
 
   MemoryCard? get _currentCard =>
       _currentIndex < _cards.length ? _cards[_currentIndex] : null;
@@ -52,6 +55,7 @@ class _StudyPageState extends State<StudyPage> {
     _answerController.addListener(_onTextChanged);
     _initSpeech();
     _loadCards();
+    _loadInterstitialAd();
   }
 
   @override
@@ -59,7 +63,25 @@ class _StudyPageState extends State<StudyPage> {
     _answerController.removeListener(_onTextChanged);
     _answerController.dispose();
     _speechService.cancelListening();
+    _interstitialAd?.dispose();
     super.dispose();
+  }
+
+  Future<void> _loadInterstitialAd() async {
+    await InterstitialAd.load(
+      adUnitId: AdService.interstitialAdUnitId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          _interstitialAd = ad;
+          debugPrint('Interstitial ad loaded');
+        },
+        onAdFailedToLoad: (error) {
+          debugPrint('Interstitial ad failed to load: ${error.message}');
+          _interstitialAd = null;
+        },
+      ),
+    );
   }
 
   void _onTextChanged() {
@@ -247,6 +269,28 @@ class _StudyPageState extends State<StudyPage> {
       );
     }
 
+    if (!mounted) return;
+
+    // Show interstitial ad before navigating to results
+    if (_interstitialAd != null) {
+      _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          _navigateToResults();
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          debugPrint('Interstitial ad failed to show: ${error.message}');
+          _navigateToResults();
+        },
+      );
+      await _interstitialAd!.show();
+    } else {
+      _navigateToResults();
+    }
+  }
+
+  void _navigateToResults() {
     if (!mounted) return;
 
     Navigator.pushReplacement(

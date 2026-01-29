@@ -57,7 +57,7 @@ class RecentCardWidget extends StatelessWidget {
               const SizedBox(height: 12),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton.tonal(
+                child: FilledButton(
                   onPressed: () => _navigateToStudy(context),
                   child: Text(l10n.startStudy),
                 ),

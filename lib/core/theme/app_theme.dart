@@ -123,6 +123,43 @@ class AppTheme {
         ),
         behavior: SnackBarBehavior.floating,
       ),
+      navigationBarTheme: NavigationBarThemeData(
+        indicatorColor: AppColors.primary.withValues(alpha: 0.2),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const IconThemeData(color: AppColors.primaryDark);
+          }
+          return IconThemeData(color: Colors.grey.shade600);
+        }),
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const TextStyle(
+              color: AppColors.primaryDark,
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            );
+          }
+          return TextStyle(
+            color: Colors.grey.shade600,
+            fontWeight: FontWeight.normal,
+            fontSize: 12,
+          );
+        }),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: AppColors.onPrimary,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+          ),
+        ),
+      ),
     );
   }
 
@@ -242,6 +279,43 @@ class AppTheme {
           borderRadius: BorderRadius.circular(8),
         ),
         behavior: SnackBarBehavior.floating,
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        indicatorColor: AppColors.primary.withValues(alpha: 0.3),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const IconThemeData(color: AppColors.primary);
+          }
+          return IconThemeData(color: Colors.grey.shade500);
+        }),
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const TextStyle(
+              color: AppColors.primary,
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            );
+          }
+          return TextStyle(
+            color: Colors.grey.shade500,
+            fontWeight: FontWeight.normal,
+            fontSize: 12,
+          );
+        }),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: AppColors.onPrimary,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          textStyle: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+          ),
+        ),
       ),
     );
   }

@@ -66,5 +66,15 @@
 		<string>Speech recognition is required for memorization practice.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- AdMob App ID -->
+		<key>GADApplicationIdentifier</key>
+		<string>ca-app-pub-8841058711613546~8214648197</string>
+		<key>SKAdNetworkItems</key>
+		<array>
+			<dict>
+				<key>SKAdNetworkIdentifier</key>
+				<string>cstr6suwn9.skadnetwork</string>
+			</dict>
+		</array>
 	</dict>
 </plist>
