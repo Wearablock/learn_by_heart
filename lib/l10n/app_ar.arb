@@ -107,5 +107,10 @@
   "passThresholdDesc": "صحيح إذا تجاوز التشابه هذه القيمة",
   "about": "حول",
   "version": "الإصدار",
-  "licenses": "تراخيص المصادر المفتوحة"
+  "licenses": "تراخيص المصادر المفتوحة",
+
+  "termsAndPolicies": "الشروط والسياسات",
+  "termsOfService": "شروط الخدمة",
+  "privacyPolicy": "سياسة الخصوصية",
+  "support": "الدعم"
 }

@@ -107,5 +107,10 @@
   "passThresholdDesc": "이 유사도 이상이면 정답으로 처리",
   "about": "정보",
   "version": "버전",
-  "licenses": "오픈소스 라이선스"
+  "licenses": "오픈소스 라이선스",
+
+  "termsAndPolicies": "약관 및 정책",
+  "termsOfService": "서비스 이용약관",
+  "privacyPolicy": "개인정보 처리방침",
+  "support": "고객 지원"
 }

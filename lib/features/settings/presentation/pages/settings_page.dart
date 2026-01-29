@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../core/constants/app_urls.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../providers/settings_provider.dart';
+import 'webview_screen.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -41,6 +43,9 @@ class SettingsPage extends StatelessWidget {
                 value: settings.passThreshold,
                 onChanged: settings.setPassThreshold,
               ),
+              const Divider(),
+              _SectionHeader(title: l10n.termsAndPolicies),
+              _TermsTile(),
               const Divider(),
               _SectionHeader(title: l10n.about),
               _AboutTile(),
@@ -260,6 +265,57 @@ class _PassThresholdTile extends StatelessWidget {
             onChanged: onChanged,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _TermsTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    return Column(
+      children: [
+        ListTile(
+          leading: const Icon(Icons.article_outlined),
+          title: Text(l10n.termsOfService),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => _openWebView(
+            context,
+            l10n.termsOfService,
+            AppUrls.termsUrl,
+          ),
+        ),
+        ListTile(
+          leading: const Icon(Icons.privacy_tip_outlined),
+          title: Text(l10n.privacyPolicy),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => _openWebView(
+            context,
+            l10n.privacyPolicy,
+            AppUrls.privacyUrl,
+          ),
+        ),
+        ListTile(
+          leading: const Icon(Icons.help_outline),
+          title: Text(l10n.support),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => _openWebView(
+            context,
+            l10n.support,
+            AppUrls.supportUrl,
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _openWebView(BuildContext context, String title, String url) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WebViewScreen(title: title, url: url),
       ),
     );
   }

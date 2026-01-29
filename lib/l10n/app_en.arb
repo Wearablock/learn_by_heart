@@ -110,5 +110,10 @@
   "passThresholdDesc": "Treat as correct if similarity is above this",
   "about": "About",
   "version": "Version",
-  "licenses": "Open Source Licenses"
+  "licenses": "Open Source Licenses",
+
+  "termsAndPolicies": "Terms & Policies",
+  "termsOfService": "Terms of Service",
+  "privacyPolicy": "Privacy Policy",
+  "support": "Support"
 }

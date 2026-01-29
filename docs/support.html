@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Learn by Heart</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Learn by Heart" onerror="this.style.display='none'">
+        <h1>Learn by Heart</h1>
+      </div>
+      <div class="lang-selector">
+        <div class="lang-dropdown" onclick="toggleLangMenu()">
+          <span id="currentLang">English</span>
+          <span>▼</span>
+        </div>
+        <div class="lang-menu" id="langMenu">
+          <div class="lang-option active" onclick="switchLang('en')">English</div>
+          <div class="lang-option" onclick="switchLang('ko')">한국어</div>
+          <div class="lang-option" onclick="switchLang('ja')">日本語</div>
+          <div class="lang-option" onclick="switchLang('zh')">简体中文</div>
+          <div class="lang-option" onclick="switchLang('zh-TW')">繁體中文</div>
+          <div class="lang-option" onclick="switchLang('es')">Español</div>
+          <div class="lang-option" onclick="switchLang('fr')">Français</div>
+          <div class="lang-option" onclick="switchLang('de')">Deutsch</div>
+          <div class="lang-option" onclick="switchLang('it')">Italiano</div>
+          <div class="lang-option" onclick="switchLang('pt')">Português</div>
+          <div class="lang-option" onclick="switchLang('ru')">Русский</div>
+          <div class="lang-option" onclick="switchLang('ar')">العربية</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- English -->
+    <main id="content-en" class="content-section active">
+      <h2>Support</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Memorize texts and sentences with speech recognition</p>
+        </div>
+      </div>
+
+      <h3>Frequently Asked Questions</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">How do I create a new card?</div>
+        <div class="faq-answer">Tap the "+" button on the Cards tab to create a new flashcard. Enter the text you want to memorize and optionally add a hint to help you remember.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">How does speech recognition work?</div>
+        <div class="faq-answer">When studying, tap the microphone button to speak your answer. The app uses your device's built-in speech recognition to convert your speech to text and compare it with the correct answer.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">What is the pass threshold setting?</div>
+        <div class="faq-answer">The pass threshold determines how similar your answer needs to be to the correct answer. A setting of 80% means your answer needs to match at least 80% to be marked correct.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">How does spaced repetition work?</div>
+        <div class="faq-answer">Cards you answer correctly will be scheduled for review at increasing intervals (1 day, 3 days, 7 days, etc.). Cards you get wrong will appear again sooner for more practice.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Is my data backed up?</div>
+        <div class="faq-answer">All data is stored locally on your device. If you uninstall the app, your data will be lost. We recommend regularly exporting your cards if available.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Why isn't speech recognition working?</div>
+        <div class="faq-answer">Make sure you've granted microphone permission to the app. Also check that you have an internet connection, as some devices require it for speech recognition.</div>
+      </div>
+
+      <h3>Contact Us</h3>
+      <p>Can't find an answer to your question? Feel free to reach out to us.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>Email Support</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Korean -->
+    <main id="content-ko" class="content-section">
+      <h2>지원</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>음성 인식으로 텍스트와 문장을 암기하세요</p>
+        </div>
+      </div>
+
+      <h3>자주 묻는 질문</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">새 카드를 어떻게 만드나요?</div>
+        <div class="faq-answer">카드 탭에서 "+" 버튼을 눌러 새 플래시카드를 만드세요. 암기하고 싶은 텍스트를 입력하고, 필요하면 기억에 도움이 되는 힌트를 추가하세요.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">음성 인식은 어떻게 작동하나요?</div>
+        <div class="faq-answer">학습 중에 마이크 버튼을 눌러 답을 말하세요. 앱은 기기에 내장된 음성 인식을 사용하여 음성을 텍스트로 변환하고 정답과 비교합니다.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">정답 기준 설정이 무엇인가요?</div>
+        <div class="faq-answer">정답 기준은 답이 정답과 얼마나 유사해야 하는지를 결정합니다. 80% 설정은 답이 최소 80% 일치해야 정답으로 표시됨을 의미합니다.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">간격 반복은 어떻게 작동하나요?</div>
+        <div class="faq-answer">정답을 맞힌 카드는 점점 늘어나는 간격으로 복습 예정됩니다 (1일, 3일, 7일 등). 틀린 카드는 더 빨리 다시 나타나 더 많이 연습할 수 있습니다.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">데이터가 백업되나요?</div>
+        <div class="faq-answer">모든 데이터는 기기에 로컬로 저장됩니다. 앱을 삭제하면 데이터가 손실됩니다. 가능하다면 카드를 정기적으로 내보내는 것을 권장합니다.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">음성 인식이 작동하지 않는 이유는?</div>
+        <div class="faq-answer">앱에 마이크 권한을 부여했는지 확인하세요. 또한 일부 기기는 음성 인식에 인터넷 연결이 필요하므로 연결 상태를 확인하세요.</div>
+      </div>
+
+      <h3>문의하기</h3>
+      <p>질문에 대한 답을 찾지 못하셨나요? 언제든지 연락주세요.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>이메일 지원</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Japanese -->
+    <main id="content-ja" class="content-section">
+      <h2>サポート</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>音声認識でテキストと文章を暗記しましょう</p>
+        </div>
+      </div>
+
+      <h3>よくある質問</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">新しいカードを作成するには？</div>
+        <div class="faq-answer">カードタブの「+」ボタンをタップして新しいフラッシュカードを作成します。暗記したいテキストを入力し、必要に応じて記憶を助けるヒントを追加できます。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">音声認識はどのように機能しますか？</div>
+        <div class="faq-answer">学習中にマイクボタンをタップして答えを話してください。アプリはデバイスの内蔵音声認識を使用して音声をテキストに変換し、正解と比較します。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">正解基準の設定とは？</div>
+        <div class="faq-answer">正解基準は、答えが正解とどれだけ類似している必要があるかを決定します。80%の設定は、正解としてマークされるには少なくとも80%一致する必要があることを意味します。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">間隔反復はどのように機能しますか？</div>
+        <div class="faq-answer">正解したカードは、間隔を増やして復習がスケジュールされます（1日、3日、7日など）。間違えたカードはより早く再び表示され、より多く練習できます。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">データはバックアップされますか？</div>
+        <div class="faq-answer">すべてのデータはデバイスにローカルで保存されます。アプリをアンインストールすると、データは失われます。可能であれば、カードを定期的にエクスポートすることをお勧めします。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">音声認識が機能しないのはなぜですか？</div>
+        <div class="faq-answer">アプリにマイクの権限を付与したことを確認してください。また、一部のデバイスでは音声認識にインターネット接続が必要なため、接続状態を確認してください。</div>
+      </div>
+
+      <h3>お問い合わせ</h3>
+      <p>質問の答えが見つかりませんでしたか？お気軽にご連絡ください。</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>メールサポート</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Chinese Simplified -->
+    <main id="content-zh" class="content-section">
+      <h2>支持</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>使用语音识别记忆文本和句子</p>
+        </div>
+      </div>
+
+      <h3>常见问题</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">如何创建新卡片？</div>
+        <div class="faq-answer">点击卡片标签中的"+"按钮创建新的闪卡。输入您想要记忆的文本，并可选择添加提示帮助记忆。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">语音识别如何工作？</div>
+        <div class="faq-answer">学习时，点击麦克风按钮说出您的答案。应用使用设备内置的语音识别将语音转换为文本，并与正确答案进行比较。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">正确标准设置是什么？</div>
+        <div class="faq-answer">正确标准决定您的答案需要与正确答案有多相似。80%的设置意味着您的答案需要至少80%匹配才能被标记为正确。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">间隔重复如何工作？</div>
+        <div class="faq-answer">您答对的卡片将按递增的间隔安排复习（1天、3天、7天等）。答错的卡片会更快再次出现，以便更多练习。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">我的数据会备份吗？</div>
+        <div class="faq-answer">所有数据都存储在您设备的本地。如果卸载应用，您的数据将丢失。如果有导出功能，建议定期导出卡片。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">为什么语音识别不工作？</div>
+        <div class="faq-answer">确保您已授予应用麦克风权限。另外检查是否有网络连接，因为某些设备需要网络连接才能进行语音识别。</div>
+      </div>
+
+      <h3>联系我们</h3>
+      <p>找不到您问题的答案？请随时与我们联系。</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>邮件支持</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Chinese Traditional -->
+    <main id="content-zh-TW" class="content-section">
+      <h2>支援</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>使用語音識別記憶文本和句子</p>
+        </div>
+      </div>
+
+      <h3>常見問題</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">如何建立新卡片？</div>
+        <div class="faq-answer">點擊卡片標籤中的「+」按鈕建立新的閃卡。輸入您想要記憶的文本，並可選擇新增提示幫助記憶。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">語音識別如何運作？</div>
+        <div class="faq-answer">學習時，點擊麥克風按鈕說出您的答案。應用程式使用裝置內建的語音識別將語音轉換為文字，並與正確答案進行比較。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">正確標準設定是什麼？</div>
+        <div class="faq-answer">正確標準決定您的答案需要與正確答案有多相似。80%的設定意味著您的答案需要至少80%相符才能被標記為正確。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">間隔重複如何運作？</div>
+        <div class="faq-answer">您答對的卡片將按遞增的間隔安排複習（1天、3天、7天等）。答錯的卡片會更快再次出現，以便更多練習。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">我的資料會備份嗎？</div>
+        <div class="faq-answer">所有資料都儲存在您裝置的本地。如果解除安裝應用程式，您的資料將遺失。如果有匯出功能，建議定期匯出卡片。</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">為什麼語音識別不運作？</div>
+        <div class="faq-answer">確保您已授予應用程式麥克風權限。另外檢查是否有網路連線，因為某些裝置需要網路連線才能進行語音識別。</div>
+      </div>
+
+      <h3>聯絡我們</h3>
+      <p>找不到您問題的答案？請隨時與我們聯絡。</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>郵件支援</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Spanish -->
+    <main id="content-es" class="content-section">
+      <h2>Soporte</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Memoriza textos y oraciones con reconocimiento de voz</p>
+        </div>
+      </div>
+
+      <h3>Preguntas Frecuentes</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">¿Cómo creo una nueva tarjeta?</div>
+        <div class="faq-answer">Toca el botón "+" en la pestaña de Tarjetas para crear una nueva tarjeta. Ingresa el texto que quieres memorizar y opcionalmente añade una pista para ayudarte a recordar.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">¿Cómo funciona el reconocimiento de voz?</div>
+        <div class="faq-answer">Al estudiar, toca el botón del micrófono para decir tu respuesta. La app usa el reconocimiento de voz integrado de tu dispositivo para convertir tu voz en texto y compararlo con la respuesta correcta.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">¿Qué es el umbral de aprobación?</div>
+        <div class="faq-answer">El umbral de aprobación determina qué tan similar debe ser tu respuesta a la correcta. Un ajuste del 80% significa que tu respuesta debe coincidir al menos en un 80% para marcarse como correcta.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">¿Cómo funciona la repetición espaciada?</div>
+        <div class="faq-answer">Las tarjetas que respondes correctamente se programan para revisión en intervalos crecientes (1 día, 3 días, 7 días, etc.). Las que te equivocas aparecen de nuevo más pronto para más práctica.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">¿Se respaldan mis datos?</div>
+        <div class="faq-answer">Todos los datos se almacenan localmente en tu dispositivo. Si desinstalas la app, tus datos se perderán. Recomendamos exportar tus tarjetas regularmente si está disponible.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">¿Por qué no funciona el reconocimiento de voz?</div>
+        <div class="faq-answer">Asegúrate de haber otorgado permiso de micrófono a la app. También verifica que tengas conexión a internet, ya que algunos dispositivos lo requieren para el reconocimiento de voz.</div>
+      </div>
+
+      <h3>Contáctanos</h3>
+      <p>¿No encuentras respuesta a tu pregunta? No dudes en contactarnos.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>Soporte por Email</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- French -->
+    <main id="content-fr" class="content-section">
+      <h2>Support</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Mémorisez des textes et des phrases avec la reconnaissance vocale</p>
+        </div>
+      </div>
+
+      <h3>Questions Fréquentes</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Comment créer une nouvelle carte ?</div>
+        <div class="faq-answer">Appuyez sur le bouton « + » dans l'onglet Cartes pour créer une nouvelle carte. Entrez le texte que vous souhaitez mémoriser et ajoutez éventuellement un indice pour vous aider à vous souvenir.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Comment fonctionne la reconnaissance vocale ?</div>
+        <div class="faq-answer">Lors de l'étude, appuyez sur le bouton microphone pour dire votre réponse. L'app utilise la reconnaissance vocale intégrée de votre appareil pour convertir votre voix en texte et la comparer avec la bonne réponse.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Qu'est-ce que le seuil de réussite ?</div>
+        <div class="faq-answer">Le seuil de réussite détermine à quel point votre réponse doit être similaire à la bonne réponse. Un réglage de 80% signifie que votre réponse doit correspondre à au moins 80% pour être marquée correcte.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Comment fonctionne la répétition espacée ?</div>
+        <div class="faq-answer">Les cartes auxquelles vous répondez correctement sont programmées pour révision à des intervalles croissants (1 jour, 3 jours, 7 jours, etc.). Celles que vous ratez réapparaissent plus tôt pour plus de pratique.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Mes données sont-elles sauvegardées ?</div>
+        <div class="faq-answer">Toutes les données sont stockées localement sur votre appareil. Si vous désinstallez l'app, vos données seront perdues. Nous vous recommandons d'exporter régulièrement vos cartes si disponible.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Pourquoi la reconnaissance vocale ne fonctionne-t-elle pas ?</div>
+        <div class="faq-answer">Assurez-vous d'avoir accordé la permission microphone à l'app. Vérifiez également que vous avez une connexion internet, car certains appareils en ont besoin pour la reconnaissance vocale.</div>
+      </div>
+
+      <h3>Nous Contacter</h3>
+      <p>Vous ne trouvez pas de réponse à votre question ? N'hésitez pas à nous contacter.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>Support par Email</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- German -->
+    <main id="content-de" class="content-section">
+      <h2>Support</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Texte und Sätze mit Spracherkennung auswendig lernen</p>
+        </div>
+      </div>
+
+      <h3>Häufig gestellte Fragen</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Wie erstelle ich eine neue Karte?</div>
+        <div class="faq-answer">Tippen Sie auf die „+"-Schaltfläche im Karten-Tab, um eine neue Lernkarte zu erstellen. Geben Sie den Text ein, den Sie auswendig lernen möchten, und fügen Sie optional einen Hinweis hinzu.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Wie funktioniert die Spracherkennung?</div>
+        <div class="faq-answer">Tippen Sie beim Lernen auf die Mikrofon-Schaltfläche, um Ihre Antwort zu sprechen. Die App verwendet die integrierte Spracherkennung Ihres Geräts, um Ihre Sprache in Text umzuwandeln und mit der richtigen Antwort zu vergleichen.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Was ist die Bestehensgrenze?</div>
+        <div class="faq-answer">Die Bestehensgrenze bestimmt, wie ähnlich Ihre Antwort der richtigen Antwort sein muss. Eine Einstellung von 80% bedeutet, dass Ihre Antwort mindestens zu 80% übereinstimmen muss, um als richtig markiert zu werden.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Wie funktioniert die verteilte Wiederholung?</div>
+        <div class="faq-answer">Karten, die Sie richtig beantworten, werden in zunehmenden Abständen zur Wiederholung eingeplant (1 Tag, 3 Tage, 7 Tage usw.). Karten, bei denen Sie einen Fehler machen, erscheinen früher wieder für mehr Übung.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Werden meine Daten gesichert?</div>
+        <div class="faq-answer">Alle Daten werden lokal auf Ihrem Gerät gespeichert. Wenn Sie die App deinstallieren, gehen Ihre Daten verloren. Wir empfehlen, Ihre Karten regelmäßig zu exportieren, falls verfügbar.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Warum funktioniert die Spracherkennung nicht?</div>
+        <div class="faq-answer">Stellen Sie sicher, dass Sie der App die Mikrofonberechtigung erteilt haben. Überprüfen Sie auch, ob Sie eine Internetverbindung haben, da einige Geräte diese für die Spracherkennung benötigen.</div>
+      </div>
+
+      <h3>Kontakt</h3>
+      <p>Keine Antwort auf Ihre Frage gefunden? Kontaktieren Sie uns gerne.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>E-Mail-Support</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Italian -->
+    <main id="content-it" class="content-section">
+      <h2>Supporto</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Memorizza testi e frasi con il riconoscimento vocale</p>
+        </div>
+      </div>
+
+      <h3>Domande Frequenti</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Come creo una nuova scheda?</div>
+        <div class="faq-answer">Tocca il pulsante "+" nella scheda Schede per creare una nuova flashcard. Inserisci il testo che vuoi memorizzare e aggiungi facoltativamente un suggerimento per aiutarti a ricordare.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Come funziona il riconoscimento vocale?</div>
+        <div class="faq-answer">Durante lo studio, tocca il pulsante del microfono per dire la tua risposta. L'app usa il riconoscimento vocale integrato del tuo dispositivo per convertire il parlato in testo e confrontarlo con la risposta corretta.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Cos'è la soglia di superamento?</div>
+        <div class="faq-answer">La soglia di superamento determina quanto la tua risposta deve essere simile alla risposta corretta. Un'impostazione dell'80% significa che la tua risposta deve corrispondere almeno all'80% per essere segnata come corretta.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Come funziona la ripetizione spaziata?</div>
+        <div class="faq-answer">Le schede a cui rispondi correttamente vengono programmate per la revisione a intervalli crescenti (1 giorno, 3 giorni, 7 giorni, ecc.). Le schede sbagliate riappariranno prima per più pratica.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">I miei dati vengono sottoposti a backup?</div>
+        <div class="faq-answer">Tutti i dati sono archiviati localmente sul tuo dispositivo. Se disinstalli l'app, i tuoi dati andranno persi. Ti consigliamo di esportare regolarmente le tue schede se disponibile.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Perché il riconoscimento vocale non funziona?</div>
+        <div class="faq-answer">Assicurati di aver concesso il permesso del microfono all'app. Verifica anche di avere una connessione internet, poiché alcuni dispositivi la richiedono per il riconoscimento vocale.</div>
+      </div>
+
+      <h3>Contattaci</h3>
+      <p>Non trovi risposta alla tua domanda? Non esitare a contattarci.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>Supporto Email</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Portuguese -->
+    <main id="content-pt" class="content-section">
+      <h2>Suporte</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Memorize textos e frases com reconhecimento de voz</p>
+        </div>
+      </div>
+
+      <h3>Perguntas Frequentes</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Como crio um novo cartão?</div>
+        <div class="faq-answer">Toque no botão "+" na aba Cartões para criar um novo cartão. Digite o texto que deseja memorizar e opcionalmente adicione uma dica para ajudar a lembrar.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Como funciona o reconhecimento de voz?</div>
+        <div class="faq-answer">Ao estudar, toque no botão do microfone para falar sua resposta. O app usa o reconhecimento de voz integrado do seu dispositivo para converter sua fala em texto e comparar com a resposta correta.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">O que é o limite de aprovação?</div>
+        <div class="faq-answer">O limite de aprovação determina quão similar sua resposta precisa ser da resposta correta. Uma configuração de 80% significa que sua resposta precisa corresponder a pelo menos 80% para ser marcada como correta.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Como funciona a repetição espaçada?</div>
+        <div class="faq-answer">Cartões que você responde corretamente são agendados para revisão em intervalos crescentes (1 dia, 3 dias, 7 dias, etc.). Cartões errados aparecem novamente mais cedo para mais prática.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Meus dados são salvos em backup?</div>
+        <div class="faq-answer">Todos os dados são armazenados localmente no seu dispositivo. Se você desinstalar o app, seus dados serão perdidos. Recomendamos exportar seus cartões regularmente, se disponível.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Por que o reconhecimento de voz não está funcionando?</div>
+        <div class="faq-answer">Certifique-se de ter concedido permissão de microfone ao app. Verifique também se você tem conexão com a internet, pois alguns dispositivos a exigem para reconhecimento de voz.</div>
+      </div>
+
+      <h3>Fale Conosco</h3>
+      <p>Não encontrou resposta para sua pergunta? Sinta-se à vontade para entrar em contato.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>Suporte por Email</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Russian -->
+    <main id="content-ru" class="content-section">
+      <h2>Поддержка</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>Запоминайте тексты и предложения с помощью распознавания речи</p>
+        </div>
+      </div>
+
+      <h3>Часто задаваемые вопросы</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Как создать новую карточку?</div>
+        <div class="faq-answer">Нажмите кнопку «+» на вкладке «Карточки», чтобы создать новую карточку. Введите текст, который хотите запомнить, и при желании добавьте подсказку.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Как работает распознавание речи?</div>
+        <div class="faq-answer">Во время обучения нажмите кнопку микрофона, чтобы произнести свой ответ. Приложение использует встроенное распознавание речи вашего устройства для преобразования речи в текст и сравнения с правильным ответом.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Что такое порог правильности?</div>
+        <div class="faq-answer">Порог правильности определяет, насколько ваш ответ должен быть похож на правильный. Настройка 80% означает, что ваш ответ должен совпадать минимум на 80%, чтобы быть отмеченным как правильный.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Как работает интервальное повторение?</div>
+        <div class="faq-answer">Карточки, на которые вы отвечаете правильно, планируются для повторения через увеличивающиеся интервалы (1 день, 3 дня, 7 дней и т.д.). Карточки с ошибками появляются снова раньше для дополнительной практики.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Сохраняются ли мои данные?</div>
+        <div class="faq-answer">Все данные хранятся локально на вашем устройстве. Если вы удалите приложение, ваши данные будут потеряны. Рекомендуем регулярно экспортировать карточки, если это доступно.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Почему распознавание речи не работает?</div>
+        <div class="faq-answer">Убедитесь, что вы предоставили приложению разрешение на использование микрофона. Также проверьте подключение к интернету, так как некоторым устройствам оно требуется для распознавания речи.</div>
+      </div>
+
+      <h3>Свяжитесь с нами</h3>
+      <p>Не нашли ответ на свой вопрос? Свяжитесь с нами.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>Поддержка по электронной почте</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Arabic -->
+    <main id="content-ar" class="content-section" dir="rtl">
+      <h2>الدعم</h2>
+
+      <div class="app-info">
+        <img src="logo.png" alt="Learn by Heart" class="app-icon" onerror="this.style.display='none'">
+        <div class="app-details">
+          <h3>Learn by Heart</h3>
+          <p>احفظ النصوص والجمل باستخدام التعرف على الكلام</p>
+        </div>
+      </div>
+
+      <h3>الأسئلة الشائعة</h3>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">كيف أنشئ بطاقة جديدة؟</div>
+        <div class="faq-answer">اضغط على زر "+" في علامة تبويب البطاقات لإنشاء بطاقة جديدة. أدخل النص الذي تريد حفظه وأضف اختياريًا تلميحًا للمساعدة في التذكر.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">كيف يعمل التعرف على الكلام؟</div>
+        <div class="faq-answer">أثناء الدراسة، اضغط على زر الميكروفون للتحدث بإجابتك. يستخدم التطبيق التعرف على الكلام المدمج في جهازك لتحويل كلامك إلى نص ومقارنته بالإجابة الصحيحة.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">ما هي عتبة النجاح؟</div>
+        <div class="faq-answer">تحدد عتبة النجاح مدى تشابه إجابتك مع الإجابة الصحيحة. إعداد 80% يعني أن إجابتك تحتاج إلى مطابقة 80% على الأقل لتُعتبر صحيحة.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">كيف يعمل التكرار المتباعد؟</div>
+        <div class="faq-answer">البطاقات التي تجيب عليها بشكل صحيح تُجدول للمراجعة بفترات متزايدة (يوم واحد، 3 أيام، 7 أيام، إلخ). البطاقات الخاطئة تظهر مرة أخرى في وقت أقرب لمزيد من الممارسة.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">هل يتم نسخ بياناتي احتياطيًا؟</div>
+        <div class="faq-answer">جميع البيانات مخزنة محليًا على جهازك. إذا قمت بإلغاء تثبيت التطبيق، ستفقد بياناتك. نوصي بتصدير بطاقاتك بانتظام إذا كان ذلك متاحًا.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">لماذا لا يعمل التعرف على الكلام؟</div>
+        <div class="faq-answer">تأكد من منح إذن الميكروفون للتطبيق. تحقق أيضًا من اتصالك بالإنترنت، حيث تتطلب بعض الأجهزة ذلك للتعرف على الكلام.</div>
+      </div>
+
+      <h3>اتصل بنا</h3>
+      <p>لم تجد إجابة لسؤالك؟ لا تتردد في الاتصال بنا.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h4>دعم البريد الإلكتروني</h4>
+          <p><a href="mailto:support@learnbyheart.app">support@learnbyheart.app</a></p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="copyright-year"></span> Learn by Heart. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const langNames = {
+      'en': 'English', 'ko': '한국어', 'ja': '日本語',
+      'zh': '简体中文', 'zh-TW': '繁體中文', 'de': 'Deutsch',
+      'fr': 'Français', 'es': 'Español', 'pt': 'Português',
+      'it': 'Italiano', 'ru': 'Русский', 'ar': 'العربية'
+    };
+
+    function toggleLangMenu() {
+      document.getElementById('langMenu').classList.toggle('show');
+    }
+
+    function toggleFaq(element) {
+      element.classList.toggle('open');
+    }
+
+    function switchLang(lang) {
+      document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-option').forEach(el => el.classList.remove('active'));
+
+      const contentEl = document.getElementById('content-' + lang);
+      if (contentEl) {
+        contentEl.classList.add('active');
+      } else {
+        document.getElementById('content-en').classList.add('active');
+        lang = 'en';
+      }
+
+      document.getElementById('currentLang').textContent = langNames[lang] || 'English';
+      document.getElementById('langMenu').classList.remove('show');
+
+      document.querySelectorAll('.lang-option').forEach(el => {
+        if (el.textContent === langNames[lang]) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang');
+      if (lang) {
+        switchLang(lang);
+      }
+      document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.lang-selector')) {
+        document.getElementById('langMenu').classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

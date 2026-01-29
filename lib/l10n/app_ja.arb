@@ -107,5 +107,10 @@
   "passThresholdDesc": "この類似度以上で正解とする",
   "about": "情報",
   "version": "バージョン",
-  "licenses": "オープンソースライセンス"
+  "licenses": "オープンソースライセンス",
+
+  "termsAndPolicies": "利用規約とポリシー",
+  "termsOfService": "利用規約",
+  "privacyPolicy": "プライバシーポリシー",
+  "support": "サポート"
 }

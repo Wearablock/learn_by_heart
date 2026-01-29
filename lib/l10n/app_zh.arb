@@ -107,5 +107,10 @@
   "passThresholdDesc": "相似度达到此值即为正确",
   "about": "关于",
   "version": "版本",
-  "licenses": "开源许可"
+  "licenses": "开源许可",
+
+  "termsAndPolicies": "条款与政策",
+  "termsOfService": "服务条款",
+  "privacyPolicy": "隐私政策",
+  "support": "支持"
 }

@@ -107,5 +107,10 @@
   "passThresholdDesc": "Correto se a similaridade exceder este valor",
   "about": "Sobre",
   "version": "Versão",
-  "licenses": "Licenças de código aberto"
+  "licenses": "Licenças de código aberto",
+
+  "termsAndPolicies": "Termos e políticas",
+  "termsOfService": "Termos de serviço",
+  "privacyPolicy": "Política de privacidade",
+  "support": "Suporte"
 }

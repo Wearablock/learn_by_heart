@@ -107,5 +107,10 @@
   "passThresholdDesc": "Corretto se la somiglianza supera questo valore",
   "about": "Info",
   "version": "Versione",
-  "licenses": "Licenze open source"
+  "licenses": "Licenze open source",
+
+  "termsAndPolicies": "Termini e condizioni",
+  "termsOfService": "Termini di servizio",
+  "privacyPolicy": "Informativa sulla privacy",
+  "support": "Assistenza"
 }

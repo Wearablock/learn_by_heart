@@ -107,5 +107,10 @@
   "passThresholdDesc": "Als richtig werten ab dieser Ähnlichkeit",
   "about": "Über",
   "version": "Version",
-  "licenses": "Open-Source-Lizenzen"
+  "licenses": "Open-Source-Lizenzen",
+
+  "termsAndPolicies": "Bedingungen & Richtlinien",
+  "termsOfService": "Nutzungsbedingungen",
+  "privacyPolicy": "Datenschutzrichtlinie",
+  "support": "Support"
 }
