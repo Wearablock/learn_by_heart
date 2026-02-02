@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import '../services/ad_service.dart';
+import '../services/ad_service.dart' show FlashcardAdsManager;
 
-/// A widget that displays a banner ad
+/// A widget that displays a banner ad for flashcard app
 class BannerAdWidget extends StatefulWidget {
   const BannerAdWidget({super.key});
 
@@ -22,15 +22,15 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   }
 
   void _loadAd() {
-    if (!AdService.adsEnabled) return;
+    if (!FlashcardAdsManager.monetizationActive) return;
 
-    _bannerAd = AdService().createBannerAd(
-      onAdLoaded: (ad) {
+    _bannerAd = FlashcardAdsManager.shared.buildBanner(
+      onLoaded: (ad) {
         setState(() {
           _isLoaded = true;
         });
       },
-      onAdFailedToLoad: (ad, error) {
+      onError: (ad, error) {
         ad.dispose();
         if (kDebugMode) debugPrint('Banner ad failed to load: ${error.message}');
       },

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/services/ad_service.dart';
+import '../../../../core/services/ad_service.dart' show FlashcardAdsManager;
 import '../../../../l10n/app_localizations.dart';
 import '../../../dashboard/presentation/pages/dashboard_page.dart';
 import '../../../dashboard/presentation/providers/dashboard_provider.dart';
@@ -37,15 +37,15 @@ class _MainScaffoldState extends State<MainScaffold> {
   }
 
   void _loadBannerAd() {
-    if (!AdService.adsEnabled) return;
+    if (!FlashcardAdsManager.monetizationActive) return;
 
-    _bannerAd = AdService().createBannerAd(
-      onAdLoaded: (ad) {
+    _bannerAd = FlashcardAdsManager.shared.buildBanner(
+      onLoaded: (ad) {
         setState(() {
           _isBannerAdLoaded = true;
         });
       },
-      onAdFailedToLoad: (ad, error) {
+      onError: (ad, error) {
         ad.dispose();
         if (kDebugMode) debugPrint('Banner ad failed to load: ${error.message}');
       },

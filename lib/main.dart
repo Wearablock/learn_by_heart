@@ -5,8 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:learn_by_heart/core/database/database_service.dart';
 import 'package:learn_by_heart/core/database/seed_service.dart';
-import 'package:learn_by_heart/core/services/ad_service.dart';
-import 'package:learn_by_heart/core/services/iap_service.dart';
+import 'package:learn_by_heart/core/services/ad_service.dart' show FlashcardAdsManager;
+import 'package:learn_by_heart/core/services/iap_service.dart' show PremiumManager;
 import 'package:learn_by_heart/core/theme/app_theme.dart';
 import 'package:learn_by_heart/l10n/app_localizations.dart';
 import 'package:learn_by_heart/features/navigation/presentation/pages/main_scaffold.dart';
@@ -23,8 +23,8 @@ void main() async {
 
   await DatabaseService.initialize();
   await SeedService.seedIfEmpty();
-  await IapService().initialize();
-  await AdService().initialize();
+  await PremiumManager.shared.init();
+  await FlashcardAdsManager.shared.setup();
 
   final prefs = await SharedPreferences.getInstance();
   final showOnboarding = !(prefs.getBool('onboarding_complete') ?? false);

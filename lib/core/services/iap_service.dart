@@ -3,157 +3,175 @@ import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// In-App Purchase Service for managing ad removal
-class IapService {
-  static final IapService _instance = IapService._internal();
-  factory IapService() => _instance;
-  IapService._internal();
+/// Premium subscription manager for ad-free experience
+///
+/// Handles in-app purchase for removing ads in Learn by Heart app.
+class PremiumManager {
+  PremiumManager._();
 
-  static const String removeAdsId = 'learn_by_heart_remove_ads';
-  static const String _adsRemovedKey = 'ads_removed';
+  static PremiumManager? _instance;
+  static PremiumManager get shared => _instance ??= PremiumManager._();
 
-  final InAppPurchase _inAppPurchase = InAppPurchase.instance;
-  StreamSubscription<List<PurchaseDetails>>? _subscription;
+  static const String _productId = 'learn_by_heart_remove_ads';
+  static const String _storageKey = 'premium_unlocked';
 
-  bool _isAvailable = false;
-  bool _adsRemoved = false;
-  ProductDetails? _removeAdsProduct;
+  final _purchaseApi = InAppPurchase.instance;
+  StreamSubscription<List<PurchaseDetails>>? _purchaseListener;
 
-  bool get isAvailable => _isAvailable;
-  bool get adsRemoved => _adsRemoved;
-  ProductDetails? get removeAdsProduct => _removeAdsProduct;
+  bool _storeReady = false;
+  bool _premium = false;
+  ProductDetails? _product;
 
-  final StreamController<bool> _adsRemovedController =
-      StreamController<bool>.broadcast();
-  Stream<bool> get adsRemovedStream => _adsRemovedController.stream;
+  /// Whether store is available
+  bool get storeAvailable => _storeReady;
 
-  /// Initialize the IAP service
-  Future<void> initialize() async {
-    // Load cached purchase state
-    final prefs = await SharedPreferences.getInstance();
-    _adsRemoved = prefs.getBool(_adsRemovedKey) ?? false;
+  /// Whether user has premium (ad-free) status
+  bool get isPremium => _premium;
 
-    // Check if store is available
-    _isAvailable = await _inAppPurchase.isAvailable();
-    if (!_isAvailable) {
-      _log('Store not available');
+  /// Product details for purchase UI
+  ProductDetails? get productInfo => _product;
+
+  /// Formatted price string
+  String get displayPrice => _product?.price ?? '';
+
+  /// Stream for premium status changes
+  final _statusNotifier = ValueNotifier<bool>(false);
+  ValueNotifier<bool> get statusNotifier => _statusNotifier;
+
+  /// Initialize premium manager
+  Future<void> init() async {
+    // Restore cached state
+    final storage = await SharedPreferences.getInstance();
+    _premium = storage.getBool(_storageKey) ?? false;
+    _statusNotifier.value = _premium;
+
+    // Check store availability
+    _storeReady = await _purchaseApi.isAvailable();
+    if (!_storeReady) {
+      _log('Store unavailable');
       return;
     }
 
-    // Listen to purchase updates
-    _subscription = _inAppPurchase.purchaseStream.listen(
-      _onPurchaseUpdate,
-      onError: (error) {
-        _log('Purchase stream error: $error');
-      },
+    // Setup purchase listener
+    _purchaseListener = _purchaseApi.purchaseStream.listen(
+      _processPurchaseUpdates,
+      onError: (e) => _log('Purchase stream error: $e'),
     );
 
-    // Load products
-    await _loadProducts();
+    // Fetch product info
+    await _fetchProductInfo();
 
-    // Restore previous purchases
-    await restorePurchases();
+    // Sync with store
+    await syncPurchaseStatus();
   }
 
-  Future<void> _loadProducts() async {
-    final response = await _inAppPurchase.queryProductDetails({removeAdsId});
+  Future<void> _fetchProductInfo() async {
+    final response = await _purchaseApi.queryProductDetails({_productId});
 
     if (response.notFoundIDs.isNotEmpty) {
-      _log('Products not found: ${response.notFoundIDs}');
+      _log('Product not found: ${response.notFoundIDs}');
     }
 
     if (response.productDetails.isNotEmpty) {
-      _removeAdsProduct = response.productDetails.first;
-      _log('Product loaded: ${_removeAdsProduct?.title} - ${_removeAdsProduct?.price}');
+      _product = response.productDetails.first;
+      _log('Product: ${_product?.title} @ ${_product?.price}');
     }
   }
 
-  void _onPurchaseUpdate(List<PurchaseDetails> purchaseDetailsList) {
-    for (final purchase in purchaseDetailsList) {
-      _handlePurchase(purchase);
+  void _processPurchaseUpdates(List<PurchaseDetails> purchases) {
+    for (final purchase in purchases) {
+      _handlePurchaseUpdate(purchase);
     }
   }
 
-  Future<void> _handlePurchase(PurchaseDetails purchase) async {
-    if (purchase.status == PurchaseStatus.pending) {
-      _log('Purchase pending: ${purchase.productID}');
-    } else if (purchase.status == PurchaseStatus.error) {
-      _log('Purchase error: ${purchase.error?.message}');
-    } else if (purchase.status == PurchaseStatus.purchased ||
-        purchase.status == PurchaseStatus.restored) {
-      // Verify and deliver the product
-      if (purchase.productID == removeAdsId) {
-        await _deliverRemoveAds();
-      }
-    } else if (purchase.status == PurchaseStatus.canceled) {
-      _log('Purchase canceled');
+  Future<void> _handlePurchaseUpdate(PurchaseDetails purchase) async {
+    switch (purchase.status) {
+      case PurchaseStatus.pending:
+        _log('Purchase pending: ${purchase.productID}');
+        break;
+
+      case PurchaseStatus.error:
+        _log('Purchase error: ${purchase.error?.message}');
+        break;
+
+      case PurchaseStatus.purchased:
+      case PurchaseStatus.restored:
+        if (purchase.productID == _productId) {
+          await _grantPremium();
+        }
+        break;
+
+      case PurchaseStatus.canceled:
+        _log('Purchase canceled');
+        break;
     }
 
-    // Complete the purchase
+    // Finalize purchase
     if (purchase.pendingCompletePurchase) {
-      await _inAppPurchase.completePurchase(purchase);
+      await _purchaseApi.completePurchase(purchase);
     }
   }
 
-  Future<void> _deliverRemoveAds() async {
-    _adsRemoved = true;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_adsRemovedKey, true);
-    _adsRemovedController.add(true);
-    _log('Ads removed successfully');
+  Future<void> _grantPremium() async {
+    _premium = true;
+    _statusNotifier.value = true;
+
+    final storage = await SharedPreferences.getInstance();
+    await storage.setBool(_storageKey, true);
+
+    _log('Premium granted');
   }
 
-  /// Purchase the remove ads product
-  Future<bool> purchaseRemoveAds() async {
-    if (!_isAvailable || _removeAdsProduct == null) {
-      _log('Cannot purchase: store not available or product not loaded');
+  /// Purchase premium (ad removal)
+  Future<bool> buyPremium() async {
+    if (!_storeReady || _product == null) {
+      _log('Cannot purchase: store unavailable or product not loaded');
       return false;
     }
 
-    if (_adsRemoved) {
-      _log('Ads already removed');
+    if (_premium) {
+      _log('Already premium');
       return true;
     }
 
-    final purchaseParam = PurchaseParam(
-      productDetails: _removeAdsProduct!,
-    );
-
     try {
-      final success = await _inAppPurchase.buyNonConsumable(
-        purchaseParam: purchaseParam,
-      );
-      return success;
+      final param = PurchaseParam(productDetails: _product!);
+      return await _purchaseApi.buyNonConsumable(purchaseParam: param);
     } catch (e) {
-      _log('Purchase failed: $e');
+      _log('Purchase error: $e');
       return false;
     }
   }
 
-  /// Restore previous purchases
-  Future<void> restorePurchases() async {
-    if (!_isAvailable) return;
+  /// Sync purchase status with store
+  Future<void> syncPurchaseStatus() async {
+    if (!_storeReady) return;
 
     try {
-      await _inAppPurchase.restorePurchases();
+      await _purchaseApi.restorePurchases();
     } catch (e) {
-      _log('Restore purchases failed: $e');
+      _log('Restore error: $e');
     }
-  }
-
-  /// Get formatted price string
-  String get priceString {
-    return _removeAdsProduct?.price ?? '';
   }
 
   void dispose() {
-    _subscription?.cancel();
-    _adsRemovedController.close();
+    _purchaseListener?.cancel();
+    _statusNotifier.dispose();
   }
 
-  static void _log(String message) {
+  void _log(String msg) {
     if (kDebugMode) {
-      debugPrint('[IapService] $message');
+      debugPrint('[PremiumManager] $msg');
     }
   }
+}
+
+/// Legacy alias for backward compatibility
+@Deprecated('Use PremiumManager instead')
+class IapService {
+  static PremiumManager get instance => PremiumManager.shared;
+  bool get adsRemoved => PremiumManager.shared.isPremium;
+  Future<void> initialize() => PremiumManager.shared.init();
+  Future<bool> purchaseRemoveAds() => PremiumManager.shared.buyPremium();
+  Future<void> restorePurchases() => PremiumManager.shared.syncPurchaseStatus();
 }

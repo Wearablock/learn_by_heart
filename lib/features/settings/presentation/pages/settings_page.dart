@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/app_urls.dart';
-import '../../../../core/services/iap_service.dart';
+import '../../../../core/services/iap_service.dart' show PremiumManager;
 import '../../../../core/widgets/app_image.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../providers/settings_provider.dart';
@@ -283,7 +283,7 @@ class _RemoveAdsTile extends StatefulWidget {
 }
 
 class _RemoveAdsTileState extends State<_RemoveAdsTile> {
-  final _iapService = IapService();
+  final _premiumManager = PremiumManager.shared;
   bool _isPurchasing = false;
   bool _isRestoring = false;
 
@@ -292,7 +292,7 @@ class _RemoveAdsTileState extends State<_RemoveAdsTile> {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
-    if (_iapService.adsRemoved) {
+    if (_premiumManager.isPremium) {
       return ListTile(
         leading: Icon(
           Icons.check_circle,
@@ -309,8 +309,8 @@ class _RemoveAdsTileState extends State<_RemoveAdsTile> {
           leading: const Icon(Icons.block_outlined),
           title: Text(l10n.removeAdsTitle),
           subtitle: Text(
-            _iapService.priceString.isNotEmpty
-                ? l10n.removeAdsDesc(_iapService.priceString)
+            _premiumManager.displayPrice.isNotEmpty
+                ? l10n.removeAdsDesc(_premiumManager.displayPrice)
                 : l10n.removeAdsDescLoading,
           ),
           trailing: _isPurchasing
@@ -320,10 +320,10 @@ class _RemoveAdsTileState extends State<_RemoveAdsTile> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : FilledButton(
-                  onPressed: _iapService.isAvailable ? _purchase : null,
+                  onPressed: _premiumManager.storeAvailable ? _purchase : null,
                   child: Text(l10n.purchase),
                 ),
-          onTap: _iapService.isAvailable && !_isPurchasing ? _purchase : null,
+          onTap: _premiumManager.storeAvailable && !_isPurchasing ? _purchase : null,
         ),
         ListTile(
           leading: const Icon(Icons.restore_outlined),
@@ -335,7 +335,7 @@ class _RemoveAdsTileState extends State<_RemoveAdsTile> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : null,
-          onTap: _iapService.isAvailable && !_isRestoring ? _restore : null,
+          onTap: _premiumManager.storeAvailable && !_isRestoring ? _restore : null,
         ),
       ],
     );
@@ -344,7 +344,7 @@ class _RemoveAdsTileState extends State<_RemoveAdsTile> {
   Future<void> _purchase() async {
     setState(() => _isPurchasing = true);
     try {
-      await _iapService.purchaseRemoveAds();
+      await _premiumManager.buyPremium();
     } finally {
       if (mounted) {
         setState(() => _isPurchasing = false);
@@ -355,7 +355,7 @@ class _RemoveAdsTileState extends State<_RemoveAdsTile> {
   Future<void> _restore() async {
     setState(() => _isRestoring = true);
     try {
-      await _iapService.restorePurchases();
+      await _premiumManager.syncPurchaseStatus();
     } finally {
       if (mounted) {
         setState(() => _isRestoring = false);

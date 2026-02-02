@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/services/ad_service.dart';
+import '../../../../core/services/ad_service.dart' show FlashcardAdsManager;
 import '../../../../l10n/app_localizations.dart';
 import '../../../home/presentation/providers/card_provider.dart';
 import '../../data/models/memory_card.dart';
@@ -63,12 +63,12 @@ class _CardEditorPageState extends State<CardEditorPage> {
   }
 
   Future<void> _loadRewardedAd() async {
-    if (!AdService.adsEnabled) return;
+    if (!FlashcardAdsManager.monetizationActive) return;
     if (_isRewardedAdLoading) return;
     _isRewardedAdLoading = true;
 
     await RewardedAd.load(
-      adUnitId: AdService.rewardedAdUnitId,
+      adUnitId: FlashcardAdsManager.rewardUnitId,
       request: const AdRequest(),
       rewardedAdLoadCallback: RewardedAdLoadCallback(
         onAdLoaded: (ad) {

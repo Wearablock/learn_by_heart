@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/services/ad_service.dart';
+import '../../../../core/services/ad_service.dart' show FlashcardAdsManager;
 import '../../../../core/services/speech_service.dart';
 import '../../../../core/widgets/app_image.dart';
-import '../../../../core/utils/text_similarity.dart';
+import '../../../../core/utils/text_similarity.dart' show AnswerMatcher;
 import '../../../../l10n/app_localizations.dart';
 import '../../../card/data/models/memory_card.dart';
 import '../../../card/data/repositories/card_repository.dart';
@@ -69,10 +69,10 @@ class _StudyPageState extends State<StudyPage> {
   }
 
   Future<void> _loadInterstitialAd() async {
-    if (!AdService.adsEnabled) return;
+    if (!FlashcardAdsManager.monetizationActive) return;
 
     await InterstitialAd.load(
-      adUnitId: AdService.interstitialAdUnitId,
+      adUnitId: FlashcardAdsManager.fullscreenUnitId,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
@@ -202,7 +202,7 @@ class _StudyPageState extends State<StudyPage> {
     final userAnswer = _answerController.text.trim();
     final correctAnswer = _currentCard!.content.trim();
 
-    final similarity = TextSimilarity.calculate(userAnswer, correctAnswer);
+    final similarity = AnswerMatcher.score(userAnswer, correctAnswer);
     final passThreshold = context.read<SettingsProvider>().passThreshold;
     final isCorrect = similarity >= passThreshold;
 
